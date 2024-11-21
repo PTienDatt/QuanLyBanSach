@@ -1,8 +1,9 @@
 from itertools import product
-from saleapp import  app
+from saleapp import app
 from flask import render_template, request, redirect
 import dao
 from flask import Flask, request, jsonify
+
 
 @app.route('/')
 def index():
@@ -15,7 +16,7 @@ def index():
 @app.route('/products/<int:id>')
 def details(id):
     product = dao.load_product_by_id(id)
-    return render_template('product-details.html', product = product)
+    return render_template('product-details.html', product=product)
 
 
 @app.route('/login', methods=['get', 'post'])
@@ -28,11 +29,14 @@ def login_my_user():
     return render_template('login.html')
 
 
-
 @app.route('/GioHang')
-def new_page():
+def new_page1():
     return render_template('GioHang.html')
 
+
+@app.route('/MuaHang')
+def new_page2():
+    return render_template('MuaHang.html')
 
 
 @app.context_processor
@@ -40,6 +44,7 @@ def common_attributes():
     return {
         "categories": dao.load_categories()
     }
+
 
 if __name__ == "__main__":
     with app.app_context():
