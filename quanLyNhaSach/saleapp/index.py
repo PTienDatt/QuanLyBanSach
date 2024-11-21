@@ -1,8 +1,7 @@
 from itertools import product
-
+from saleapp import  app
 from flask import render_template, request, redirect
 import dao
-from saleapp import app
 from flask import Flask, request, jsonify
 
 @app.route('/')
