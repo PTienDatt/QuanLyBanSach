@@ -1,0 +1,47 @@
+{%extends 'layout/base.html'%}
+
+{%block content%}
+<div style="padding:1em;">
+    <img style="width:1256px; margin-bottom:5px" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangCTT2511_Mainbanner_1920x600.jpg">
+    <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangCTT11_1124_20_11_Resize_310X210_2.png" alt="">
+    <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/Trang20_11_SmallBanner_T11_310x210_3.jpg " alt="">
+    <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/SmallBanner_T11_Alphabooks_smallbanner_310x210.jpg" alt="">
+    <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangGiangSinh_SmallBanner_T12_310x210.jpg" alt="">
+</div>
+<div class="row" style=" width:1300px;">
+    {%for p in products%}
+    <div class="col-md-3 col-12" style="padding:0.5rem; ">
+        <div style="border-radius:2rem;" class="card">
+            <a href="/products/{{p.id}}" style="text-decoration: none; color:#333333; ">
+
+                <img style="border-radius:2rem; margin-top:20px; " class="card-img-top" src="{{p.image}}" alt="Card image">
+            <div class="card-body ">
+                <p class="card-title ;" style="font-weight: ;font-size:15px;">{{p.name}} </p>
+                <span class="card-text" style="color:#C92127; font-weight:; font-size:16px; font-weight:bold"> {{p.price}}
+                </span>
+                <span style="background-color:#C92127; color:white; margin-left:7px; padding: 2px 4px;
+                    border-radius:0.5rem; font-size: 1em; font-weight: 600; ">
+                        {{p.voucher}}
+                    </span>
+                <i style="margin-left:14px; font-size:14px; color:#999999 ">
+                    <del> {{p.giaCu}}</del>
+                </i>
+                <a style="margin-top:10px; background-color:#d1e6fc;  color:#0c3ff9;" href="/products/{{p.id}}"
+                   class="btn btn-primary"> <img style="width:25px;height:25px;  "
+                                                 src="https://cdn-icons-png.flaticon.com/128/179/179531.png"
+                                                 alt=""> View</a>
+                <i class="fa-regular fa-magnifying-glass"> </i>
+                <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b;" href="/GioHang"
+                   class="btn btn-danger"> <img style="width:25px;height:25px; color:"
+                         src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" alt=""> Thêm Vào Giỏ
+                </a>
+            </div>
+
+            </a>
+
+        </div>
+
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

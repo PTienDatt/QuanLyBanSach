@@ -1,0 +1,122 @@
+{%extends 'layout/base.html'%}
+
+{%block title%}  Chi tiết sản phẩm {%endblock%}
+
+{%block content%}
+
+<div class="row" style="background-color:white;">
+    <div class="col-md-6 col-12" style="display:inline-block;">
+        <img style="display:inline-block; margin-left:-10px;" src="{{product.image}}" class="img-fluid rounded"/>
+
+        <p style="margin-left:25px; font-weight:bold; color:; font-size:25px; ">
+            Chính sách ưu đãi của BookStore
+        </p>
+        <p style="margin-left:60px;">
+            <b>Thời gian giao hàng :</b>
+            Giao nhanh và uy tín
+        </p>
+        <p style="margin-left:60px;">
+            <b>Chính sách đổi trả :</b>
+            Đổi trả miễn phí toàn quốc
+        </p>
+        <p style="margin-left:60px;">
+            <b>Chính sách khách sỉ :</b>
+            Ưu đãi khi mua số lượng lớn
+        </p>
+        <p style="margin-left:60px;">
+            <b>Cam kết :</b>
+            Sản phẩm hoàn toàn chính hãng
+        </p>
+        <p style="margin-left:60px;">
+            <b> Tham gia :</b>
+            2009
+        </p>
+        <p style="margin-left:60px;">
+            <b> Tỉ lệ phản hồi :</b>
+            100%
+        </p>
+        <p style="margin-left:60px;">
+            <b> Thời gian phản hồi :</b>
+            trong vòng 10 phút
+        </p>
+        <p>
+            <b style="margin-left:60px; " >
+                <i> Châm ngôn: </i>
+            </b>
+            <i> Chất lượng, uy tín, giá rẻ</i>
+        </p>
+
+    </div>
+    <div style="background-color:#f4efef; display:inline-block; width:780px; height:10%; margin-left:-130px; margin-top:8px">
+        <div class="card-body " style="text-align:left;">
+            <img style="width:60px; height:60px;" src="https://cdn-icons-png.flaticon.com/128/791/791968.png" alt="">
+            <span style="color:#212121;font-size:23px">{{product.name}}</span>
+
+            <p style="font-size:14px; color:#555555">
+                Nhà cung cấp: Bookstore <span style="margin-left:150px;"> Hình thức bìa: Bìa mềm </span>
+            </p>
+            <p style="font-size:14px; color:#555555">
+                Xuất bản: 2015 <span style="margin-left:220px;"> Tác giả: Ernest Van de Velde </span>
+            </p>
+
+            <p style="font-size:32px; color:#C92127;">{{product.price}}
+
+                <span style="background-color:#C92127; color:white; margin-left:7px; padding: 2px 4px;
+                    border-radius:0.5rem; font-size:20px; font-weight: 600; ">
+                     {{product.voucher}}
+                </span>
+                <span>
+                        <i style="margin-left:14px; font-size:20px; color:#999999 ">
+                            <del>
+                                 {{product.giaCu}}
+                            </del>
+                        </i>
+                </span>
+            </p>
+            <p style="font-size:17px; color:#666666;"> Đã bán: <span style="color:#444444"> 15</span></p>
+            <hr>
+            <b> Thông tin vận chuyển</b>
+            <p style="margin-top:10px;"> Trụ sở chính: Thành phố Hồ Chí Minh </p>
+            <b> Giao hàng tiêu chuẩn: </b><span> Đơn hàng sẽ xuất đi sau 2 giờ kể từ khi được đặt</span>
+
+
+           <form class="d-flex d-flex " style="margin-top:20px;">
+               <span style="margin-top:15px; margin-right:10px; font-weight:bold;"> Số lượng:    </span>
+                        <input class="form-control" style="width:50px; height:50px;border-radius:5x;" name="soluong" type="text"
+                               placeholder="">
+
+           </form>
+
+
+            <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b;" href="/GioHang"
+               class="btn btn-danger"> <img style="width:25px;height:25px; color:"
+                                            src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" alt=""> Thêm
+                Vào Giỏ
+            </a>
+
+            <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b;" href="/GioHang"
+               class="btn btn-danger"> <img style="width:25px;height:25px; color:"
+                                            src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" alt=""> Mua
+                ngay
+            </a>
+            <hr>
+            <p style="font-weight:bold;"> Thông tin chi tiết</p>
+            <p>Mã hàng    <span style="margin-left:300px;"> 8935095633920</span>   </p>
+            <p> Tên Nhà Cung Cấp <span style="margin-left:220px">BookStore</span></p>
+            <p>Tác giả <span style="margin-left: 315px">Ernest Van de Velde</span></p>
+            <p> Người Dịch <span style="margin-left:285px;">Hà Vân, Lê Dũng</span></p>
+            <p> NXB  <span style="margin-left:340px;"> Dân trí</span></p>
+            <p> Năm XB  <span style="margin-left:310px;">2015</span></p>
+            <p>  Ngôn Ngữ <span style="margin-left:295px;"> Tiếng Việt</span></p>
+            <p> Trọng lượng (gr) <span style="margin-left:245px;">200</span></p>
+            <p> Số trang <span style="margin-left:310px;">124</span></p>
+            <p> Kích thướt bao bì <span style="margin-left:245px;">29.5 x 20.5 x 0.6 cm </span></p>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{%endblock%}
