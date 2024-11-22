@@ -2,27 +2,38 @@
 {%block title%} Giỏ hàng {%endblock%}
 {%block content%}
 
-<div style=" background-color:white; color:#888888;">
-    <p style="display:inline-block; margin-left:50px; margin-top:15px;"> Sản phẩm</p>
-    <p style="display:inline-block; margin-left:500px;"> Đơn giá</p>
-    <p style="display:inline-block;margin-left:100px;"> Số lượng</p>
-    <p style="display:inline-block; margin-left:100px;"> Số Tiền</p>
+<div style=" background-color:white; height:55 px;   ">
+     <a class="navbar-brand" href="/" style="font-size:30px; color:#ee4d2d ;display:inline-block;;">  <img style="width:55px; height:55px; margin-left:20px;"
+                                                   src="https://cdn-icons-png.flaticon.com/128/5832/5832416.png"> BookStore </a>
+
+    <div  style="width:1.5px; height:35px; background-color: #ee4d2d ; margin-bottom:-5px; display:inline-block;"> </div>
+    <div style="display:inline-block; font-size:22px;color:#ee4d2d ; margin-left:15px; "> Giỏ Hàng </div>
+
+</div>
+<div style=" background-color:white; color:#888888; margin-top:5px;">
+    <p style="display:inline-block; margin-left:50px; margin-top:15px;"> Sản Phẩm</p>
+    <p style="display:inline-block; margin-left:110px; margin-top:15px;"> Tên Sản Phẩm</p>
+    <p style="display:inline-block; margin-left:270px;"> Đơn giá</p>
+    <p style="display:inline-block;margin-left:110px;"> Số lượng</p>
+    <p style="display:inline-block; margin-left:85px;"> Thành Tiền</p>
     <p style="display:inline-block;margin-left:100px;"> Thao tác</p>
 </div>
 
-<div style="height:100%; margin-top:10px;background-color:white; color:#888888; ">
+<div style="height:100%; margin-top:2px;background-color:white; color:#888888; ">
 
-    <h1>dfsdf</h1>
-    <h1>dfsdf</h1><h1>dfsdf</h1><h1>dfsdf</h1><h1>dfsdf</h1><h1>dfsdf</h1>
-    <h1>dfsdf</h1><h1>dfsdf</h1><h1>dfsdf</h1>
+    <div  style="display: grid; grid-template-columns: repeat(6, 1fr);  gap: 5px; padding: 1px;  ">
+        <div style="column" > <img style=" margin-left:px; width:120px; margin:10px 10px 10px 10px; " src="{{product.image}}" class=""/></div>
+        <div class=" column column-large" style="margin-left:0px; margin-top:30px;margin-left:px"> {{product.name}} </div>
+        <div class="column" style="text-align:center;  margin-top:30px;" >{{product.price}}</div>
+        <div class="column" style="text-align:center;  margin-top:30px;" > 1</div>
+        <div class="column"  style="text-align:center; margin-top:30px;">{{product.price}}</div>
+        <div class="column"  style="text-align:center;  margin-top:30px;">Xóa</div>
 
-    <a style="margin:100px 10px 10px 10px; margin-left:1050px;  width:200px;  background-color:rgb(238, 77, 45);  color:white;" href="/MuaHang" class="btn ">
-        <img style="width:45px;height:45px; margin-top:px; " src="https://cdn-icons-png.flaticon.com/128/478/478045.png" alt=""> Mua hàng
+    </div>
+    <a style="margin:100px 10px 10px 10px; margin-left:1050px; font-size:23px;  width:200px;  background-color:rgb(238, 77, 45);  color:white;" href="/ThanhToan"
+       class="btn "> <img style="width:45px;height:45px; margin-top:px; " src="https://cdn-icons-png.flaticon.com/128/9590/9590121.png" alt=""> Mua hàng
     </a>
 
 </div>
-
-
-
 
 {%endblock%}

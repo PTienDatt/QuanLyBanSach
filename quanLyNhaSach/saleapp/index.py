@@ -15,8 +15,8 @@ def index():
 
 @app.route('/products/<int:id>')
 def details(id):
-    product = dao.load_product_by_id(id)
-    return render_template('product-details.html', product=product)
+    products = dao.load_product_by_id(id)
+    return render_template('product-details.html', products= products)
 
 
 @app.route('/login', methods=['get', 'post'])
@@ -29,14 +29,26 @@ def login_my_user():
     return render_template('login.html')
 
 
+@app.route('/product/<int:id>')
+def gio_hang(id):
+    product = dao.load_product_by_id(id)
+    return render_template('GioHang.html', product =product)
+
+
+@app.route('/ThanhToan')
+def mua_hang():
+    return render_template('ThanhToan.html')
+
+
+# @app.route('/product/<int:id>')
+# def thanh_toan(id):
+#     thanhtoan = dao.load_product_by_id(id)
+#     return render_template('GioHang.html', thanhtoan=thanhtoan)
+
+
 @app.route('/GioHang')
-def new_page1():
+def gio_Hang():
     return render_template('GioHang.html')
-
-
-@app.route('/MuaHang')
-def new_page2():
-    return render_template('MuaHang.html')
 
 
 @app.context_processor
