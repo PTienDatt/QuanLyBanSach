@@ -1,4 +1,5 @@
-import json,jsonify, request
+import json
+from flask import jsonify, request
 from itertools import product
 
 from fuzzywuzzy import process     # thư viện tìm kiêm lấy kết quả gần nhất
