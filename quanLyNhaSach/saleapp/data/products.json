@@ -6,7 +6,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786046175087.jpg",
     "category_id": 1,
     "giaCu": "90.200đ",
-    "voucher": "-15%"
+    "voucher": "-15%",
+    "daban": "15"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935343700770.jpg",
     "category_id": 1,
     "giaCu": " 68.200đ ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "18"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935244867381.jpg",
     "category_id": 10,
     "giaCu": "90.200 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "181"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/-/h/-hanh-hai-gia-dinh-okbia-1.jpg",
     "category_id": 10,
     "giaCu": "32.400 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "18"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/q/u/quiz_-khoa-hoc-ki-thu_khoa-hoc-the-thao_bia.jpg",
     "category_id": 2,
     "giaCu": "88.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "16"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/w/o/wolfoo---ki_n-th_c-khoa-h_c-b_a-1.jpg",
     "category_id": 2,
     "giaCu": "78.900 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "18"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786047939053.jpg",
     "category_id": 3,
     "giaCu": "379.900 đ",
-    "voucher": "-%"
+    "voucher": "-15%",
+    "daban": "31"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_192628.jpg",
     "category_id": 3,
     "giaCu": "90.900 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "146"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935244877243.jpg",
     "category_id": 9,
     "giaCu": "69.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "75"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935244877250.jpg",
     "category_id": 9,
     "giaCu": "99.000 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "49"
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786043940121.jpg",
     "category_id": 4,
     "giaCu": "145.000 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "73"
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_186027.jpg",
     "category_id": 4,
     "giaCu": "90.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "62"
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_17260.jpg",
     "category_id": 8,
     "giaCu": "67.000 đ",
-    "voucher": "-3%"
+    "voucher": "-3%",
+    "daban": "31"
   },
   {
     "id": 14,
@@ -123,7 +136,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935095612086.jpg",
     "category_id": 8,
     "giaCu": "89.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "169"
   },
   {
     "id": 15,
@@ -132,7 +146,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935072953881.jpg",
     "category_id": 5,
     "giaCu": "145.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "85"
   },
   {
     "id": 16,
@@ -141,7 +156,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_220006.jpg",
     "category_id": 5,
     "giaCu": "167.000 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "130"
   },
   {
     "id": 17,
@@ -150,7 +166,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/l/i/lich-su-sach---bia-1.jpg",
     "category_id": 6,
     "giaCu": "678.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "57"
   },
   {
     "id": 18,
@@ -159,7 +176,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_39442.jpg",
     "category_id": 6,
     "giaCu": "78.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "74"
   },
   {
     "id": 19,
@@ -168,7 +186,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_18302023_113035.jpg",
     "category_id": 7,
     "giaCu": "178.000 đ",
-    "voucher": "-9%"
+    "voucher": "-9%",
+    "daban": "29"
   },
   {
     "id": 20,
@@ -177,7 +196,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_22502023_095056_1.jpg ",
     "category_id": 7,
     "giaCu": "156.000 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "137"
   },
   {
     "id": 21,
@@ -186,7 +206,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_18302023_113059_1.jpg",
     "category_id": 7,
     "giaCu": "178.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "46"
   },
   {
     "id": 22,
@@ -195,7 +216,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8934974201151.jpg",
     "category_id": 7,
     "giaCu": "189.000 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "197"
   },
   {
     "id": 23,
@@ -204,7 +226,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/h/i/hi_u-_ng-t_m-l_-b_a-1.jpg",
     "category_id": 7,
     "giaCu": "167.000 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "99"
   },
   {
     "id": 24,
@@ -213,7 +236,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935074131621.jpg",
     "category_id": 7,
     "giaCu": "89.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "114"
   },
   {
     "id": 25,
@@ -222,7 +246,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-8935325050480-8936186544613.jpg",
     "category_id": 7,
     "giaCu": " 256.000đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "91"
   },
   {
     "id": 26,
@@ -231,7 +256,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-1907202302.jpg",
     "category_id": 7,
     "giaCu": "799.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "43"
   },
   {
     "id": 27,
@@ -240,7 +266,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8936066695855.jpg",
     "category_id": 7,
     "giaCu": "189.400 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "99"
   },
   {
     "id": 28,
@@ -249,7 +276,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8936066691628.jpg",
     "category_id": 7,
     "giaCu": "146.800 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "192"
   },
   {
     "id": 29,
@@ -258,7 +286,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/t/_/t_-_i_n-t_m-l_---b_a-1-_1_.jpg",
     "category_id": 7,
     "giaCu": "159.200 đ",
-    "voucher": "-11%"
+    "voucher": "-11%",
+    "daban": "28"
   },
   {
     "id": 30,
@@ -267,7 +296,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/_/b/_b_a-tr_c_-tri_t-l_-s_ng-c_a-ch_-v_-m_o.jpg",
     "category_id": 7,
     "giaCu": "189.400 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "97"
   },
   {
     "id": 31,
@@ -276,7 +306,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786047777686.jpg",
     "category_id": 1,
     "giaCu": "67.900 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "94"
   },
   {
     "id": 32,
@@ -285,7 +316,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/l/i/lich-su-the-gioi-_qua-truyen-tranh_-01-_1_-_1_.jpg",
     "category_id": 1,
     "giaCu": "314.900 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "114"
   },
   {
     "id": 33,
@@ -294,7 +326,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235242098.jpg",
     "category_id": 1,
     "giaCu": "165.200 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "104"
   },
   {
     "id": 34,
@@ -303,7 +336,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/b/o/book-mdts5-1_1_thanh_ly.jpg",
     "category_id": 1,
     "giaCu": "314.400 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "64"
   },
   {
     "id": 35,
@@ -312,16 +346,18 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935236425254.jpg",
     "category_id": 1,
     "giaCu": "115.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "48"
   },
   {
     "id": 36,
-    "name": "Sọ Dừa",
+    "name": " Truyện Dân Gian - Sọ Dừa",
     "price": "21.320 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935069922876.jpg",
     "category_id": 1,
     "giaCu": "36.700 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "73"
   },
   {
     "id": 37,
@@ -330,7 +366,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786047779093.jpg",
     "category_id": 1,
     "giaCu": "54.200 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "83"
   },
   {
     "id": 38,
@@ -339,7 +376,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935209622116_1_1.jpg",
     "category_id": 1,
     "giaCu": "16.400 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "79"
   },
   {
     "id": 39,
@@ -348,7 +386,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786043252255.jpg",
     "category_id": 1,
     "giaCu": "134.300 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "19"
   },
   {
     "id": 40,
@@ -357,7 +396,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935069922883.jpg",
     "category_id": 1,
     "giaCu": "67.300 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "158"
   },
   {
     "id": 41,
@@ -366,7 +406,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786043298383.jpg",
     "category_id": 2,
     "giaCu": "50.400 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "128"
   },
   {
     "id": 42,
@@ -375,7 +416,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/k/h/khoa-hoc-ve-yoga-04.jpg",
     "category_id": 2,
     "giaCu": "289.400 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "92"
   },
   {
     "id": 43,
@@ -384,7 +426,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/q/u/quiz_khoa-hoc-ki-thu_cac-nha-khoa-hoc-thien-tai_tb-2024.jpg",
     "category_id": 2,
     "giaCu": "78.900 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "172"
   },
   {
     "id": 44,
@@ -393,7 +436,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/q/u/quiz_-khoa-hoc-ki-thu_khoa-hoc-dieu-tra_bia.jpg",
     "category_id": 2,
     "giaCu": "88.500 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "111"
   },
   {
     "id": 45,
@@ -402,7 +446,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/3/0/30-giay-khoa-hoc_khoa-hoc-du-lieu.jpg",
     "category_id": 2,
     "giaCu": "167.400 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "13"
   },
   {
     "id": 46,
@@ -411,7 +456,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_227598.jpg",
     "category_id": 2,
     "giaCu": "99.200 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "57"
   },
   {
     "id": 47,
@@ -420,7 +466,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36331.jpg",
     "category_id": 2,
     "giaCu": "145.800 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "193"
   },
   {
     "id": 48,
@@ -429,7 +476,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235240612.jpg",
     "category_id": 2,
     "giaCu": "289.700 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "22"
   },
   {
     "id": 49,
@@ -438,7 +486,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935280400979.jpg",
     "category_id": 2,
     "giaCu": "199.600 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "84"
   },
   {
     "id": 50,
@@ -447,7 +496,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935236423595.jpg",
     "category_id": 2,
     "giaCu": " 356.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "23"
   },
   {
     "id": 51,
@@ -456,7 +506,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786044792934.jpg",
     "category_id": 3,
     "giaCu": "99.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "111"
   },
   {
     "id": 52,
@@ -465,7 +516,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786044792941.jpg",
     "category_id": 3,
     "giaCu": "116.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "130"
   },
   {
     "id": 53,
@@ -474,7 +526,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786044794051.jpg",
     "category_id": 3,
     "giaCu": "100.200 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "172"
   },
   {
     "id": 54,
@@ -492,7 +545,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786047945597.jpg",
     "category_id": 3,
     "giaCu": "111.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "11"
   },
   {
     "id": 56,
@@ -501,7 +555,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-8935095633166-8935095633340.jpg",
     "category_id": 3,
     "giaCu": "300.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "45"
   },
   {
     "id": 57,
@@ -510,7 +565,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-1907202305.jpg",
     "category_id": 4,
     "giaCu": "650.009 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "63"
   },
   {
     "id": 58,
@@ -519,7 +575,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_222794.jpg",
     "category_id": 4,
     "giaCu": " 199.500 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "54"
   },
   {
     "id": 59,
@@ -528,7 +585,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/v/a/van-hoc-tuoi-hoa_nhat_bia.jpg",
     "category_id": 4,
     "giaCu": "45.600  đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "96"
   },
   {
     "id": 60,
@@ -537,7 +595,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786043355901_1.jpg",
     "category_id": 4,
     "giaCu": "309.200  đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "7"
   },
   {
     "id": 61,
@@ -546,7 +605,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_29510.jpg",
     "category_id": 4,
     "giaCu": "115.200 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "35"
   },
   {
     "id": 62,
@@ -555,7 +615,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/h/nha_bia.jpg",
     "category_id": 4,
     "giaCu": "65.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "193"
   },
   {
     "id": 63,
@@ -564,7 +625,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/s/o/so-do_vu-trong-phung.jpg",
     "category_id": 5,
     "giaCu": "309.000  đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "101"
   },
   {
     "id": 64,
@@ -573,7 +635,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235238466.jpg",
     "category_id": 5,
     "giaCu": "99.2000 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "149"
   },
   {
     "id": 65,
@@ -582,7 +645,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/t/i/tieu-thuyet-naruto_akatsuki-bi-truyen_tieu-loan-ac-hoa.jpg",
     "category_id": 5,
     "giaCu": " 65.000  đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "50"
   },
   {
     "id": 66,
@@ -591,7 +655,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235237926.jpg",
     "category_id": 5,
     "giaCu": "  99.200   đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "118"
   },
   {
     "id": 67,
@@ -600,7 +665,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/t/i/tieu_thuyet_one_piece_film_red_bia_ao__1.jpg",
     "category_id": 5,
     "giaCu": "  65.000  đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "197"
   },
   {
     "id": 68,
@@ -609,7 +675,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/a/7/a73c3862a86bea7066d1bea6d8404baf_1.jpg",
     "category_id": 5,
     "giaCu": "  110.200   đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "123"
   },
   {
     "id": 69,
@@ -618,7 +685,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/l/i/li_ch-su_-vu_---bi_a-1.jpg  ",
     "category_id": 6,
     "giaCu": "   215.222    đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "1"
   },
   {
     "id": 70,
@@ -627,7 +695,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935246932643.jpg   ",
     "category_id": 6,
     "giaCu": "    225.000     đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "76"
   },
   {
     "id": 71,
@@ -636,7 +705,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/u/n/untitled-1aaa.jpg   ",
     "category_id": 6,
     "giaCu": "    600.900   đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "142"
   },
   {
     "id": 72,
@@ -645,7 +715,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/l/_/l_ch-s_-v_.jpg ",
     "category_id": 6,
     "giaCu": "     215.600   đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "159"
   },
   {
     "id": 73,
@@ -654,7 +725,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8934974199892.jpg ",
     "category_id": 6,
     "giaCu": "    299.900  đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "157"
   },
   {
     "id": 74,
@@ -663,7 +735,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935235235595.jpg   ",
     "category_id": 6,
     "giaCu": "    399.000  đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "131"
   },
   {
     "id": 75,
@@ -672,7 +745,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_837.jpg  ",
     "category_id": 8,
     "giaCu": "    120.900   đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "187"
   },
   {
     "id": 76,
@@ -681,7 +755,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935279146529.jpg  ",
     "category_id": 8,
     "giaCu": "     315.600    đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "68"
   },
   {
     "id": 77,
@@ -690,7 +765,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935279140619.jpg  ",
     "category_id": 8,
     "giaCu": "     165.400    đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "152"
   },
   {
     "id": 78,
@@ -698,8 +774,9 @@
     "price": "339.700 đ\n  ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/i/bia_worldreligions_bia1.jpg ",
     "category_id": 8,
-    "giaCu": " 400.000      đ",
-    "voucher": "-4%"
+    "giaCu": " 400.000đ",
+    "voucher": "-4%",
+    "daban": "140"
   },
   {
     "id": 79,
@@ -708,7 +785,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/3/0/30-giay-khoa-hoc_ton-giao.jpg   ",
     "category_id": 8,
     "giaCu": "  168.500   đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "62"
   },
   {
     "id": 80,
@@ -717,7 +795,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786043087673.jpg  ",
     "category_id": 8,
     "giaCu": "    145.900 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "127"
   },
   {
     "id": 81,
@@ -726,7 +805,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935244877212.jpg   ",
     "category_id": 9,
     "giaCu": "56.300 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "24"
   },
   {
     "id": 82,
@@ -735,7 +815,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244877205.jpg  ",
     "category_id": 9,
     "giaCu": " 65.900    đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "85"
   },
   {
     "id": 83,
@@ -744,7 +825,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244877199.jpg  ",
     "category_id": 9,
     "giaCu": "80.900 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "38"
   },
   {
     "id": 84,
@@ -753,7 +835,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244873955_1.jpg  ",
     "category_id": 9,
     "giaCu": "146.200 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "155"
   },
   {
     "id": 85,
@@ -762,7 +845,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_183021.jpg  ",
     "category_id": 9,
     "giaCu": "200.000 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "57"
   },
   {
     "id": 86,
@@ -771,7 +855,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/b/tbph---_ng-linh-d_-truy_n600.jpg  ",
     "category_id": 9,
     "giaCu": "115.900 đ",
-    "voucher": "-9%"
+    "voucher": "-9%",
+    "daban": "49"
   },
   {
     "id": 87,
@@ -780,7 +865,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935343700657.jpg  ",
     "category_id": 10,
     "giaCu": "120.200 đ",
-    "voucher": "-2%"
+    "voucher": "-9%",
+    "daban": "152"
   },
   {
     "id": 88,
@@ -789,7 +875,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935210228864.jpg  ",
     "category_id": 10,
     "giaCu": "89.000 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "56"
   },
   {
     "id": 89,
@@ -798,7 +885,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/g/i/gia-_nh-t_i-b_a-1.jpg ",
     "category_id": 10,
     "giaCu": "98.300 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "73"
   },
   {
     "id": 90,
@@ -807,7 +895,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8936066697019.jpg  ",
     "category_id": 10,
     "giaCu": "145.800 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "187"
   },
   {
     "id": 91,
@@ -816,7 +905,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935212367585.jpg   ",
     "category_id": 10,
     "giaCu": "35.600 đ",
-    "voucher": "-7%"
+    "voucher": "-7%",
+    "daban": "48"
   },
   {
     "id": 92,
@@ -825,7 +915,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_34380.jpg  ",
     "category_id": 10,
     "giaCu": "99.000 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "80"
   },
   {
     "id": 93,
@@ -834,7 +925,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8936071671400.jpg   ",
     "category_id": 11,
     "giaCu": "  39.000 đ ",
-    "voucher": "-16%"
+    "voucher": "-16%",
+    "daban": "91"
   },
   {
     "id": 94,
@@ -843,7 +935,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_193785.jpg ",
     "category_id": 11,
     "giaCu": "  45.000 đ ",
-    "voucher": "-21%"
+    "voucher": "-21%",
+    "daban": "155"
   },
   {
     "id": 95,
@@ -852,7 +945,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_227905.jpg  ",
     "category_id": 11,
     "giaCu": "   45.000 đ",
-    "voucher": "-13%"
+    "voucher": "-13%",
+    "daban": "193"
   },
   {
     "id": 96,
@@ -861,7 +955,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935235239456.jpg   ",
     "category_id": 11,
     "giaCu": "  45.000 đ ",
-    "voucher": "-30%"
+    "voucher": "-30%",
+    "daban": "18"
   },
   {
     "id": 97,
@@ -870,7 +965,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935235239449.jpg   ",
     "category_id": 11,
     "giaCu": " 45.000 đ  ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "181"
   },
   {
     "id": 98,
@@ -879,7 +975,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/9/7/9786040315809.jpg   ",
     "category_id": 11,
     "giaCu": " 31.000 đ  ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "16"
   },
   {
     "id": 99,
@@ -888,7 +985,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_225187.jpg   ",
     "category_id": 11,
     "giaCu": "  42.000 đ ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "18"
   },
   {
     "id": 100,
@@ -897,7 +995,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786040315793.jpg ",
     "category_id": 11,
     "giaCu": "31.000 đ   ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "31"
   },
   {
     "id": 101,
@@ -906,7 +1005,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/z/5/z5484697182816_c453c656508dd175e6f9879faabadf35.jpg  ",
     "category_id": 12,
     "giaCu": "  329.000 đ ",
-    "voucher": "-23%"
+    "voucher": "-23%",
+    "daban": "146"
   },
   {
     "id": 102,
@@ -915,7 +1015,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786048477080.jpg    ",
     "category_id": 12,
     "giaCu": " 240.000 đ  ",
-    "voucher": "-20%"
+    "voucher": "-20%",
+    "daban": "75"
   },
   {
     "id": 103,
@@ -924,7 +1025,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935235221017.jpg  ",
     "category_id": 12,
     "giaCu": "  118.000 đ ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "157"
   },
   {
     "id": 104,
@@ -933,7 +1035,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/1/9/190623-4.jpg ",
     "category_id": 12,
     "giaCu": " 150.000 đ  ",
-    "voucher": "-24%"
+    "voucher": "-24%",
+    "daban": "49"
   },
   {
     "id": 105,
@@ -942,7 +1045,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786048650711_1.jpg ",
     "category_id": 12,
     "giaCu": "  19.500 đ ",
-    "voucher": "-10%"
+    "voucher": "-10%",
+    "daban": "73"
   },
   {
     "id": 106,
@@ -951,7 +1055,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786043772654.jpg ",
     "category_id": 12,
     "giaCu": "   300.000 đ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "62"
   },
   {
     "id": 107,
@@ -960,7 +1065,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/u/n/untitled-1_173.jpg  ",
     "category_id": 12,
     "giaCu": "  280.000 đ ",
-    "voucher": "-24%"
+    "voucher": "-24%",
+    "daban": "31"
   },
   {
     "id": 108,
@@ -969,7 +1075,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_193348.jpg  ",
     "category_id": 12,
     "giaCu": " 220.000 đ  ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "169"
   },
   {
     "id": 109,
@@ -978,7 +1085,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/1/4/1445-1018_1.jpg  ",
     "category_id": 13,
     "giaCu": "21.000 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "85"
   },
   {
     "id": 110,
@@ -987,7 +1095,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-tr_c-manifest.jpg ",
     "category_id": 13,
     "giaCu": "76.200 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "130"
   },
   {
     "id": 111,
@@ -996,7 +1105,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-in-g_c-nh_-c_-n_ng.jpg ",
     "category_id": 13,
     "giaCu": "60.400 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "57"
   },
   {
     "id": 112,
@@ -1005,7 +1115,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244826487.jpg  ",
     "category_id": 13,
     "giaCu": "65.300 đ",
-    "voucher": "-5%"
+    "voucher": "-5%",
+    "daban": "74"
   },
   {
     "id": 113,
@@ -1014,7 +1125,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/c/h/chiasetutraitim-bia.jpg ",
     "category_id": 13,
     "giaCu": "146.200 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "29"
   },
   {
     "id": 114,
@@ -1023,7 +1135,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_01512024_025139.jpg   ",
     "category_id": 13,
     "giaCu": "56.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "137"
   },
   {
     "id": 115,
@@ -1032,7 +1145,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935278605546.jpg ",
     "category_id": 13,
     "giaCu": "105.200 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "46"
   },
   {
     "id": 116,
@@ -1041,7 +1155,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_05482024_084828.jpg  ",
     "category_id": 13,
     "giaCu": "46.200 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "197"
   },
   {
     "id": 117,
@@ -1050,7 +1165,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244874389.jpg  ",
     "category_id": 13,
     "giaCu": "130.200 đ",
-    "voucher": "-6%"
+    "voucher": "-6%",
+    "daban": "99"
   },
   {
     "id": 118,
@@ -1059,7 +1175,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/t/h/tham-tu-lung-danh-conan_ban-thuong_bia_tap-104.jpg   ",
     "category_id": 13,
     "giaCu": "30.300 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "114"
   },
   {
     "id": 119,
@@ -1068,7 +1185,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/c/o/con-_ng-chuy_n-h_a--1.jpg",
     "category_id": 13,
     "giaCu": "205.000 đ",
-    "voucher": "-4%"
+    "voucher": "-4%",
+    "daban": "91"
   },
   {
     "id": 120,
@@ -1077,7 +1195,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/9/7/9786043440287.jpg   ",
     "category_id": 13,
     "giaCu": "75.000 đ",
-    "voucher": "-8%"
+    "voucher": "-8%",
+    "daban": "43"
   },
   {
     "id": 121,
@@ -1086,7 +1205,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786043379488.jpg  ",
     "category_id": 14,
     "giaCu": " 42.000đ ",
-    "voucher": "   -50% "
+    "voucher": "   -50% ",
+    "daban": "99"
   },
   {
     "id": 122,
@@ -1095,7 +1215,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786046728733.jpg ",
     "category_id": 14,
     "giaCu": " 120.000 đ ",
-    "voucher": "   -20%  "
+    "voucher": "   -20%  ",
+    "daban": "192"
   },
   {
     "id": 123,
@@ -1104,7 +1225,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_28886.jpg  ",
     "category_id": 14,
     "giaCu": "  149.000 đ ",
-    "voucher": "  -50%   "
+    "voucher": "  -50%   ",
+    "daban": "28"
   },
   {
     "id": 124,
@@ -1113,7 +1235,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_182009.jpg  ",
     "category_id": 14,
     "giaCu": " 217.000 đ ",
-    "voucher": " -20%    "
+    "voucher": " -20%    ",
+    "daban": "97"
   },
   {
     "id": 125,
@@ -1122,7 +1245,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_2066.jpg  ",
     "category_id": 14,
     "giaCu": " 69.000 đ ",
-    "voucher": "  -20%   "
+    "voucher": "  -20%   ",
+    "daban": "94"
   },
   {
     "id": 126,
@@ -1131,7 +1255,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935278600756.jpg ",
     "category_id": 14,
     "giaCu": " 160.000 đ ",
-    "voucher": "  -23% "
+    "voucher": "  -23% ",
+    "daban": "114"
   },
   {
     "id": 127,
@@ -1140,7 +1265,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786046728757.jpg ",
     "category_id": 14,
     "giaCu": "120.000 đ  ",
-    "voucher": " -20% "
+    "voucher": " -20% ",
+    "daban": "104"
   },
   {
     "id": 128,
@@ -1149,7 +1275,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_241309.jpg  ",
     "category_id": 14,
     "giaCu": "  149.000 đ ",
-    "voucher": "  -25% "
+    "voucher": "  -25% ",
+    "daban": "64"
   },
   {
     "id": 129,
@@ -1158,7 +1285,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/9/7/9786048126261.jpg   ",
     "category_id": 15,
     "giaCu": "  400.000 đ ",
-    "voucher": " -20%  "
+    "voucher": " -20%  ",
+    "daban": "48"
   },
   {
     "id": 130,
@@ -1167,7 +1295,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935244873634.jpg ",
     "category_id": 15,
     "giaCu": " 299.000 đ  ",
-    "voucher": "-50%"
+    "voucher": "-50%",
+    "daban": "73"
   },
   {
     "id": 131,
@@ -1176,7 +1305,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/c/o/combo-1906202306-1.jpg   ",
     "category_id": 15,
     "giaCu": " 545.000 đ  ",
-    "voucher": "-22%"
+    "voucher": "-22%",
+    "daban": "83"
   },
   {
     "id": 132,
@@ -1185,7 +1315,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_1843.jpg  ",
     "category_id": 15,
     "giaCu": "  149.000 đ ",
-    "voucher": "-23%"
+    "voucher": "-23%",
+    "daban": "79"
   },
   {
     "id": 133,
@@ -1194,7 +1325,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_186264.jpg ",
     "category_id": 15,
     "giaCu": "  88.000 đ ",
-    "voucher": "-20%"
+    "voucher": "-20%",
+    "daban": "19"
   },
   {
     "id": 134,
@@ -1203,7 +1335,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_33759.jpg   ",
     "category_id": 15,
     "giaCu": "  88.000 đ ",
-    "voucher": "-23%"
+    "voucher": "-23%",
+    "daban": "158"
   },
   {
     "id": 135,
@@ -1212,7 +1345,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786044834467.jpg  ",
     "category_id": 15,
     "giaCu": " 139.000 đ  ",
-    "voucher": "-18%"
+    "voucher": "-18%",
+    "daban": "128"
   },
   {
     "id": 136,
@@ -1221,7 +1355,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/b/_/b_a---50-_-t_ng-kinh-t_-l_n-ch_ng-ta-c_n-bi_t-01.jpg ",
     "category_id": 15,
     "giaCu": "  95.000 đ ",
-    "voucher": "-20%"
+    "voucher": "-20%",
+    "daban": "92"
   },
   {
     "id": 137,
@@ -1230,7 +1365,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786048931964.jpg   ",
     "category_id": 16,
     "giaCu": "  42.000 đ ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "172"
   },
   {
     "id": 138,
@@ -1239,7 +1375,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_16190.jpg  ",
     "category_id": 16,
     "giaCu": " 37.000 đ  ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "111"
   },
   {
     "id": 139,
@@ -1248,7 +1385,8 @@
     "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786048459932.jpg     ",
     "category_id": 16,
     "giaCu": "   95.000 đ",
-    "voucher": "-33%      "
+    "voucher": "-33%      ",
+    "daban": "13"
   },
   {
     "id": 140,
@@ -1257,7 +1395,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935073079054_1.jpg   ",
     "category_id": 16,
     "giaCu": " 37.000 đ  ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "57"
   },
   {
     "id": 141,
@@ -1266,7 +1405,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/9/7/9786044760247.jpg ",
     "category_id": 16,
     "giaCu": " 58.000 đ  ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "22"
   },
   {
     "id": 142,
@@ -1275,7 +1415,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_189690.jpg   ",
     "category_id": 16,
     "giaCu": " 115.000 đ  ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "193"
   },
   {
     "id": 143,
@@ -1284,7 +1425,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_226953_1.jpg   ",
     "category_id": 16,
     "giaCu": "  350.000 đ ",
-    "voucher": "-18%      "
+    "voucher": "-18%      ",
+    "daban": "130"
   },
   {
     "id": 144,
@@ -1293,7 +1435,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/s/i/sieu-dau-bep-nhi_nau-an-that-la-vui_bia.jpg  ",
     "category_id": 16,
     "giaCu": "  50.000 đ ",
-    "voucher": "-10%      "
+    "voucher": "-10%      ",
+    "daban": "84"
   },
   {
     "id": 145,
@@ -1302,7 +1445,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935212361750.jpg  ",
     "category_id": 17,
     "giaCu": "  58.000 đ ",
-    "voucher": "-18%      "
+    "voucher": "-18%      ",
+    "daban": "23"
   },
   {
     "id": 146,
@@ -1311,7 +1455,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935212365871.jpg   ",
     "category_id": 17,
     "giaCu": "  32.000 đ ",
-    "voucher": "-18%      "
+    "voucher": "-18%      ",
+    "daban": "111"
   },
   {
     "id": 147,
@@ -1320,7 +1465,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935212365703.jpg   ",
     "category_id": 17,
     "giaCu": "   35.000 đ",
-    "voucher": "-18%      "
+    "voucher": "-18%      ",
+    "daban": "172"
   },
   {
     "id": 148,
@@ -1329,7 +1475,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/8/9/8935086844106_1_2.jpg ",
     "category_id": 17,
     "giaCu": "  70.000 đ ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "11"
   },
   {
     "id": 149,
@@ -1338,7 +1485,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786043295160.jpg   ",
     "category_id": 17,
     "giaCu": " 55.000 đ  ",
-    "voucher": "-18%      "
+    "voucher": "-18%      ",
+    "daban": "45"
   },
   {
     "id": 150,
@@ -1347,7 +1495,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/g/u/guong-thieu-nhi-lam-theo-loi-bac_cau-ban-ham-doc-sach.jpg   ",
     "category_id": 17,
     "giaCu": "30.000 đ   ",
-    "voucher": "-13%      "
+    "voucher": "-13%      ",
+    "daban": "63"
   },
   {
     "id": 151,
@@ -1356,7 +1505,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/h/h/hh_bia-1_tho-cho-thieu-nhi.jpg  ",
     "category_id": 17,
     "giaCu": "  78.000 đ ",
-    "voucher": "-21%      "
+    "voucher": "-21%      ",
+    "daban": "54"
   },
   {
     "id": 152,
@@ -1365,7 +1515,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/n/h/nhung-thieu-nhi-ben-bac-ngay-ay_bia.jpg   ",
     "category_id": 17,
     "giaCu": " 26.000 đ  ",
-    "voucher": "-13%      "
+    "voucher": "-13%      ",
+    "daban": "96"
   },
   {
     "id": 153,
@@ -1374,7 +1525,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_1006.jpg   ",
     "category_id": 18,
     "giaCu": " 142.800 đ\n ",
-    "voucher": "-16%      "
+    "voucher": "-16%      ",
+    "daban": "7"
   },
   {
     "id": 154,
@@ -1383,7 +1535,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935270700119.jpg   ",
     "category_id": 18,
     "giaCu": "  175.000 đ ",
-    "voucher": "-50%      "
+    "voucher": "-50%      ",
+    "daban": "193"
   },
   {
     "id": 155,
@@ -1392,7 +1545,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8936219420143.jpg   ",
     "category_id": 18,
     "giaCu": " 599.000 đ  ",
-    "voucher": "-23%      "
+    "voucher": "-23%      ",
+    "daban": "35"
   },
   {
     "id": 156,
@@ -1401,7 +1555,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786043941388_1.jpg  ",
     "category_id": 18,
     "giaCu": " 135.000 đ  ",
-    "voucher": "-20%      "
+    "voucher": "-20%      ",
+    "daban": "101"
   },
   {
     "id": 157,
@@ -1410,7 +1565,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_18389.jpg   ",
     "category_id": 18,
     "giaCu": "  189.000 đ\n ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "149"
   },
   {
     "id": 158,
@@ -1419,7 +1575,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935086856321_1.jpg  ",
     "category_id": 18,
     "giaCu": "  128.000 đ\n ",
-    "voucher": "-20%\n\n      "
+    "voucher": "-20%\n\n      ",
+    "daban": "50"
   },
   {
     "id": 159,
@@ -1428,7 +1585,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_55902.jpg  ",
     "category_id": 18,
     "giaCu": " 100.000 đ\n  ",
-    "voucher": "-13%\n\n      "
+    "voucher": "-13%\n\n      ",
+    "daban": "118"
   },
   {
     "id": 160,
@@ -1437,7 +1595,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/8/_/8_16_25.jpg ",
     "category_id": 18,
     "giaCu": " 124.000 đ\n  ",
-    "voucher": "-16%\n\n      "
+    "voucher": "-16%\n\n      ",
+    "daban": "197"
   },
   {
     "id": 161,
@@ -1446,7 +1605,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786043239140.jpg  ",
     "category_id": 19,
     "giaCu": "  138.000 đ\n ",
-    "voucher": "-24%\n\n      "
+    "voucher": "-24%\n\n      ",
+    "daban": "123"
   },
   {
     "id": 162,
@@ -1455,7 +1615,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_190574.jpg   ",
     "category_id": 19,
     "giaCu": " 80.000 đ\n  ",
-    "voucher": "-26%\n\n      "
+    "voucher": "-26%\n\n      ",
+    "daban": "1"
   },
   {
     "id": 163,
@@ -1464,7 +1625,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/r/truyen-ngan-ve-an-do_bia.jpg   ",
     "category_id": 19,
     "giaCu": " 90.000 đ\n  ",
-    "voucher": "-13%\n\n      "
+    "voucher": "-13%\n\n      ",
+    "daban": "76"
   },
   {
     "id": 164,
@@ -1473,7 +1635,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786044773162.jpg   ",
     "category_id": 19,
     "giaCu": "  138.000 đ\n ",
-    "voucher": "-50%\n\n      "
+    "voucher": "-50%\n\n      ",
+    "daban": "142"
   },
   {
     "id": 165,
@@ -1482,7 +1645,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_216007.jpg  ",
     "category_id": 19,
     "giaCu": "119.000 đ\n   ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "159"
   },
   {
     "id": 166,
@@ -1491,7 +1655,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/8/9/8935235241008.jpg ",
     "category_id": 19,
     "giaCu": "   125.000 đ\n",
-    "voucher": "-20%\n\n      "
+    "voucher": "-20%\n\n      ",
+    "daban": "157"
   },
   {
     "id": 167,
@@ -1500,7 +1665,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/n/h/nhung-truyen-my-tru-danh_bia.jpg  ",
     "category_id": 19,
     "giaCu": "  45.000 đ\n ",
-    "voucher": "-20%\n\n      "
+    "voucher": "-20%\n\n      ",
+    "daban": "187"
   },
   {
     "id": 168,
@@ -1509,7 +1675,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8935095632442.jpg  ",
     "category_id": 19,
     "giaCu": "165.000 đ\n   ",
-    "voucher": "-21%\n\n      "
+    "voucher": "-21%\n\n      ",
+    "daban": "131"
   },
   {
     "id": 169,
@@ -1518,7 +1685,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_26439.jpg  ",
     "category_id": 20,
     "giaCu": " 130.000 đ\n  ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "68"
   },
   {
     "id": 170,
@@ -1527,7 +1695,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935244881059.jpg   ",
     "category_id": 20,
     "giaCu": "  159.000 đ\n ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "152"
   },
   {
     "id": 171,
@@ -1536,7 +1705,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195113.jpg   ",
     "category_id": 20,
     "giaCu": "  189.000 đ\n ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "140"
   },
   {
     "id": 172,
@@ -1545,7 +1715,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_41520.jpg   ",
     "category_id": 20,
     "giaCu": " 75.000 đ\n  ",
-    "voucher": "-20%\n\n      "
+    "voucher": "-20%\n\n      ",
+    "daban": "62"
   },
   {
     "id": 173,
@@ -1554,7 +1725,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_236471.jpg  ",
     "category_id": 20,
     "giaCu": "  38.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "127"
   },
   {
     "id": 174,
@@ -1563,7 +1735,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/i/tien-ut-va-phu-thuy-nhi_bia.jpg   ",
     "category_id": 20,
     "giaCu": "  45.000 đ\n ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "24"
   },
   {
     "id": 175,
@@ -1572,7 +1745,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/r/tranh-truyen-dan-gian-viet-nam_tu-thuc-gap-tien_tb-2024.jpg   ",
     "category_id": 20,
     "giaCu": " 20.000 đ\n  ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "85"
   },
   {
     "id": 176,
@@ -1581,7 +1755,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_447.jpg   ",
     "category_id": 20,
     "giaCu": "  20.000 đ\n ",
-    "voucher": "-13%\n\n      "
+    "voucher": "-13%\n\n      ",
+    "daban": "38"
   },
   {
     "id": 177,
@@ -1590,7 +1765,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_188462.jpg  ",
     "category_id": 21,
     "giaCu": "  120.000 đ\n ",
-    "voucher": "-21%\n\n      "
+    "voucher": "-21%\n\n      ",
+    "daban": "155"
   },
   {
     "id": 178,
@@ -1599,7 +1775,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-1_b_ch-khoa-th_-v_-_p-2.jpg  ",
     "category_id": 21,
     "giaCu": "  159.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "49"
   },
   {
     "id": 179,
@@ -1608,7 +1785,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786047754601.jpg  ",
     "category_id": 21,
     "giaCu": "  299.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "57"
   },
   {
     "id": 180,
@@ -1617,7 +1795,8 @@
     "image": "    https://cdn0.fahasa.com/media/catalog/product/u/n/untitled-1_166_6.jpg ",
     "category_id": 21,
     "giaCu": " 168.000 đ\n  ",
-    "voucher": "-50%\n\n      "
+    "voucher": "-50%\n\n      ",
+    "daban": "152"
   },
   {
     "id": 181,
@@ -1626,7 +1805,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/e/a/eat-clean---_n-s_ch-s_ng-kh_e-_t_i-b_n_b_a-02.jpg   ",
     "category_id": 21,
     "giaCu": "  199.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "73"
   },
   {
     "id": 182,
@@ -1635,7 +1815,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8938507000471.jpg   ",
     "category_id": 21,
     "giaCu": " 75.000 đ\n  ",
-    "voucher": "-25%\n\n      "
+    "voucher": "-25%\n\n      ",
+    "daban": "56"
   },
   {
     "id": 183,
@@ -1644,7 +1825,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786045865989.jpg   ",
     "category_id": 21,
     "giaCu": "248.000 đ\n   ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "48"
   },
   {
     "id": 184,
@@ -1653,7 +1835,8 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_188347.jpg  ",
     "category_id": 21,
     "giaCu": " 98.000 đ\n  ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "80"
   },
   {
     "id": 185,
@@ -1662,7 +1845,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_180462.jpg   ",
     "category_id": 22,
     "giaCu": "  110.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "91"
   },
   {
     "id": 186,
@@ -1671,7 +1855,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786044028187.jpg   ",
     "category_id": 22,
     "giaCu": " 139.000 đ\n  ",
-    "voucher": "-10%\n\n      "
+    "voucher": "-10%\n\n      ",
+    "daban": "193"
   },
   {
     "id": 187,
@@ -1680,7 +1865,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786044008660.jpg   ",
     "category_id": 22,
     "giaCu": " 175.000 đ\n  ",
-    "voucher": "-28%\n\n      "
+    "voucher": "-28%\n\n      ",
+    "daban": "131"
   },
   {
     "id": 188,
@@ -1689,7 +1875,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/h/than-thoai-nhat-ban_bia.jpg   ",
     "category_id": 22,
     "giaCu": "   80.000 đ\n",
-    "voucher": "-13%\n\n      "
+    "voucher": "-13%\n\n      ",
+    "daban": "152"
   },
   {
     "id": 189,
@@ -1698,7 +1885,8 @@
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_5293.jpg    ",
     "category_id": 22,
     "giaCu": "  370.000 đ\n ",
-    "voucher": "-18%\n\n      "
+    "voucher": "-18%\n\n      ",
+    "daban": "85"
   },
   {
     "id": 190,
@@ -1707,7 +1895,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935244878325.jpg   ",
     "category_id": 22,
     "giaCu": " 115.000 đ\n  ",
-    "voucher": "-13%\n\n      "
+    "voucher": "-13%\n\n      ",
+    "daban": "123"
   },
   {
     "id": 191,
@@ -1716,7 +1905,8 @@
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8934974182306.jpg   ",
     "category_id": 22,
     "giaCu": "  95.000 đ\n ",
-    "voucher": "-16%\n\n      "
+    "voucher": "-16%\n\n      ",
+    "daban": "127"
   },
   {
     "id": 192,
@@ -1725,6 +1915,7 @@
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8936049954542.jpg  ",
     "category_id": 22,
     "giaCu": " 108.000 đ\n  ",
-    "voucher": "-23%\n\n      "
+    "voucher": "-23%\n\n      ",
+    "daban": "149"
   }
 ]
