@@ -1917,5 +1917,127 @@
     "giaCu": " 108.000 đ\n  ",
     "voucher": "-23%\n\n      ",
     "daban": "149"
-  }
+  },
+
+
+    {
+        "id": 193,
+        "name": "Khám Phá Tự Nhiên - Lâm Anh Tuấn",
+        "price": "220.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8936067608366.jpg",
+        "category_id": 23,
+        "giaCu": "270.000 đ",
+        "voucher": "-18%",
+        "daban": "75"
+    },
+    {
+        "id": 194,
+        "name": "15 Bí Kíp Giúp Tớ An Toàn Du Lịch",
+        "price": "180.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/1/5/15-bi-kip-giup-to-an-toan_cam-nang-an-toan-du-lich.jpg",
+        "category_id": 23,
+        "giaCu": "210.000 đ",
+        "voucher": "-14%",
+        "daban": "160"
+    },
+    {
+        "id": 195,
+        "name": "Hướng Dẫn Tâm Lý - Hoàng Minh Khoa",
+        "price": "130.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_2974.jpg",
+        "category_id": 23,
+        "giaCu": "150.000 đ",
+        "voucher": "-13%",
+        "daban": "230"
+    },
+    {
+        "id": 196,
+        "name": "Lịch Sử Việt Nam - Nguyễn Hữu Duy",
+        "price": "500.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8934974188674.jpg",
+        "category_id": 23,
+        "giaCu": "600.000 đ",
+        "voucher": "-17%",
+        "daban": "50"
+    },
+    {
+        "id": 197,
+        "name": "Các Tác Phẩm Mỹ Thuật Về Đức Mẹ Maria",
+        "price": "400.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786043274400.jpg",
+        "category_id": 23,
+        "giaCu": "450.000 đ",
+        "voucher": "-11%",
+        "daban": "40"
+    },
+    {
+        "id": 198,
+        "name": "Claymore - Tập 2 - Bóng Tối Thiên Đường",
+        "price": "250.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_14512024_095120.jpg",
+        "category_id": 23,
+        "giaCu": "300.000 đ",
+        "voucher": "-17%",
+        "daban": "300"
+    },
+    {
+        "id": 199,
+        "name": "Ba Bước Tỉnh Thức - OSHO",
+        "price": "350.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/b/a/ba-buoc-tinh-thuc-bia-1.jpg",
+        "category_id": 23,
+        "giaCu": "380.000 đ",
+        "voucher": "-7%",
+        "daban": "100"
+    },
+    {
+        "id": 200,
+        "name": "Không Gì Là Quá Muộn",
+        "price": "420.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/k/h/khong-gi-la-qua-muon_bia-1.jpg",
+        "category_id": 23,
+        "giaCu": "500.000 đ",
+        "voucher": "-16%",
+        "daban": "55"
+    },
+    {
+        "id": 201,
+        "name": "Người Bà Tuyệt Vời Của Tôi",
+        "price": "320.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/b/i/bia1_24.jpg",
+        "category_id": 23,
+        "giaCu": "380.000 đ",
+        "voucher": "-15%",
+        "daban": "90"
+    },
+  {
+   "id": 202,
+        "name": "Hoàng Hôn Đợi Một Người",
+        "price": "250.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/b/i/bia_hoang-hon-doi-mot-nguoi-_nguoi-tre-viet_.jpg",
+        "category_id": 23,
+        "giaCu": "300.000 đ",
+        "voucher": "-17%",
+        "daban": "120"
+    },
+    {
+        "id": 203,
+        "name": "Hạt Tinh Khôi - Mưa Nghiêng Qua Phiến Lá",
+        "price": "150.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/5/_/5_12_31.jpg",
+        "category_id": 23,
+        "giaCu": "180.000 đ",
+        "voucher": "-16%",
+        "daban": "200"
+    },
+    {
+        "id": 204,
+        "name": "Hachiko Chú Chó Dấu Yêu (Tái Bản 2024)",
+        "price": "350.000 đ",
+        "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235217249_1.jpg",
+        "category_id": 23,
+        "giaCu": "400.000 đ",
+        "voucher": "-12%",
+        "daban": "95"
+    }
 ]

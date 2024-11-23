@@ -46,8 +46,35 @@
             word-wrap: break-word;         /* Chữ dài quá thì sẽ xuống dòng */
             box-sizing: border-box;
         }
+
         .column-large {
             width: 400px;
+        }
+
+         .bangon {
+            display: flex; /* Sử dụng flexbox để chia cột */
+            width: 100%;
+        }
+
+        /* Cột lớn */
+        .coll-large {
+            flex: 7; /* Chiếm 70% không gian */
+
+            padding: 10px;
+        }
+
+        /* Cột nhỏ */
+        .coll-small {
+            flex: 3; /* Chiếm 30% không gian */
+
+            padding: 1px;
+        }
+
+        /* Các dòng trong cột nhỏ */
+        .col-small .roww {
+            margin-bottom: 10px; /* Khoảng cách giữa các dòng */
+            padding: 10px;
+
         }
 
     </style>
