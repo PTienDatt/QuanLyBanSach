@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "name": "Hai Gia Đình",
+    "name": " Câu chuyện về - Hai Gia Đình",
     "price": "24.650đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/-/h/-hanh-hai-gia-dinh-okbia-1.jpg",
     "category_id": 10,
@@ -121,7 +121,7 @@
   },
   {
     "id": 13,
-    "name": "Giáo Sư Tôn Giáo",
+    "name": "Những câu chuyên về - Giáo Sư Tôn Giáo",
     "price": "47.200đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_17260.jpg",
     "category_id": 8,
@@ -131,7 +131,7 @@
   },
   {
     "id": 14,
-    "name": "Thần Bản Tôn",
+    "name": "Nhưng câu chuyện về - Thần Bản Tôn",
     "price": "79.000đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935095612086.jpg",
     "category_id": 8,
@@ -161,7 +161,7 @@
   },
   {
     "id": 17,
-    "name": "Lịch Sử Sách",
+    "name": "JAME RAVEN Lịch Sử Sách",
     "price": "479.200đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/l/i/lich-su-sach---bia-1.jpg",
     "category_id": 6,
@@ -171,7 +171,7 @@
   },
   {
     "id": 18,
-    "name": "Lịch Sử Thế Giới",
+    "name": "Phạm Quỳnh - Lịch Sử Thế Giới",
     "price": "61.500đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_39442.jpg",
     "category_id": 6,
@@ -181,7 +181,7 @@
   },
   {
     "id": 19,
-    "name": "Tâm Lý Học Xã Hội",
+    "name": "Tâm Lý Toàn Thư - Tâm Lý Học Xã Hội",
     "price": "138.600 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_18302023_113035.jpg",
     "category_id": 7,
@@ -191,7 +191,7 @@
   },
   {
     "id": 20,
-    "name": "Tâm Lý Học Bất Thường",
+    "name": " Tâm Lý Toàn Thư - Tâm Lý Học Bất Thường",
     "price": "121.800đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_22502023_095056_1.jpg ",
     "category_id": 7,
@@ -201,7 +201,7 @@
   },
   {
     "id": 21,
-    "name": " Lịch Sử Tâm Lý Học",
+    "name": " Tâm Lý Toàn Thư - Lịch Sử Tâm Lý Học",
     "price": "142.800 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_18302023_113059_1.jpg",
     "category_id": 7,
@@ -221,7 +221,7 @@
   },
   {
     "id": 23,
-    "name": "Hiệu Ứng Tâm Lý",
+    "name": " Tâm Lý Toàn Thư - Hiệu Ứng Tâm Lý",
     "price": "114.730 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/h/i/hi_u-_ng-t_m-l_-b_a-1.jpg",
     "category_id": 7,
@@ -241,7 +241,7 @@
   },
   {
     "id": 25,
-    "name": "Combo Sách Tâm Lý Học",
+    "name": "Sách Tâm Lý Học",
     "price": "209.600 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-8935325050480-8936186544613.jpg",
     "category_id": 7,
@@ -281,7 +281,7 @@
   },
   {
     "id": 29,
-    "name": "Từ Điển Tâm Lý",
+    "name": " Toàn tập - Từ Điển Tâm Lý",
     "price": "108.800 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/t/_/t_-_i_n-t_m-l_---b_a-1-_1_.jpg",
     "category_id": 7,
@@ -411,7 +411,7 @@
   },
   {
     "id": 42,
-    "name": "Khoa Học Về Yoga",
+    "name": "Khoa Học Về Yoga - Ann Swanson",
     "price": "246.000 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/k/h/khoa-hoc-ve-yoga-04.jpg",
     "category_id": 2,
@@ -451,7 +451,7 @@
   },
   {
     "id": 46,
-    "name": "Tí Toáy Khoa Học",
+    "name": "Tìm Hiểu Về Khoa Học - Tí Toáy Khoa Học",
     "price": "88.560 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_227598.jpg",
     "category_id": 2,
@@ -461,7 +461,7 @@
   },
   {
     "id": 47,
-    "name": "Bên Lề Khoa Học",
+    "name": "Bên Lề Khoa Học - Trương Văn Tân",
     "price": "127.100 đ\n",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36331.jpg",
     "category_id": 2,
@@ -560,7 +560,7 @@
   },
   {
     "id": 57,
-    "name": "Món Quà Văn Học",
+    "name": "Combo 5 quyền - Món Quà Văn Học",
     "price": "429.485 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/combo-1907202305.jpg",
     "category_id": 4,
@@ -570,7 +570,7 @@
   },
   {
     "id": 58,
-    "name": "Văn Học Vết Thâm",
+    "name": "Văn Học Vết Thâm - Nguyễn Thị Thúy Hạnh",
     "price": "188.600 đ\n",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_222794.jpg",
     "category_id": 4,
@@ -600,7 +600,7 @@
   },
   {
     "id": 61,
-    "name": "Linh Điểu",
+    "name": "Linh Điểu - Nguyễn Văn Học",
     "price": "75.460 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_29510.jpg",
     "category_id": 4,
@@ -620,7 +620,7 @@
   },
   {
     "id": 63,
-    "name": "Số Đỏ - Bìa Cứng",
+    "name": "Số Đỏ - Bìa Cứng - Vũ Trọng Phụng",
     "price": "268.800 đ",
     "image": "https://cdn0.fahasa.com/media/catalog/product/s/o/so-do_vu-trong-phung.jpg",
     "category_id": 5,
@@ -640,7 +640,7 @@
   },
   {
     "id": 65,
-    "name": "Tiểu Thuyết Naruto",
+    "name": "Tiểu Thuyết Naruto AKATSUKI Bí Truyền",
     "price": "49.500 đ\n",
     "image": "https://cdn0.fahasa.com/media/catalog/product/t/i/tieu-thuyet-naruto_akatsuki-bi-truyen_tieu-loan-ac-hoa.jpg",
     "category_id": 5,
@@ -720,7 +720,7 @@
   },
   {
     "id": 73,
-    "name": " Lịch Sử Y Học ",
+    "name": " Lịch Sử Y Học - LOIS N. MAGNER ",
     "price": "  285.600 đ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/8/9/8934974199892.jpg ",
     "category_id": 6,
@@ -730,7 +730,7 @@
   },
   {
     "id": 74,
-    "name": " Lịch Sử Cái Đẹp ",
+    "name": " Lịch Sử Cái Đẹp - MBERTO ECO",
     "price": "376.380 đ\n  ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/8/9/8935235235595.jpg   ",
     "category_id": 6,
@@ -740,7 +740,7 @@
   },
   {
     "id": 75,
-    "name": " Lược Sử Tôn Giáo ",
+    "name": " Lược Sử Tôn Giáo - RICHARD HOLLOWAY",
     "price": " 105.780 đ ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_837.jpg  ",
     "category_id": 8,
@@ -780,7 +780,7 @@
   },
   {
     "id": 79,
-    "name": " 30 Giây Tôn Giáo ",
+    "name": " Học Thuyết Tôn Giáo - 30 Giây Tôn Giáo ",
     "price": " 134.850 đ ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/3/0/30-giay-khoa-hoc_ton-giao.jpg   ",
     "category_id": 8,
@@ -1090,7 +1090,7 @@
   },
   {
     "id": 110,
-    "name": "  Manifest - 7 Bước",
+    "name": "  Manifest - 7 Bước Thay Đổi Cuộc Đời Bạn Mãi Mãi",
     "price": " 68.530 đ ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-tr_c-manifest.jpg ",
     "category_id": 13,
@@ -1100,7 +1100,7 @@
   },
   {
     "id": 111,
-    "name": " Góc Nhỏ Có Nắng ",
+    "name": "Sưởi Ấm Tâm Hồn - Góc Nhỏ Có Nắng ",
     "price": " 57.120 đ ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-in-g_c-nh_-c_-n_ng.jpg ",
     "category_id": 13,
@@ -1120,7 +1120,7 @@
   },
   {
     "id": 113,
-    "name": " Chia Sẻ Từ Trái Tim ",
+    "name": " Chia Sẻ Từ Trái Tim  - Thích Pháp Hòa ",
     "price": " 129.360 đ ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/c/h/chiasetutraitim-bia.jpg ",
     "category_id": 13,
@@ -1190,7 +1190,7 @@
   },
   {
     "id": 120,
-    "name": " Tư Duy Ngược ",
+    "name": " Tư Duy Ngược - Nguyễn Anh Dũng",
     "price": "  69.500 đ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/9/7/9786043440287.jpg   ",
     "category_id": 13,
@@ -1210,7 +1210,7 @@
   },
   {
     "id": 122,
-    "name": " Công Nghệ Lên Men  ",
+    "name": " Công Nghệ Lên Men - Nguyễn Lân Dũng ",
     "price": "96.000 đ  ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/9/7/9786046728733.jpg ",
     "category_id": 14,
@@ -1280,7 +1280,7 @@
   },
   {
     "id": 129,
-    "name": "  Luật Kinh Tế ",
+    "name": "  Luật Kinh Tế - Nguyễn Thị Dung",
     "price": "  320.000 đ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/9/7/9786048126261.jpg   ",
     "category_id": 15,
@@ -1300,7 +1300,7 @@
   },
   {
     "id": 131,
-    "name": " Món Quà Kinh Tế  ",
+    "name": "Combo 4 sách - Món Quà Kinh Tế  ",
     "price": " 424.732 đ ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/c/o/combo-1906202306-1.jpg   ",
     "category_id": 15,
@@ -1330,7 +1330,7 @@
   },
   {
     "id": 134,
-    "name": " Lược Sử Kinh Tế Họ  ",
+    "name": " Lược Sử Kinh Tế Họ - NIALL KISHTAINY  ",
     "price": "  110.700 đ\n",
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_33759.jpg   ",
     "category_id": 15,
@@ -1530,7 +1530,7 @@
   },
   {
     "id": 154,
-    "name": " Phúc Ông Tự Truyện  ",
+    "name": " Phúc Ông Tự Truyện - FUKUZAMA YUKICHI ",
     "price": "  87.500 đ  ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8935270700119.jpg   ",
     "category_id": 18,
@@ -1740,7 +1740,7 @@
   },
   {
     "id": 175,
-    "name": "  Tranh Truyện Dân Gian Việt Nam - Từ Thức Gặp Tiên (Tái Bản 2024)\n ",
+    "name": "  Tranh Truyện Dân Gian Việt Nam - Từ Thức Gặp Tiên\n ",
     "price": "  15.400 đ\n  ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/t/r/tranh-truyen-dan-gian-viet-nam_tu-thuc-gap-tien_tb-2024.jpg   ",
     "category_id": 20,
@@ -1750,7 +1750,7 @@
   },
   {
     "id": 176,
-    "name": " Cổ Tích Việt Nam Cho Bé Mẫu Giáo - Từ Thức Gặp Tiên\n  ",
+    "name": " Cổ Tích Việt Nam Cho Bé  - Từ Thức Gặp Tiên\n  ",
     "price": "  17.400 đ\n  ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_447.jpg   ",
     "category_id": 20,
@@ -1770,7 +1770,7 @@
   },
   {
     "id": 178,
-    "name": "  Bách Khoa Thư Về Đẹp - 45 Liệu Pháp Nuôi Dưỡng Vẻ Đẹp Toàn Diện\n ",
+    "name": "  Bách Khoa Thư - 45 Liệu Pháp Nuôi Dưỡng Vẻ Đẹp  ",
     "price": "   130.380 đ\n ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-1_b_ch-khoa-th_-v_-_p-2.jpg  ",
     "category_id": 21,
@@ -1810,7 +1810,7 @@
   },
   {
     "id": 182,
-    "name": " Nữ Thần Bãi Biển\n  ",
+    "name": " Nữ Thần Bãi Biển - Cẩm Nang Để Ăn Ngon\n  ",
     "price": " 56.250 đ\n   ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/8/9/8938507000471.jpg   ",
     "category_id": 21,
@@ -1830,7 +1830,7 @@
   },
   {
     "id": 184,
-    "name": " Thì Thầm Cùng Tóc\n  ",
+    "name": " Thì Thầm Cùng Tóc - YIMI SATO\n  ",
     "price": "  75.460 đ\n  ",
     "image": "   https://cdn0.fahasa.com/media/catalog/product/i/m/image_188347.jpg  ",
     "category_id": 21,
@@ -1840,7 +1840,7 @@
   },
   {
     "id": 185,
-    "name": " Thần Thoại Bắc Âu\n  ",
+    "name": " Thần Thoại Bắc Âu - NAIL GAIMAN\n  ",
     "price": " 90.200 đ\n   ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/i/m/image_180462.jpg   ",
     "category_id": 22,
@@ -1860,7 +1860,7 @@
   },
   {
     "id": 187,
-    "name": "   Thần Thoại Celt\n",
+    "name": "   Thần Thoại Celt - PHILIPS FREEMAN\n",
     "price": "  126.000 đ\n  ",
     "image": "  https://cdn0.fahasa.com/media/catalog/product/9/7/9786044008660.jpg   ",
     "category_id": 22,
@@ -1880,7 +1880,7 @@
   },
   {
     "id": 189,
-    "name": " Thần Thoại Hy Lạp\n  ",
+    "name": " Thần Thoại Hy Lạp - Nguyễn Văn Khỏa\n  ",
     "price": " 303.400 đ\n   ",
     "image": " https://cdn0.fahasa.com/media/catalog/product/i/m/image_244718_1_5293.jpg    ",
     "category_id": 22,
