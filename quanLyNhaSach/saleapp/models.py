@@ -139,23 +139,27 @@ class BookManagement(db.Model): # Tạo bảng BookManagement
 
 
 
-if __name__ == "__main__":
-    with app.app_context():
-        #db.create_all()
-        #db.drop_all()
+# if __name__ == "__main__":
+#     with app.app_context():
+        # db.create_all()  # Create all table
+        # db.drop_all()   # Drop all table
         # import json
+        #
+        # # Them du lieu vao bang Category tu file category.json
         # with open('D:\TienDat\HK1\CNPM\QuanLyBanSach\quanLyNhaSach\saleapp\data\categories.json', 'r', encoding='utf-8') as file:
         #     categories = json.load(file)
         #     for cate in categories:
         #         db.session.add(Category(**cate))
         #     db.session.commit()
         #
+        # # Them du lieu vao bang Author tu file authors.json
         # with open(r'D:\TienDat\HK1\CNPM\QuanLyBanSach\quanLyNhaSach\saleapp\data\authors.json', 'r', encoding='utf-8') as file:
         #     authors = json.load(file)
         #     for author in authors:
         #         db.session.add(Author(**author))
         #     db.session.commit()
         #
+        # # Them du lieu vao bang Product tu file products.json
         # with app.app_context():
         #     with open('D:\\TienDat\\HK1\\CNPM\\QuanLyBanSach\\quanLyNhaSach\\saleapp\\data\\products.json', 'r',
         #               encoding='utf-8') as file:
