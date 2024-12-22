@@ -4,7 +4,7 @@ from saleapp import app, db
 from abc import ABC, abstractmethod
 import enum
 from datetime import datetime
-
+import hashlib
 
 class Role(enum.Enum):
     ADMIN = "Admin"

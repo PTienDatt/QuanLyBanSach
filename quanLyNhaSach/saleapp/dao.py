@@ -2,9 +2,10 @@ import json
 from flask import jsonify, request
 from itertools import product
 from saleapp import db
-from saleapp.models import Category, Author, Product
+from saleapp.models import *
 from fuzzywuzzy import process     # thư viện tìm kiêm lấy kết quả gần nhất
 from unidecode import unidecode    # thư viện tìm kếm ko cần bỏ dấu
+import hashlib
 
 
 def load_categories():
@@ -64,6 +65,25 @@ def load_products(q=None, cate_id=None):
         return result
 
     return products
+
+def add_user(name, username, password, avatar):
+    password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
+    u = None
+    if avatar:
+        u = Customer(name = name, username = username, password = password, avatar = avatar)
+    else:
+        u = Customer(name = name, username = username, password = password)
+    db.session.add(u)
+    db.session.commit()
+
+
+
+def auth_user(username, password):
+    password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
+
+    return Customer.query.filter(Customer.username.__eq__(username),
+                             Customer.password.__eq__(password)).first()
+
 
 def load_product_by_id(id):
     # with open('data/products.json', encoding='utf-8') as f:
