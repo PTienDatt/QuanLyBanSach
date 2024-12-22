@@ -226,15 +226,20 @@
                                                                            alt=""> Map </a>
 
                 </h3>
-                <!--                    Đăng nhập-->
-                <form class="nav-item">
-                    <a class="nav-link text-white" style="font-size:15px;" href="/login"> <img
-                            style="width:25px;height:25px"
-                            src="https://cdn-icons-png.flaticon.com/128/11741/11741058.png"
-                            alt=""> Đăng nhập </a>
-
-
-                </form>
+                <!-- Đăng nhập/Đăng xuất -->
+                {% if current_user.is_authenticated %}
+                    <form class="nav-item" action="/logout" method="post">
+                         <button class="nav-link text-white" style="font-size:15px; background:none; border:none;" type="submit">
+                            <img style="width:25px;height:25px" src="https://cdn-icons-png.flaticon.com/128/11741/11741058.png" alt=""> Đăng xuất
+                         </button>
+                    </form>
+                {% else %}
+                    <form class="nav-item">
+                        <a class="nav-link text-white" style="font-size:15px;" href="/login">
+                             <img style="width:25px;height:25px" src="https://cdn-icons-png.flaticon.com/128/11741/11741058.png" alt=""> Đăng nhập
+                        </a>
+                    </form>
+                {% endif %}
             </div>
 
         </div>

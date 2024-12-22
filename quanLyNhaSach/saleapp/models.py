@@ -5,6 +5,7 @@ from abc import ABC, abstractmethod
 import enum
 from datetime import datetime
 import hashlib
+from flask_login import UserMixin
 
 class Role(enum.Enum):
     ADMIN = "Admin"
@@ -17,10 +18,7 @@ class Payment_Method(enum.Enum):
     BANK_TRANSFER = "Bank Transfer"
 
 
-
-
-
-class Customer(db.Model): # Tạo bảng Customer
+class Customer(db.Model, UserMixin): # Tạo bảng Customer
     __tablename__ = 'Customer'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False)
@@ -31,7 +29,7 @@ class Customer(db.Model): # Tạo bảng Customer
     password = Column(String(50), nullable=False)
     avatar = Column(String(255), default='user.png')
     joined_date = Column(String(50), default=datetime.now())
-
+    is_active = Column(Boolean, default=True)
     receipts = db.relationship('Receipt', backref='customer', lazy=True)
     def __str__(self):
         return self.name

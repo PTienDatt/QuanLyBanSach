@@ -37,10 +37,10 @@ def login_my_user():
             err_msg = "Tài khoản hoặc mật khẩu không đúng!"
     return render_template('login.html', err_msg=err_msg)
 
-@app.route('/logout')
-def logout_my_user():
+@app.route('/logout', methods=['post'])
+def logout():
     logout_user()
-    return redirect('/login')
+    return redirect('/')
 
 @app.route('/register', methods=['get', 'post'])
 def register():
@@ -53,10 +53,13 @@ def register():
             name = request.form.get("name")
             avatar = request.files.get('avatar')
             avatar_path = None
+            email = request.form.get('email')
+            address = request.form.get('address')
+            phone = request.form.get('phone')
             if avatar:
                 res = cloudinary.uploader.upload(avatar)
                 avatar_path = res['secure_url']
-            dao.add_user(name=name, username=username, password=password, avatar=avatar_path)
+            dao.add_user(name=name, username=username, password=password, avatar=avatar_path, email=email, address=address, phone=phone)
             return redirect('/login')
         else:
             err_msg = "Mật khẩu không khớp!"

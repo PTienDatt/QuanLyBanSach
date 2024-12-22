@@ -66,13 +66,13 @@ def load_products(q=None, cate_id=None):
 
     return products
 
-def add_user(name, username, password, avatar):
+def add_user(name, username, password, avatar, email, address, phone):
     password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
     u = None
     if avatar:
-        u = Customer(name = name, username = username, password = password, avatar = avatar)
+        u = Customer(name = name, username = username, password = password, avatar = avatar, email = email, address = address, phone = phone)
     else:
-        u = Customer(name = name, username = username, password = password)
+        u = Customer(name = name, username = username, password = password, email = email, address = address, phone = phone)
     db.session.add(u)
     db.session.commit()
 
@@ -105,6 +105,8 @@ def load_product_by_id(id):
         }
     return None
 
+def get_user_by_id(Customer_id):
+    return Customer.query.get(Customer_id)
 
 if __name__ == "__main__":
     print(load_products())
