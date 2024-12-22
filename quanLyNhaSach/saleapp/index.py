@@ -4,7 +4,7 @@ from flask import render_template, request, redirect
 import dao
 from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user
-import cloudinary.uploader
+from saleapp import admin
 
 @app.route('/')
 def index():
@@ -18,6 +18,7 @@ def index():
 def details(id):
     products = dao.load_product_by_id(id)
     return render_template('product-details.html', products= products)
+
 
 
 @app.route('/login', methods=['get', 'post'])
@@ -34,8 +35,10 @@ def login_my_user():
             login_user(user)
             return redirect('/')
         else:
-            err_msg = "Tài khoản hoặc mật khẩu không đúng!"
+            err_msg = "*Tài khoản hoặc mật khẩu không đúng!"
     return render_template('login.html', err_msg=err_msg)
+
+
 
 @app.route('/logout', methods=['post'])
 def logout():

@@ -3,13 +3,14 @@
 {%block content%}
 
 
-<div style="background-image: url('https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-nen-phong-canh-thien-nhien-dep-nhat-the-gioi-dong-co.jpg');width:1896px;margin-left:-300px ;height:1000px;">
+<div style="background-image: url('https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-nen-phong-canh-thien-nhien-dep-nhat-the-gioi-dong-co.jpg');
+width:1896px;margin-left:-300px ;height:1000px;">
 
     <div style="padding-top:150px;">
 
     </div>
 
-    <div style="background-color: black;width:800px; height:600px; position: absolute; margin-left: 550px; opacity:30%; border-radius:5rem;">
+    <div style="background-color: black;width:800px; height:650px; position: absolute; margin-left: 550px; opacity:30%; border-radius:5rem;">
         <h1>
 
         </h1>
@@ -38,19 +39,34 @@
 
         </div>
 
+
+        {%if err_msg%}
+        <div class="alert alert-danger"
+             style="color:red;height:1px; margin-left:160px; width:357px; border-radius:20rem; ">
+            <p style="margin-top:-13px;"> {{err_msg}}</p>
+        </div>
+        {%endif%}
+
         <br>
-        <div>
+        <div >
             <h4>
-                <button style=" background-color:#ffffaa; width:200px;height:60px; color:#005b00; border-radius:2rem; border:none; margin-left:40px; font-weight:700;  "
+                <button style=" background-color:#ffffaa; width:200px;height:60px; color:#005b00; border-radius:0.5rem;
+                border:none; margin-left:40px; font-weight:700;  "
                         type="submit"> Đăng nhập
                 </button>
-                <button style=" background-color:#ffffaa; width:200px;height:60px; color:#005b00; border-radius:2rem; border:none; margin-left:40px; font-weight:700;  "
-                        type="button" onclick="window.location.href='/register'"> Đăng ký</button>
+
+                <button style=" background-color:#ffffaa; width:200px;height:60px; color:#005b00; border-radius:0.5rem;
+                border:none; margin-left:40px;  font-weight:700;  "
+                        type="button" onclick="window.location.href='/register'"> Đăng ký
+                </button>
+
             </h4>
             <br>
             <br>
         </div>
-        <div>
+
+
+        <div style="margin-top:">
             <h6 style="color:white; margin-left:35px;">
                 <i>
                     Or login with
@@ -77,8 +93,6 @@
 
 
 </div>
-
-
 
 
 {%endblock%}
