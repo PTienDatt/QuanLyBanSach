@@ -1,10 +1,10 @@
 from itertools import product
-from saleapp import app
+from saleapp import app, login
 from flask import render_template, request, redirect
 import dao
 from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user
-
+import cloudinary.uploader
 
 @app.route('/')
 def index():
@@ -41,6 +41,32 @@ def login_my_user():
 def logout_my_user():
     logout_user()
     return redirect('/login')
+
+@app.route('/register', methods=['get', 'post'])
+def register():
+    err_msg = None
+    if request.method.__eq__('POST'):
+        password = request.form.get("password")
+        confirm = request.form.get("confirm")
+        if password.__eq__(confirm):
+            username = request.form.get("username")
+            name = request.form.get("name")
+            avatar = request.files.get('avatar')
+            avatar_path = None
+            if avatar:
+                res = cloudinary.uploader.upload(avatar)
+                avatar_path = res['secure_url']
+            dao.add_user(name=name, username=username, password=password, avatar=avatar_path)
+            return redirect('/login')
+        else:
+            err_msg = "Mật khẩu không khớp!"
+
+    return render_template('register.html', err_msg=err_msg)
+
+
+@login.user_loader
+def load_user(user_id):
+    return dao.get_user_by_id(user_id)
 
 @app.route('/product/<int:id>')
 def gio_hang(id):
