@@ -1,10 +1,14 @@
 from itertools import product
-from saleapp import app, login
-from flask import render_template, request, redirect
+from saleapp import app, login, db
+from flask import render_template, request, redirect, abort
 import dao
 from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user
 from saleapp import admin
+
+import cloudinary.uploader
+from saleapp.models import *
+import random
 
 @app.route('/')
 def index():
@@ -16,8 +20,12 @@ def index():
 
 @app.route('/products/<int:id>')
 def details(id):
-    products = dao.load_product_by_id(id)
-    return render_template('product-details.html', products= products)
+    products = db.session.query(Product, Author).join(Author, Product.author_id == Author.id).filter(
+        Product.id == id).first()
+    if product is None:
+        abort(404)
+    random_pages = random.randint(150, 500)
+    return render_template('product-details.html', products=products, random_pages=random_pages)
 
 
 
@@ -73,6 +81,11 @@ def register():
 @login.user_loader
 def load_user(user_id):
     return dao.get_user_by_id(user_id)
+
+@app.route('/product/<int:product_id>')
+def product_detail(product_id):
+    product = dao.load_product_by_id(product_id)
+    return render_template('product-details.html', product=product)
 
 @app.route('/product/<int:id>')
 def gio_hang(id):
