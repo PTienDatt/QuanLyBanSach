@@ -15,7 +15,8 @@
 
         <!-- Cột nhỏ -->
         <div class="coll-small">
-            <img  style="width:107%;border-radius:0.55rem; margin-top:-11px; margin-left:-28px;" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/VNPAYT11_392x156_1.png"
+            <img style="width:107%;border-radius:0.55rem; margin-top:-11px; margin-left:-28px;"
+                 src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/VNPAYT11_392x156_1.png"
                  alt="">
             <!-- Dòng 1 trong cột nhỏ -->
             <div class="roww">
@@ -31,10 +32,16 @@
     </div>
 
 
-    <img style="border-radius:0.5rem; margin-left:-15px;" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangCTT11_1124_20_11_Resize_310X210_2.png" alt="">
-    <img style="border-radius:0.5rem; margin-left:6px;" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/NgoaiVan_T11_BLACKFRIDAY_310x210.jpg " alt="">
-    <img style="border-radius:0.5rem;margin-left:6px;" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/SmallBanner_T11_Alphabooks_smallbanner_310x210.jpg" alt="">
-    <img style="border-radius:0.5rem;margin-left:6px;" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangBlackfridayT11_ResizeSmallBanner_310x210_1.png"  alt="">
+    <img style="border-radius:0.5rem; margin-left:-15px;"
+         src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangCTT11_1124_20_11_Resize_310X210_2.png" alt="">
+    <img style="border-radius:0.5rem; margin-left:6px;"
+         src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/NgoaiVan_T11_BLACKFRIDAY_310x210.jpg " alt="">
+    <img style="border-radius:0.5rem;margin-left:6px;"
+         src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/SmallBanner_T11_Alphabooks_smallbanner_310x210.jpg"
+         alt="">
+    <img style="border-radius:0.5rem;margin-left:6px;"
+         src="https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2024/TrangBlackfridayT11_ResizeSmallBanner_310x210_1.png"
+         alt="">
 </div>
 
 <div class="row" style=" width:1300px;">
@@ -48,8 +55,8 @@
                      alt="Card image">
                 <div class="card-body ">
 
-<!--                    <img style="width:30%;margin-bottom:5px; border-radius:5rem; margin-top:-560px; margin-left:-14px; transform: rotate(30deg);"-->
-<!--                         src="https://cdn-icons-png.flaticon.com/128/18377/18377698.png" alt="">-->
+                    <!--                    <img style="width:30%;margin-bottom:5px; border-radius:5rem; margin-top:-560px; margin-left:-14px; transform: rotate(30deg);"-->
+                    <!--                         src="https://cdn-icons-png.flaticon.com/128/18377/18377698.png" alt="">-->
                     <br>
                     <img style="width:60%;margin-bottom:1px; border-radius:0.3rem; margin-top:"
                          src="https://img.ws.mms.shopee.vn/vn-11134210-7qukw-lh7bshlcfd9v86" alt="">
@@ -90,7 +97,7 @@
                         <del> {{p.price|int|format_vnd}}đ</del>
                     </i>
                     <br>
-<!--                    <span style=" font-size:15px; color:black;"> Đã bán: {{p.daban}}&ensp;&ensp;</span>-->
+                    <!--                    <span style=" font-size:15px; color:black;"> Đã bán: {{p.daban}}&ensp;&ensp;</span>-->
 
                     <span style=" font-size: 10px;color: orange ;padding:2px; border: 1px solid orange; border-radius: 0.5px; text-align: center; width:70px; margin-top:-15px; ">
                     Rẻ Vô Địch
@@ -106,9 +113,10 @@
                             alt=""> View</a>
 
                     <i class="fa-regular fa-magnifying-glass"> </i>
+
                     <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:14px;"
-                       href="/product/{{p.id}}"
-                       class="btn btn-danger"> <img
+                       href="#" onclick="addToCart (event, {{p.id}}, '{{p.name}}' , {{p.price}} )"  class="btn btn-danger" >
+                        <img
                             style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
                             src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
                             alt=""> Thêm Vào Giỏ

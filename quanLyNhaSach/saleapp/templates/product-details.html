@@ -91,29 +91,24 @@
                         </i>
                 </span>
             </p>
-            <p style="font-size:17px; color:#666666;"> Đã bán: <span style="color:#444444"> 15</span></p>
+            <p style="font-size:17px; color:#666666;"> Đã bán: <span style="color:#444444"> 20</span></p>
             <hr>
             <b> Thông tin vận chuyển</b>
             <p style="margin-top:10px;"> Trụ sở chính: Thành phố Hồ Chí Minh </p>
             <b> Giao hàng tiêu chuẩn: </b><span> Đơn hàng sẽ xuất đi sau 2 giờ kể từ khi được đặt</span>
 
+<!--            {%for p in products%}-->
+             <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:14px;"
 
-            <form class="d-flex d-flex " style="margin-top:20px;">
-                <span style="margin-top:15px; margin-right:10px; font-weight:bold;"> Số lượng:    </span>
-                <input class="form-control" style="width:50px; height:50px;border-radius:5x;" name="soluong" type="text"
-                       placeholder="">
-            </form>
-            <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b;" href="    "
-               class="btn btn-danger "> <img style="width:25px;height:25px; color:"
-                                             src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" alt=""> Thêm
-                Vào Giỏ
-            </a>
+                       href="#" onclick="addToCart (event, {{products.Product.id}}, '{{products.Product.name}}' , {{products.Product.price}} )"  class="btn btn-danger" >
 
-            <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b;" href="     "
-               class="btn btn-danger"> <img style="width:25px;height:25px; color:"
-                                            src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" alt=""> Mua
-                ngay
-            </a>
+                        <img
+                            style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
+                            src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
+                            alt=""> Thêm Vào Giỏ
+                    </a>
+<!--            {%endfor%}-->
+
 
 
             <hr>

@@ -78,11 +78,15 @@ def add_user(name, username, password, avatar, email, address, phone):
 
 
 
-def auth_user(username, password):
+def auth_user(username, password, role=Role.USER):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
 
     return Customer.query.filter(Customer.username.__eq__(username),
-                             Customer.password.__eq__(password)).first()
+                             Customer.password.__eq__(password),
+                                Customer.user_role.__eq__(role)).first()
+
+
+
 
 
 def load_product_by_id(id):

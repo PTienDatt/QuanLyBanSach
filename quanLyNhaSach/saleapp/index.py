@@ -1,15 +1,21 @@
 from itertools import product
+from statistics import quantiles
+
+import utils
+
 from saleapp import app, login, db
-from flask import render_template, request, redirect, abort
+from flask import render_template, request, redirect, abort, session, jsonify
 import dao
 from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user
 from saleapp import admin
-
 import cloudinary.uploader
 from saleapp.models import *
 import random
+from saleapp.utils import count_cart
 
+
+# Trang chu
 @app.route('/')
 def index():
     q = request.args.get("q")
@@ -18,41 +24,56 @@ def index():
     return render_template('index.html', products=products)
 
 
+# Xem chi tiet san pham
 @app.route('/products/<int:id>')
 def details(id):
     products = db.session.query(Product, Author).join(Author, Product.author_id == Author.id).filter(
         Product.id == id).first()
-    if product is None:
+    if products is None:
         abort(404)
     random_pages = random.randint(150, 500)
     return render_template('product-details.html', products=products, random_pages=random_pages)
 
-
-
-@app.route('/login', methods=['get', 'post'])
+#Login
+@app.route('/login', methods=['GET', 'POST'])
 def login_my_user():
+    err_msg = ""
     if current_user.is_authenticated:
         return redirect("/")
 
-    err_msg = None
-    if request.method.__eq__('POST'):
+    if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        user = dao.auth_user(username, password)
+        role = request.form.get('role')
+
+        user = None
+        if role == 'staff':
+            role = Role.STAFF
+            user = dao.auth_user(username, password, role=role)
+        elif role == 'admin':
+            role = Role.ADMIN
+            user = dao.auth_user(username, password, role=role)
+        else:
+            role = Role.USER
+            user = dao.auth_user(username, password, role=role)
+
         if user:
-            login_user(user)
-            return redirect('/')
+            login_user(user=user)
+            return redirect('/admin' if role in [Role.STAFF, Role.ADMIN] else '/')
         else:
             err_msg = "*Tài khoản hoặc mật khẩu không đúng!"
+
     return render_template('login.html', err_msg=err_msg)
 
 
-
+# Log.out
 @app.route('/logout', methods=['post'])
 def logout():
     logout_user()
     return redirect('/')
 
+
+# Dang ky
 @app.route('/register', methods=['get', 'post'])
 def register():
     err_msg = None
@@ -70,7 +91,8 @@ def register():
             if avatar:
                 res = cloudinary.uploader.upload(avatar)
                 avatar_path = res['secure_url']
-            dao.add_user(name=name, username=username, password=password, avatar=avatar_path, email=email, address=address, phone=phone)
+            dao.add_user(name=name, username=username, password=password, avatar=avatar_path, email=email,
+                         address=address, phone=phone)
             return redirect('/login')
         else:
             err_msg = "Mật khẩu không khớp!"
@@ -82,37 +104,54 @@ def register():
 def load_user(user_id):
     return dao.get_user_by_id(user_id)
 
-@app.route('/product/<int:product_id>')
-def product_detail(product_id):
-    product = dao.load_product_by_id(product_id)
-    return render_template('product-details.html', product=product)
 
-@app.route('/product/<int:id>')
-def gio_hang(id):
-    product = dao.load_product_by_id(id)
-    return render_template('GioHang.html', product =product)
+# @app.route('/product/<int:product_id>')
+# def product_detail(product_id):
+#     product = dao.load_product_by_id(product_id)
+#     return render_template('product-details.html', product=product)
 
 
-@app.route('/ThanhToan')
-def mua_hang():
-    return render_template('ThanhToan.html')
+# @app.route('/ThanhToan')
+# def mua_hang():
+#     return render_template('ThanhToan.html')
 
 
-# @app.route('/product/<int:id>')
-# def thanh_toan(id):
-#     thanhtoan = dao.load_product_by_id(id)
-#     return render_template('GioHang.html', thanhtoan=thanhtoan)
+# Cập nhật giỏ hàng
+@app.route('/api/add-cart', methods=['post'])
+def add_to_cart():
+    data = request.json
+    id = str(data.get('id'))
+    name = data.get('name')
+    price = data.get('price')
+
+    cart = session.get('cart')
+    if not cart:
+        cart = {}
+    if id in cart:
+        cart[id]['quantity'] = cart[id]['quantity'] + 1
+    else:
+        cart[id] = {'id': id, 'name': name, 'price': price, 'quantity': 1}
+    session['cart'] = cart
+
+    import utils
+    return jsonify(utils.count_cart(cart))
 
 
-@app.route('/GioHang')
-def gio_Hang():
-    return render_template('GioHang.html')
+@app.route('/cart')
+def cart():
+    return render_template('cart.html',stats=count_cart(session.get('cart')))
 
 
 @app.context_processor
 def common_attributes():
     return {
         "categories": dao.load_categories()
+    }
+
+@app.context_processor
+def comment_respone():
+    return {
+        "cart_stats": utils.count_cart(session.get('cart'))
     }
 
 

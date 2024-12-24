@@ -1,5 +1,5 @@
 from pydantic.v1 import BaseModel
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Boolean, Enum
 from sqlalchemy.orm import relationship
 from saleapp import app, db
 from abc import ABC, abstractmethod
@@ -12,6 +12,7 @@ from flask_login import UserMixin
 class Role(enum.Enum):
     ADMIN = "Admin"
     STAFF = "Staff"
+    USER = "User"
 
 
 class Payment_Method(enum.Enum):
@@ -27,6 +28,9 @@ class Customer(db.Model, UserMixin):  # Tạo bảng Customer
     email = Column(String(50), nullable=False)
     phone = Column(String(50), nullable=False)
     address = Column(String(255), nullable=False)
+
+    user_role = Column(Enum(Role), default=Role.USER)
+
     username = Column(String(50), unique=True, nullable=False)
     password = Column(String(50), nullable=False)
     avatar = Column(String(255), default='user.png')
@@ -146,38 +150,48 @@ def __tr__(self):
     return self.name
 
 
+
+
+
 if __name__ == "__main__":
     with app.app_context():
         # db.create_all()  # Create all table
         # db.drop_all()   # Drop all table
-        import json
+        # import json
+        #
+        # # Them du lieu vao bang Category tu file category.json
+        # with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\categories.json', 'r', encoding='utf-8') as file:
+        #     categories = json.load(file)
+        #     for cate in categories:
+        #         db.session.add(Category(**cate))
+        #     db.session.commit()
+        #
+        # # Them du lieu vao bang Author tu file authors.json
+        # with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\authors.json', 'r', encoding='utf-8') as file:
+        #     authors = json.load(file)
+        #     for author in authors:
+        #         db.session.add(Author(**author))
+        #     db.session.commit()
+        #
+        # # Them du lieu vao bang Product tu file products.json
+        # with app.app_context():
+        #     with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\products.json', 'r',
+        #               encoding='utf-8') as file:
+        #         products = json.load(file)
+        #         for p in products:
+        #             prod = Product(
+        #                 name=p['name'].strip(),
+        #                 price=float(p['giaCu'].replace('.', '').replace('đ', '').strip()),
+        #                 image=p['image'].strip(),
+        #                 category_id=p['category_id'],
+        #                 author_id=p['author_id']
+        #             )
+        #             db.session.add(prod)
+        #         db.session.commit()
 
-        # Them du lieu vao bang Category tu file category.json
-        with open('C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\categories.json', 'r', encoding='utf-8') as file:
-            categories = json.load(file)
-            for cate in categories:
-                db.session.add(Category(**cate))
-            db.session.commit()
+        c = Customer(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='dat',
+                     password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.USER,
+                     avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png', is_active=1)
 
-        # Them du lieu vao bang Author tu file authors.json
-        with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\authors.json', 'r', encoding='utf-8') as file:
-            authors = json.load(file)
-            for author in authors:
-                db.session.add(Author(**author))
-            db.session.commit()
-
-        # Them du lieu vao bang Product tu file products.json
-        with app.app_context():
-            with open('C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\products.json', 'r',
-                      encoding='utf-8') as file:
-                products = json.load(file)
-                for p in products:
-                    prod = Product(
-                        name=p['name'].strip(),
-                        price=float(p['giaCu'].replace('.', '').replace('đ', '').strip()),
-                        image=p['image'].strip(),
-                        category_id=p['category_id'],
-                        author_id=p['author_id']
-                    )
-                    db.session.add(prod)
-                db.session.commit()
+        db.session.add(c)
+        db.session.commit()
