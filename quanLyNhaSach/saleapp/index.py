@@ -1,10 +1,9 @@
 from itertools import product
 from statistics import quantiles
-
 import utils
-
 from saleapp import app, login, db
 from flask import render_template, request, redirect, abort, session, jsonify
+from flask import render_template, request, redirect, abort, session
 import dao
 from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user
@@ -109,6 +108,7 @@ def load_user(user_id):
 # def product_detail(product_id):
 #     product = dao.load_product_by_id(product_id)
 #     return render_template('product-details.html', product=product)
+
 
 
 # @app.route('/ThanhToan')

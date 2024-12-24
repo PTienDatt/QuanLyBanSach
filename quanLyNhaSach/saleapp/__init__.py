@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from urllib.parse import quote
 from flask_login import LoginManager, current_user
 import secrets
-
+import cloudinary
 
 
 app = Flask(__name__)
@@ -15,6 +15,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 db = SQLAlchemy(app=app)
 login = LoginManager(app)
+
+cloudinary.config(
+    cloud_name='dulpttl26',
+    api_key='918116311519748',
+    api_secret='XrRTrrc0G5u823Ehmkzh8iuWVOU'
+)
 
 @app.template_filter('format_vnd') # Định dạng tiền tệ
 def format_vnd(value):

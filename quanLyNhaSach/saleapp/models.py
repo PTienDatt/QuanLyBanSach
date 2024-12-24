@@ -153,21 +153,21 @@ def __tr__(self):
 
 
 
-if __name__ == "__main__":
-    with app.app_context():
+# if __name__ == "__main__":
+#     with app.app_context():
         # db.create_all()  # Create all table
         # db.drop_all()   # Drop all table
         # import json
         #
         # # Them du lieu vao bang Category tu file category.json
-        # with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\categories.json', 'r', encoding='utf-8') as file:
+        # with open(r'D:\TienDat\HK1\CNPM\QuanLyBanSach\quanLyNhaSach\saleapp\data\categories.json', 'r', encoding='utf-8') as file:
         #     categories = json.load(file)
         #     for cate in categories:
         #         db.session.add(Category(**cate))
         #     db.session.commit()
         #
         # # Them du lieu vao bang Author tu file authors.json
-        # with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\authors.json', 'r', encoding='utf-8') as file:
+        # with open(r'D:\TienDat\HK1\CNPM\QuanLyBanSach\quanLyNhaSach\saleapp\data\authors.json', 'r', encoding='utf-8') as file:
         #     authors = json.load(file)
         #     for author in authors:
         #         db.session.add(Author(**author))
@@ -175,7 +175,7 @@ if __name__ == "__main__":
         #
         # # Them du lieu vao bang Product tu file products.json
         # with app.app_context():
-        #     with open(r'C:\QuanLyBanSach\quanLyNhaSach\saleapp\data\products.json', 'r',
+        #     with open(r'D:\TienDat\HK1\CNPM\QuanLyBanSach\quanLyNhaSach\saleapp\data\products.json', 'r',
         #               encoding='utf-8') as file:
         #         products = json.load(file)
         #         for p in products:
@@ -189,9 +189,9 @@ if __name__ == "__main__":
         #             db.session.add(prod)
         #         db.session.commit()
 
-        c = Customer(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='dat',
-                     password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.USER,
-                     avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png', is_active=1)
-
-        db.session.add(c)
-        db.session.commit()
+        # c = Customer(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='dat',
+        #              password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
+        #              avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png', is_active=1)
+        #
+        # db.session.add(c)
+        # db.session.commit()

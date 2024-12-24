@@ -71,15 +71,7 @@
 
 
                     <span class="card-text" style="color:#C92127; font-weight:; font-size:16px; font-weight:bold">
-                        {% if p.category_id == 10 or p.category_id == 16 or p.category == 17 %}
-                            {{ (p.price|float - p.price|float*0.2)|int|format_vnd }}đ
-                        {% elif p.category_id == 2 or p.category_id == 3 or p.category_id == 4 or p.category_id == 5 or p.category_id == 6 %}
-                            {{(p.price|float - p.price|float*0.15)|int|format_vnd }}đ
-                        {% elif p.category_id == 1 or p.category_id == 9 or p.category_id == 11 %}
-                            {{(p.price|float - p.price|float*0.12)|int|format_vnd }}đ
-                        {% else %}
-                            {{ (p.price|float - p.price|float*0.09)|int|format_vnd }}đ
-                        {% endif %}
+                        {{p.price|format_vnd}}đ
                 </span>
                     <span style="background-color:#C92127; color:white; margin-left:7px; padding: 2px 4px;
                     border-radius:0.5rem; font-size: 1em; font-weight: 600; ">
@@ -94,7 +86,18 @@
                         {% endif %}
                     </span>
                     <i style="margin-left:14px; font-size:14px; color:#999999 ">
-                        <del> {{p.price|int|format_vnd}}đ</del>
+                        <del>
+                            {% if p.category_id == 10 or p.category_id == 16 or p.category == 17 %}
+                            {{ (p.price|float + p.price|float*0.2)|int|format_vnd }}đ
+                        {% elif p.category_id == 2 or p.category_id == 3 or p.category_id == 4 or p.category_id == 5 or p.category_id == 6 %}
+                            {{(p.price|float + p.price|float*0.15)|int|format_vnd }}đ
+                        {% elif p.category_id == 1 or p.category_id == 9 or p.category_id == 11 %}
+                            {{(p.price|float + p.price|float*0.12)|int|format_vnd }}đ
+                        {% else %}
+                            {{ (p.price|float + p.price|float*0.09)|int|format_vnd }}đ
+                        {% endif %}
+                </span>
+                        </del>
                     </i>
                     <br>
                     <!--                    <span style=" font-size:15px; color:black;"> Đã bán: {{p.daban}}&ensp;&ensp;</span>-->
