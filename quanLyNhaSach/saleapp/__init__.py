@@ -1,10 +1,11 @@
-from flask import Flask
+import socketio
+from flask import Flask, render_template,session,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from urllib.parse import quote
 from flask_login import LoginManager, current_user
 import secrets
 import cloudinary
-
+import utils
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ app = Flask(__name__)
 app.secret_key = "project12345@@"
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:%s@localhost/quanlybansach?charset=utf8mb4" % quote('123456')
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+
+
 
 db = SQLAlchemy(app=app)
 login = LoginManager(app)

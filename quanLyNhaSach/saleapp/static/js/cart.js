@@ -93,7 +93,7 @@ function updateCart(id, object) {
 
         // Update "Thành tiền" for the specific product
         let productTotal = document.getElementById('product-total-' + id);
-        let productPrice = parseFloat(document.getElementById('product-price-' + id).innerText.replace(/[^0-9.-]+/g,""));
+        let productPrice = parseInt(document.getElementById('product-price-' + id).innerText.replace(/[^0-9]/g, ""));
         productTotal.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(productPrice * parseInt(object.value));
     });
 }

@@ -4,6 +4,8 @@
 
 {%block content%}
 
+
+
 <!--Thanh tiêu đề-->
 <div style=" background-color:white; height:55 px;   ">
     <a class="navbar-brand" href="/" style="font-size:30px; color:#ee4d2d ;display:inline-block;;"> <img
@@ -43,7 +45,7 @@
                    style="width:40%; padding-left:px;"  class="form-control">
         </div>
     </td>
-    <td id="product-total-{{ c.id }}" style="color:#ee4d2d;">{{ (c.price * c.quantity)|format_vnd }} <sup style="font-size:15px; margin-left:px;">đ</sup></td>
+    <td id="product-total-{{ c.id }}" style="color:#ee4d2d;">{{ (c.price * c.quantity)|int}} <sup style="font-size:15px; margin-left:px;">đ</sup></td>
     <td>
         <input class="btn btn-danger"
                value="Xóa"
