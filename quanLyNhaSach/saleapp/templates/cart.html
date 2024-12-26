@@ -22,24 +22,41 @@
             <th style="text-align:center">Mã sản phẩm</th>
             <th> Tên sản phẩm</th>
             <th>Đơn giá</th>
-            <th style="text-align:center">Số lượng</th>
-            <th> Thành tiền</th>
+            <th style="padding-left:px;">Số lượng</th>
+
+            <th > Thành tiền</th>
+            <th></th>
         </tr>
 
-        {%for c in session['cart'].values()%}
-        <tr>
-            <td style="text-align:center"> {{c.id}}</td>
-            <td>{{c.name}}</td>
-            <td >{{c.price|format_vnd}} <sup style="font-size:15px; margin-left:-5px;">đ</sup></td>
-            <td style="text-align:center">{{c.quantity}}</td>
-           <td style="color:#ee4d2d;">{{ (c.price * c.quantity)|format_vnd }} <sup style="font-size:15px; margin-left:-5px;">đ</sup></td>
-        </tr>
-        {%endfor%}
+       {% for c in session['cart'].values() %}
+<tr id="product{{ c.id }}">
+    <td style="text-align:center"> {{ c.id }}</td>
+    <td>{{ c.name }}</td>
+    <td id="product-price-{{ c.id }}">{{ c.price|format_vnd }} <sup style="font-size:15px; margin-left:-5px;">đ</sup></td>
+
+    <td style="padding-left:px;" width="20%;">
+        <div class="form-group">
+            <input type="number"
+                   min="1"
+                   onblur="updateCart({{ c.id }}, this)"
+                   value="{{ c.quantity }}"
+                   style="width:40%; padding-left:px;"  class="form-control">
+        </div>
+    </td>
+    <td id="product-total-{{ c.id }}" style="color:#ee4d2d;">{{ (c.price * c.quantity)|format_vnd }} <sup style="font-size:15px; margin-left:px;">đ</sup></td>
+    <td>
+        <input class="btn btn-danger"
+               value="Xóa"
+               onclick="deleteCart({{ c.id }})"
+               type="button">
+    </td>
+</tr>
+{% endfor %}
     </table>
 
     <div class="alert alert-info">
-        <h5> Tổng sản phẩm : {{ stats.total_quantity}}</h5>
-        <h5> Tổng tiền: {{ "{:,.1f}".format(stats.total_amount) }} VND</h5>
+        <h5>  Tổng sản phẩm :  <span class="cart-counter"> {{ stats.total_quantity}}</span></h5>
+        <h5> Tổng tiền: <span id="total-amount">{{ "{:,.1f}".format(stats.total_amount) }} VND  </span></h5>
     </div>
 
 

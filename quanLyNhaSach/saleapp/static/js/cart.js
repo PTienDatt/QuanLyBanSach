@@ -19,7 +19,10 @@ function addToCart(event, id, name, price) {
     }).then(function(data) {
         console.info(data);
 
-        let counter = document.getElementById('cartCounter');
+        let counter = document.getElementsByClassName('cart-counter')
+        for(let i = 0; i < counter.length; i++) {
+            counter[i].innerText = data.total_quantity;
+        }
         counter.innerText = data.total_quantity;
     }).catch(function(error) {
         console.error('Error:', error);
@@ -48,10 +51,73 @@ function pay() {
 }
 
 
-// Hàm cuộn chuột
+//function updateCart( id, object) {
+//   fetch('/api/update-cart', {
+//        method: 'put',
+//        body: JSON.stringify({
+//        'id': id,
+//        'quantity': parseInt(object.value)
+//        }),
+//        headers: {
+//            'Content-Type': 'application/json',
+//        }
+//        }).then(res => res.json()). then(data => {
+//         let counter = document.getElementsByClassName('cart-counter')
+//        for(let i = 0; i < counter.length; i++) {
+//            counter[i].innerText = data.total_quantity;
+//        }
+//
+//        let amount = document.getElementById('total-amount');
+//        amount.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data.total_amount);
+//        })
+//        }
 
+function updateCart(id, object) {
+    fetch('/api/update-cart', {
+        method: 'put',
+        body: JSON.stringify({
+            'id': id,
+            'quantity': parseInt(object.value)
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then(res => res.json()).then(data => {
+        let counter = document.getElementsByClassName('cart-counter');
+        for (let i = 0; i < counter.length; i++) {
+            counter[i].innerText = data.total_quantity;
+        }
 
+        let amount = document.getElementById('total-amount');
+        amount.innerText = new Intl.NumberFormat('vi-VN', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(data.total_amount);
 
+        // Update "Thành tiền" for the specific product
+        let productTotal = document.getElementById('product-total-' + id);
+        let productPrice = parseFloat(document.getElementById('product-price-' + id).innerText.replace(/[^0-9.-]+/g,""));
+        productTotal.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(productPrice * parseInt(object.value));
+    });
+}
+
+function deleteCart(id) {
+    if (confirm("Bạn chắc chắn muốn xóa sản phẩm này không ??") == true){
+    fetch('/api/delete-cart/' +id, {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        }).then(res => res.json()). then(data => {
+         let counter = document.getElementsByClassName('cart-counter')
+        for(let i = 0; i < counter.length; i++) {
+            counter[i].innerText = data.total_quantity;
+        }
+
+        let amount = document.getElementById('total-amount');
+        amount.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data.total_amount);
+        let e = document.getElementById('product'+id)
+        e.style.display = 'none';
+        })
+    }
+    }
 
 
 

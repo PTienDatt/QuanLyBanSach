@@ -142,6 +142,29 @@ def pay():
         return jsonify({'code': 400})
     return jsonify({'code': 200})
 
+# Update số lượng sản phẩm trong giỏ hàng
+@app.route('/api/update-cart', methods=['put'])
+def update_cart():
+    data = request.json
+    id = str(data.get('id'))
+    quantity = data.get('quantity')
+    cart = session.get('cart')
+    if cart and id in cart:
+        cart[id]['quantity'] = quantity
+        session['cart'] = cart
+    return jsonify(utils.count_cart(cart))
+
+# Xóa sản phẩm trong giỏ hàng
+@app.route('/api/delete-cart/<product_id>', methods=['delete'])
+def delete_cart(product_id):
+    cart = session.get('cart')
+    if cart and product_id in cart:
+        del cart[product_id]
+        session['cart'] = cart
+
+    return jsonify(utils.count_cart(cart))
+
+
 
 @app.context_processor
 def common_attributes():
