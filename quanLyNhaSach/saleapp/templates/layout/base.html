@@ -11,6 +11,8 @@
     <script src="{{url_for('static',filename='js/cart.js')  }}"></script>
 
     <title>{%block title%} Trang chủ {%endblock%}</title>
+    {%block js %} {%endblock%}
+    {%block css %} {%endblock%}
 
 
     <style type="text/css">
@@ -97,6 +99,9 @@
 {%block footer%}
 {%include 'layout/footer.html'%}
 {%endblock%}
+
+{%block body %}
+{% endblock %}
 </body>
 
 </html>

@@ -3,40 +3,36 @@
 
 
 {%block content%}
+
+<!--Thanh tiêu đề-->
 <div style=" background-color:white; height:55 px;   ">
     <a class="navbar-brand" href="/" style="font-size:30px; color:#ee4d2d ;display:inline-block;;"> <img
             style="width:55px; height:55px; margin-left:20px;"
             src="https://cdn-icons-png.flaticon.com/128/5832/5832416.png"> BookStore </a>
-
     <div style="width:1.5px; height:35px; background-color: #ee4d2d ; margin-bottom:-5px; display:inline-block;"></div>
     <div style="display:inline-block; font-size:22px;color:#ee4d2d ; margin-left:15px; "> Giỏ Hàng</div>
 
 </div>
-<!--<div style=" background-color:white; color:#888888; margin-top:5px;">-->
-<!--    <p style="display:inline-block; margin-left:50px; margin-top:15px;"> Sản Phẩm</p>-->
-<!--    <p style="display:inline-block; margin-left:110px; margin-top:15px;"> Tên Sản Phẩm</p>-->
-<!--    <p style="display:inline-block; margin-left:270px;"> Đơn giá</p>-->
-<!--    <p style="display:inline-block;margin-left:110px;"> Số lượng</p>-->
-<!--    <p style="display:inline-block; margin-left:85px;"> Thành Tiền</p>-->
-<!--    <p style="display:inline-block;margin-left:100px;"> Thao tác</p>-->
-<!--</div>-->
 
+<!--Tạo bảng giỏ hàng-->
 <div style="height:100%; margin-top:2px;background-color:white; color:#888888; ">
     {%if 'cart' in session and session['cart']%}
     <table class="table">
-        <tr>
-            <th>Mã sản phẩm</th>
+        <tr style="background:">
+            <th style="text-align:center">Mã sản phẩm</th>
             <th> Tên sản phẩm</th>
             <th>Đơn giá</th>
-            <th>Số lượng</th>
+            <th style="text-align:center">Số lượng</th>
+            <th> Thành tiền</th>
         </tr>
 
         {%for c in session['cart'].values()%}
         <tr>
-            <td> {{c.id}}</td>
+            <td style="text-align:center"> {{c.id}}</td>
             <td>{{c.name}}</td>
-            <td>{{c.price|format_vnd}}đ</td>
-            <td>{{c.quantity}}</td>
+            <td >{{c.price|format_vnd}} <sup style="font-size:15px; margin-left:-5px;">đ</sup></td>
+            <td style="text-align:center">{{c.quantity}}</td>
+           <td style="color:#ee4d2d;">{{ (c.price * c.quantity)|format_vnd }} <sup style="font-size:15px; margin-left:-5px;">đ</sup></td>
         </tr>
         {%endfor%}
     </table>
@@ -46,15 +42,46 @@
         <h5> Tổng tiền: {{ "{:,.1f}".format(stats.total_amount) }} VND</h5>
     </div>
 
+
+
+<!--    Phần nút thanh toán-->
+    {% if current_user.is_authenticated %}
+    <div style="display: flex; justify-content: flex-end; background-color: white; padding: 10px;">
+        <input
+                style="display: inline-block;
+          font-size:23px;  width:200px;  background-color:rgb(238, 77, 45);  color:white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border: 2px solid red;
+          border-radius: 5px;
+          text-align: center;" class="btn btn-danger" type="button" onclick="pay()" value=" Thanh toán">
+    </div>
+
+    {% else %}
+
+<!--    Nút đăng nhập để thanh toán-->
+    <div style="display: flex; justify-content: flex-end; background-color: white; padding: 10px;">
+        <a href="{{url_for('login_my_user',next='cart')}}"
+           style="display: inline-block;
+          padding: 10px 20px;
+          color: #ff0000;
+          text-decoration: none;
+          border: 2px solid red;
+          background-color: #ffcccc; /* Màu đỏ nhạt */
+          font-size: 16px;
+          border-radius: 5px;
+          text-align: center;"
+        > Login to pay</a>
+    </div>
+
+
+<!--    Thanh toán xong trang sẽ rỗng-->
+    {% endif %}
     {%else%}
-    <p>Không có sản phẩm nào trong giỏ hàng</p>
+    <p> Không có sản phẩm nào trong giỏ hàng</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     {%endif%}
 
-    <a style="margin:100px 10px 10px 10px; margin-left:1050px; font-size:23px;  width:200px;  background-color:rgb(238, 77, 45);  color:white;"
-       href="/ThanhToan"
-       class="btn "> <img style="width:45px;height:45px; margin-top:px; "
-                          src="https://cdn-icons-png.flaticon.com/128/9590/9590121.png" alt=""> Mua hàng
-    </a>
 
 </div>
 

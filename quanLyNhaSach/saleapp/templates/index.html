@@ -4,6 +4,31 @@
 
 <div style="padding:1em; border-radius:1rem;">
 
+<!--    Hình home cuộn trang lên-->
+    <img
+            src="https://cdn-icons-png.flaticon.com/128/15527/15527317.png"
+            alt="Scroll to Top"
+            id="scrollToTop"
+            style="
+          position: fixed;
+          bottom: 300px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.2)'"
+            onmouseout="this.style.transform='scale(1)'">
+
+    <script>
+        document.getElementById("scrollToTop").addEventListener("click", function() {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+    </script>
+
 
     <div class="bangon">
         <!-- Cột lớn -->
@@ -55,8 +80,6 @@
                      alt="Card image">
                 <div class="card-body ">
 
-                    <!--                    <img style="width:30%;margin-bottom:5px; border-radius:5rem; margin-top:-560px; margin-left:-14px; transform: rotate(30deg);"-->
-                    <!--                         src="https://cdn-icons-png.flaticon.com/128/18377/18377698.png" alt="">-->
                     <br>
                     <img style="width:60%;margin-bottom:1px; border-radius:0.3rem; margin-top:"
                          src="https://img.ws.mms.shopee.vn/vn-11134210-7qukw-lh7bshlcfd9v86" alt="">
@@ -89,14 +112,15 @@
                         <del>
                             {% if p.category_id == 10 or p.category_id == 16 or p.category == 17 %}
                             {{ (p.price|float + p.price|float*0.2)|int|format_vnd }}đ
-                        {% elif p.category_id == 2 or p.category_id == 3 or p.category_id == 4 or p.category_id == 5 or p.category_id == 6 %}
+                            {% elif p.category_id == 2 or p.category_id == 3 or p.category_id == 4 or p.category_id == 5
+                            or p.category_id == 6 %}
                             {{(p.price|float + p.price|float*0.15)|int|format_vnd }}đ
-                        {% elif p.category_id == 1 or p.category_id == 9 or p.category_id == 11 %}
+                            {% elif p.category_id == 1 or p.category_id == 9 or p.category_id == 11 %}
                             {{(p.price|float + p.price|float*0.12)|int|format_vnd }}đ
-                        {% else %}
+                            {% else %}
                             {{ (p.price|float + p.price|float*0.09)|int|format_vnd }}đ
-                        {% endif %}
-                </span>
+                            {% endif %}
+                            </span>
                         </del>
                     </i>
                     <br>
@@ -118,11 +142,12 @@
                     <i class="fa-regular fa-magnifying-glass"> </i>
 
                     <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:14px;"
-                       href="#" onclick="addToCart (event, {{p.id}}, '{{p.name}}' , {{p.price}} )"  class="btn btn-danger" >
+                       href="#" onclick="addToCart (event, {{p.id}}, '{{p.name}}' , {{p.price}} )"
+                       class="btn btn-danger">
                         <img
-                            style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
-                            src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
-                            alt=""> Thêm Vào Giỏ
+                                style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
+                                src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
+                                alt=""> Thêm Vào Giỏ
                     </a>
                 </div>
 
