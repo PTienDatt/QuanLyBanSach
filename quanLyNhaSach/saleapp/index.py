@@ -2,17 +2,14 @@ from itertools import product
 from statistics import quantiles
 import utils
 from saleapp import app, login, db
-from flask import render_template, request, redirect, abort, session, jsonify, url_for
-from flask import render_template, request, redirect, abort, session
+from flask import render_template, request, redirect, abort, session, jsonify
 import dao
-from flask import Flask, request, jsonify
 from flask_login import login_user, logout_user, current_user, login_required
 from saleapp import admin
 import cloudinary.uploader
 from saleapp.models import *
 import random
 from saleapp.utils import count_cart
-
 
 
 # Trang chu

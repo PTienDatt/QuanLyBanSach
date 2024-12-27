@@ -70,9 +70,7 @@ admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4',
 # admin.add_view(ModelView(Category, db.session, name="Danh mục"))
 # admin.add_view(ProductAdminView(Product, db.session, name="Sản phẩm"))
 admin.add_view(StatsView(name='Thống kê'))
-admin.add_view(LogoutView(name='Đăng xuất'))
-
-# admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4')
-
+# admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4')   b
 admin.add_view(ModelView(Category, db.session))
 admin.add_view(ProductAdminView(Product, db.session))
+admin.add_view(LogoutView(name='Đăng xuất'))

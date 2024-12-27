@@ -5,7 +5,7 @@ from urllib.parse import quote
 from flask_login import LoginManager, current_user
 import secrets
 import cloudinary
-import utils
+
 
 app = Flask(__name__)
 

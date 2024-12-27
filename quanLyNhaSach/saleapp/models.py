@@ -1,12 +1,12 @@
-from pydantic.v1 import BaseModel
+# saleapp/models.py
+import hashlib
+
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Boolean, Enum
 from sqlalchemy.orm import relationship
-from saleapp import app, db
-from abc import ABC, abstractmethod
+from flask_login import UserMixin
 import enum
 from datetime import datetime
-import hashlib
-from flask_login import UserMixin
+from saleapp import db, app
 
 
 class Role(enum.Enum):

@@ -38,52 +38,49 @@ def category_stats():
 
 
 # Hàm thống kê số lượng sản phẩm theo ngày tháng và từ khoa tìm kiếm
-# def product_stats(kw=None, from_date=None, to_date=None):
-#     p = db.session.query(Product.id, Product.name,
-#                          func.sum(ReceiptDetail.quantity * ReceiptDetail.price)) \
-#         .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id) , isouter=True) \
-#         .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id))\
-#         .group_by(Product.id, Product.name)
-#     if kw:
-#         p= p.filter(Product.name.contains(kw))
-#     if from_date:
-#         p = p.filter(Receipt.create_date.__ge__(from_date))
-#     if to_date:
-#         p = p.filter(Receipt.create_date.__le__(to_date))
-#
-#     return p.all()
-
-
 
 def product_stats(kw=None, from_date=None, to_date=None):
-    p = db.session.query(Product.id, Product.name,
-                         func.sum(ReceiptDetail.quantity * ReceiptDetail.price),
+    total_quantity = db.session.query(func.sum(ReceiptDetail.quantity)).scalar()
 
-                         func.sum(ReceiptDetail.quantity),
-                         func.avg(ReceiptDetail.price)
-                         ) \
-        .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True)\
-        .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id)) \
-        .group_by(Product.id, Product.name)
+    p = db.session.query(
+        Product.id,
+        Product.name,
+        func.sum(ReceiptDetail.quantity * ReceiptDetail.price),
+        func.sum(ReceiptDetail.quantity),
+        func.avg(ReceiptDetail.price),
+        Category.name,
+        (func.sum(ReceiptDetail.quantity * ReceiptDetail.price) / total_quantity * 100).label('category_ratio'),
+        (func.sum(ReceiptDetail.quantity) / total_quantity * 100).label('book_sales_ratio'),
+        (func.sum(ReceiptDetail.quantity) / total_quantity * 100).label('quantity_ratio')
+    ) \
+    .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True) \
+    .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id)) \
+    .join(Category, Category.id.__eq__(Product.category_id), isouter=True) \
+    .group_by(Product.id, Product.name, Category.name)
 
     if kw:
         p = p.filter(Product.name.contains(kw))
 
-    if from_date:
-        try:
-            from_date = datetime.strptime(from_date, '%Y-%m-%d')
-            p = p.filter(Receipt.create_date >= from_date)
-        except ValueError:
-            print("Invalid from_date format. Use YYYY-MM-DD.")
-
-    if to_date:
-        try:
-            to_date = datetime.strptime(to_date, '%Y-%m-%d')
-            p = p.filter(Receipt.create_date <= to_date)
-        except ValueError:
-            print("Invalid to_date format. Use YYYY-MM-DD.")
-
     return p.all()
+
+    # if from_date:
+    #     try:
+    #         from_date = datetime.strptime(from_date, '%Y-%m-%d')
+    #         p = p.filter(Receipt.create_date >= from_date)
+    #     except ValueError:
+    #         print("Invalid from_date format. Use YYYY-MM-DD.")
+    #
+    # if to_date:
+    #     try:
+    #         to_date = datetime.strptime(to_date, '%Y-%m-%d')
+    #         p = p.filter(Receipt.create_date <= to_date)
+    #     except ValueError:
+    #         print("Invalid to_date format. Use YYYY-MM-DD.")
+
+
+
+
+
 
 # Hàm thống kê số lượng sản phẩm theo tháng
 def product_month_stats(year):

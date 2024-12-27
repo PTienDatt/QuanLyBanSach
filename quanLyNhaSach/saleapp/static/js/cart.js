@@ -50,28 +50,7 @@ function pay() {
     }
 }
 
-
-//function updateCart( id, object) {
-//   fetch('/api/update-cart', {
-//        method: 'put',
-//        body: JSON.stringify({
-//        'id': id,
-//        'quantity': parseInt(object.value)
-//        }),
-//        headers: {
-//            'Content-Type': 'application/json',
-//        }
-//        }).then(res => res.json()). then(data => {
-//         let counter = document.getElementsByClassName('cart-counter')
-//        for(let i = 0; i < counter.length; i++) {
-//            counter[i].innerText = data.total_quantity;
-//        }
-//
-//        let amount = document.getElementById('total-amount');
-//        amount.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data.total_amount);
-//        })
-//        }
-
+//hàm cập nhật giỏ hàng
 function updateCart(id, object) {
     fetch('/api/update-cart', {
         method: 'put',
@@ -98,6 +77,7 @@ function updateCart(id, object) {
     });
 }
 
+//hàm xóa sản phẩm trong giỏ hàng
 function deleteCart(id) {
     if (confirm("Bạn chắc chắn muốn xóa sản phẩm này không ??") == true){
     fetch('/api/delete-cart/' +id, {
@@ -110,7 +90,6 @@ function deleteCart(id) {
         for(let i = 0; i < counter.length; i++) {
             counter[i].innerText = data.total_quantity;
         }
-
         let amount = document.getElementById('total-amount');
         amount.innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data.total_amount);
         let e = document.getElementById('product'+id)
