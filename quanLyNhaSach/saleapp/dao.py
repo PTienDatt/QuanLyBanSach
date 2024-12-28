@@ -3,8 +3,8 @@ from flask import jsonify, request
 from itertools import product
 from saleapp import db
 from saleapp.models import *
-from fuzzywuzzy import process     # thư viện tìm kiêm lấy kết quả gần nhất
-from unidecode import unidecode    # thư viện tìm kếm ko cần bỏ dấu
+from fuzzywuzzy import process  # thư viện tìm kiêm lấy kết quả gần nhất
+from unidecode import unidecode  # thư viện tìm kếm ko cần bỏ dấu
 import hashlib
 
 
@@ -16,8 +16,6 @@ def load_categories():
 def load_categories2():
     with open('data/categories2.json', encoding='utf-8') as f:
         return json.load(f)
-
-
 
 
 def load_products(q=None, cate_id=None):
@@ -66,27 +64,44 @@ def load_products(q=None, cate_id=None):
 
     return products
 
+
 def add_user(name, username, password, avatar, email, address, phone):
     password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
     u = None
     if avatar:
-        u = Customer(name = name, username = username, password = password, avatar = avatar, email = email, address = address, phone = phone)
+        u = Customer(name=name, username=username, password=password, avatar=avatar, email=email, address=address,
+                     phone=phone)
     else:
-        u = Customer(name = name, username = username, password = password, email = email, address = address, phone = phone)
+        u = Customer(name=name, username=username, password=password, email=email, address=address, phone=phone)
     db.session.add(u)
     db.session.commit()
 
+def add_staff(name, username, password, avatar, email, address, phone, role):
+    password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
+    u = None
+    if avatar:
+        u = Staff(name=name, username=username, password=password, avatar=avatar, email=email, address=address,
+                     phone=phone, user_role=role)
+    else:
+        u = Staff(name=name, username=username, password=password, email=email, address=address, phone=phone, user_role=role)
+    db.session.add(u)
+    db.session.commit()
 
 
 def auth_user(username, password, role=Role.USER):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
 
     return Customer.query.filter(Customer.username.__eq__(username),
-                             Customer.password.__eq__(password),
-                                Customer.user_role.__eq__(role)).first()
+                                 Customer.password.__eq__(password),
+                                 Customer.user_role.__eq__(role)).first()
 
 
+def auth_staff(username, password, role):
+    password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
 
+    return Staff.query.filter(Staff.username.__eq__(username),
+                              Staff.password.__eq__(password),
+                              Staff.user_role.__eq__(role)).first()
 
 
 def load_product_by_id(id):
@@ -109,8 +124,11 @@ def load_product_by_id(id):
         }
     return None
 
-def get_user_by_id(Customer_id):
-    return Customer.query.get(Customer_id)
+
+def get_user_by_id(user_id):
+    user = Customer.query.get(user_id) or Staff.query.get(user_id)
+    return user
+
 
 if __name__ == "__main__":
     print(load_products())

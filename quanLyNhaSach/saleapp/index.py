@@ -47,15 +47,16 @@ def login_my_user():
         user = None
         if role == 'staff':
             role = Role.STAFF
-            user = dao.auth_user(username, password, role=role)
+            user = dao.auth_staff(username, password, role=role)
         elif role == 'admin':
             role = Role.ADMIN
-            user = dao.auth_user(username, password, role=role)
+            user = dao.auth_staff(username, password, role=role)
         else:
             role = Role.USER
             user = dao.auth_user(username, password, role=role)
         if user:
             login_user(user=user)
+            session.modified = True
 
             return redirect('/admin' if role in [Role.STAFF, Role.ADMIN] else '/')
         else:
@@ -68,6 +69,7 @@ def login_my_user():
 @app.route('/logout', methods=['post'])
 def logout():
     logout_user()
+    session.clear()
     return redirect('/')
 
 
