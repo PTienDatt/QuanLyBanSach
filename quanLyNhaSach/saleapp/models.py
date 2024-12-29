@@ -111,8 +111,10 @@ class Receipt(db.Model):  # Tạo bảng Receipt
     id = Column(Integer, primary_key=True, autoincrement=True)
     create_date = Column(db.DateTime, default=datetime.now())
     customer_id = Column(Integer, ForeignKey(Customer.id), nullable=False)
-    payment_method = Column(db.Enum(Payment_Method), default=Payment_Method.CASH)
-    shipping = Column(Boolean, default=False)
+    customer_phone = Column(String(50), nullable=False)
+    customer_address = Column(String(255), nullable=False)
+    delivery_method = Column(String(50), nullable=False)
+    payment_method = Column(Boolean, nullable=False)
     receipt_details = db.relationship('ReceiptDetail', backref='receipt', lazy=True)
 
 

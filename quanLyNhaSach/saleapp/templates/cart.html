@@ -67,14 +67,13 @@
     <!--    Phần nút thanh toán-->
     {% if current_user.is_authenticated %}
     <div style="display: flex; justify-content: flex-end; background-color: white; padding: 10px;">
-        <input
-                style="display: inline-block;
+        <button style="display: inline-block;
           font-size:23px;  width:200px;  background-color:rgb(238, 77, 45);  color:white;
           padding: 10px 20px;
           text-decoration: none;
           border: 2px solid red;
           border-radius: 5px;
-          text-align: center;" class="btn btn-danger" type="button" onclick="pay()" value=" Thanh toán">
+          text-align: center;" class="btn btn-success" onclick="window.location.href='/api/pay'">Thanh toán</button>
     </div>
 
     {% else %}

@@ -1,5 +1,6 @@
 from math import trunc
-from flask import redirect, flash
+from flask import redirect, flash, url_for
+from sqlalchemy.exc import SQLAlchemyError
 from urllib3 import request
 from saleapp.models import *
 from saleapp import db, app
@@ -131,6 +132,116 @@ class AddStaffView(BaseView):
         return self.render('admin/add_staff.html', err_msg=err_msg)
 
 
+class ImportBooksView(BaseView):
+    @expose('/', methods=['GET', 'POST'])
+    def import_books(self):
+        rule = ManageRule.query.first()
+        current_datetime = datetime.now()
+        db.session.refresh(rule)
+        if request.method == 'POST':
+            date_import = request.form.get('date_import', datetime.now().strftime('%Y-%m-%d'))
+            books = request.form.getlist('book')
+            categories = request.form.getlist('category')
+            authors = request.form.getlist('author')
+            quantities = request.form.getlist('quantity')
+            prices = request.form.getlist('price')  # Add this line to get prices
+            image = request.files.get('image')
+            errors = []
+            success = []
+
+            try:
+                import_receipt = ImportReceipt(date_import=date_import, staff_id=current_user.id)
+                db.session.add(import_receipt)
+
+                for book_name, category_name, author_name, quantity_str, price_str in zip(books, categories, authors, quantities, prices):
+                    try:
+                        quantity = int(quantity_str)
+                        price = float(price_str)  # Convert price to float
+
+                        # Kiểm tra số lượng nhập tối thiểu
+                        if quantity < rule.import_quantity_min:
+                            errors.append(
+                                f"Số lượng nhập cho sách '{book_name}' phải lớn hơn hoặc bằng {rule.import_quantity_min}!")
+                            continue
+
+                        # Lấy hoặc tạo Category
+                        category = Category.query.filter_by(name=category_name).first()
+                        if not category:
+                            category = Category(name=category_name)
+                            db.session.add(category)
+                            db.session.flush()  # Ensure the category ID is available
+
+                        # Lấy hoặc tạo Author
+                        author = Author.query.filter_by(name=author_name).first()
+                        if not author:
+                            author = Author(name=author_name)
+                            db.session.add(author)
+                            db.session.flush()  # Ensure the author ID is available
+
+                        # Lấy hoặc tạo Book
+                        book = Product.query.filter_by(name=book_name).first()
+                        if not book:
+                            if image:
+                                # Upload image to cloudinary
+                                res = cloudinary.uploader.upload(image)
+                                image_url = res['secure_url']
+                            else:
+                                image_url = None
+                            book = Product(name=book_name, category_id=category.id, author_id=author.id, quantity=0, price=price, image=image_url)
+                            db.session.add(book)
+                            db.session.flush()  # Ensure the book ID is available
+
+                        if book.quantity > 300:
+                            errors.append(
+                                f"Số lượng nhập sách '{book_name}' trong kho lớn hơn 300 cuốn! ")
+                            continue
+                        else:
+                            book.quantity += quantity  # Cập nhật số lượng tồn kho
+                            book.price = price  # Update the price
+
+                        # Tạo chi tiết hóa đơn nhập
+                        receipt_detail = ImportReceiptDetail(
+                            quantity=quantity,
+                            product_id=book.id,
+                            import_receipt=import_receipt
+                        )
+                        db.session.add(receipt_detail)
+
+                        success.append(f"Nhập thành công sách '{book_name}' với số lượng {quantity} và giá {price}!")
+
+                    except ValueError:
+                        errors.append(f"Số lượng '{quantity_str}' hoặc giá '{price_str}' không hợp lệ cho sách '{book_name}'!")
+                    except SQLAlchemyError as e:
+                        errors.append(f"Lỗi cơ sở dữ liệu khi nhập sách '{book_name}': {str(e)}")
+
+                # Commit toàn bộ thay đổi
+                db.session.commit()
+
+                if success:
+                    flash(" ".join(success), "success")
+                if errors:
+                    flash(" ".join(errors), "danger")
+
+            except SQLAlchemyError as e:
+                db.session.rollback()
+                flash(f"Lỗi khi tạo hóa đơn nhập: {str(e)}", "danger")
+
+            # Dùng class name hoặc route chính xác của view
+            return redirect(url_for('importbooksview.import_books'))
+
+        # Lấy dữ liệu sách
+        books = Product.query.all()
+        books_data = [{
+            "name": book.name,
+            "category": {"name": book.category.name},
+            "author": {"name": book.author.name}
+        } for book in books]
+
+        return self.render('admin/import_book.html', current_datetime=current_datetime, rule=rule, books=books, books_data=books_data)
+class MyCategoryView(ModelView):
+    column_list = ['name', 'book']
+
+
 admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4', index_view=MyAdminIndexView())
 # admin.add_view(ModelView(Category, db.session, name="Danh mục"))
 # admin.add_view(ProductAdminView(Product, db.session, name="Sản phẩm"))
@@ -140,4 +251,5 @@ admin.add_view(ModelView(Category, db.session))
 admin.add_view(ProductAdminView(Product, db.session))
 admin.add_view(ManageRuleView(name='Quy định'))
 admin.add_view(AddStaffView(name='Thêm nhân viên'))
+admin.add_view(ImportBooksView(name='Nhập sách'))
 admin.add_view(LogoutView(name='Đăng xuất'))

@@ -76,14 +76,16 @@ def add_user(name, username, password, avatar, email, address, phone):
     db.session.add(u)
     db.session.commit()
 
+
 def add_staff(name, username, password, avatar, email, address, phone, role):
     password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
     u = None
     if avatar:
         u = Staff(name=name, username=username, password=password, avatar=avatar, email=email, address=address,
-                     phone=phone, user_role=role)
+                  phone=phone, user_role=role)
     else:
-        u = Staff(name=name, username=username, password=password, email=email, address=address, phone=phone, user_role=role)
+        u = Staff(name=name, username=username, password=password, email=email, address=address, phone=phone,
+                  user_role=role)
     db.session.add(u)
     db.session.commit()
 
@@ -123,6 +125,19 @@ def load_product_by_id(id):
             "quantity": product.quantity
         }
     return None
+
+
+def add_receipt(cart, customer_phone, customer_address, payment_method, delivery_method):
+    if cart:
+        r = Receipt(customer_phone=customer_phone, customer_address=customer_address, Payment_Method=payment_method)
+        db.session.add(r)
+
+        for c in cart.values():
+            d = ReceiptDetail(quantity=c['quantity'], price=c['price'],
+                              product_id=c['id'], receipt_id=r.id)
+            db.session.add(d)
+
+        db.session.commit()
 
 
 def get_user_by_id(user_id):

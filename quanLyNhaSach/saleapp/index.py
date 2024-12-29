@@ -100,9 +100,6 @@ def register():
     return render_template('register.html', err_msg=err_msg)
 
 
-
-
-
 # Cập nhật giỏ hàng
 @app.route('/api/add-cart', methods=['post'])
 def add_to_cart():
@@ -131,15 +128,68 @@ def cart():
 
 
 # Thanh Toán
-@app.route('/api/pay', methods=['post'])
+@app.route("/api/pay", methods=['post', 'get'])
 @login_required
 def pay():
-    try:
-        utils.add_receipt(session.get('cart'))
-        del session['cart']
-    except:
-        return jsonify({'code': 400})
-    return jsonify({'code': 200})
+    if request.method.__eq__('POST'):
+        data = request.get_json()
+        cart = session.get('cart')
+        customer_phone = data.get('customer_phone')
+        customer_address = data.get('customer_address')
+        payment_method = data.get('payment_method') == 'Online'  # Chuyển thành boolean
+        delivery_method = data.get('delivery_method')
+        dao.add_receipt(cart, customer_phone, customer_address, payment_method, delivery_method)
+        return redirect('/')
+    # try:
+    #     dao.add_receipt(cart)
+    # except Exception as ex:
+    #     return jsonify({'status': 500, 'msg': str(ex)})
+    # else:
+    #     del session['cart']
+    #     return jsonify({'status': 200, 'msg': 'successful'})
+    return render_template('oder_book.html', user=current_user)
+
+
+@app.route('/api/order', methods=['POST'])
+def create_order():
+    data = request.get_json()
+
+    user_id = current_user.id
+    customer_phone = data.get('customer_phone')
+    customer_address = data.get('customer_address')
+    payment_method = data.get('payment_method') == 'Online'  # Chuyển thành boolean
+    delivery_method = data.get('delivery_method')
+    book_orders = data.get('book_orders')
+    # Tính tổng tiền đơn hàng
+    receipt_details = []
+
+    for book_order in book_orders:
+        book_id = book_order.get('book_id')
+        quantity = book_order.get('quantity')
+
+        book = Product.query.get(book_id)
+        if not book:
+            return jsonify({"message": f"Sách với ID {book_id} không tồn tại!"}), 400
+
+        receipt_detail = ReceiptDetail(quantity=quantity, price=book.price, product_id=book.id)
+        receipt_details.append(receipt_detail)
+
+    # Tạo thời gian hết hạn (48 giờ sau khi đặt hàng)
+
+    new_receipt = Receipt(
+        customer_phone=customer_phone,
+        customer_address=customer_address,
+        payment_method=payment_method,
+        delivery_method=delivery_method,
+        customer_id=user_id,
+        receipt_details=receipt_details
+    )
+
+    db.session.add(new_receipt)
+    db.session.commit()
+
+    return jsonify({"message": "Đặt sách thành công!"}), 200
+
 
 # Update số lượng sản phẩm trong giỏ hàng
 @app.route('/api/update-cart', methods=['put'])
@@ -153,6 +203,7 @@ def update_cart():
         session['cart'] = cart
     return jsonify(utils.count_cart(cart))
 
+
 # Xóa sản phẩm trong giỏ hàng
 @app.route('/api/delete-cart/<product_id>', methods=['delete'])
 def delete_cart(product_id):
@@ -162,7 +213,6 @@ def delete_cart(product_id):
         session['cart'] = cart
 
     return jsonify(utils.count_cart(cart))
-
 
 
 @app.context_processor
@@ -175,6 +225,7 @@ def common_attributes():
 @login.user_loader
 def load_user(user_id):
     return dao.get_user_by_id(user_id)
+
 
 @app.context_processor
 def comment_respone():
