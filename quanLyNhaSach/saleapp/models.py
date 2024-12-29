@@ -98,7 +98,7 @@ class Product(db.Model):  # Tạo bảng Product
     # active= Column(Boolean, default=True)
     category_id = Column(Integer, ForeignKey(Category.id), nullable=False)
     author_id = Column(Integer, ForeignKey(Author.id), nullable=False)
-    quantity = Column(Integer, default=0)
+    quantity = Column(Integer, default=200)
 
     receipt_details = db.relationship('ReceiptDetail', backref='product', lazy=True)
 
@@ -109,7 +109,7 @@ class Product(db.Model):  # Tạo bảng Product
 class Receipt(db.Model):  # Tạo bảng Receipt
     __tablename__ = 'Receipt'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    create_date = Column(db.DateTime, default=datetime.now())
+    create_date = Column(db.DateTime, default=datetime.utcnow())
     customer_id = Column(Integer, ForeignKey(Customer.id), nullable=False)
     customer_phone = Column(String(50), nullable=False)
     customer_address = Column(String(255), nullable=False)
@@ -227,5 +227,8 @@ if __name__ == "__main__":
                   password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
                   avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
 
-        db.session.add(c)
+        s = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff',
+                  password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
+                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        db.session.add(s,c)
         db.session.commit()

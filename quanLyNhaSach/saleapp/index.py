@@ -31,6 +31,62 @@ def details(id):
     random_pages = random.randint(150, 500)
     return render_template('product-details.html', products=products, random_pages=random_pages)
 
+@app.route('/api/books', methods=['GET'])
+def get_books():
+    books = Product.query.all()
+    book_list = [{
+        "id": book.id,
+        "name": book.name,
+        "category": book.category.name,
+        "price": book.price
+    } for book in books]
+    return jsonify(book_list)
+
+@app.route('/import_bill', methods=['POST'])
+def import_bill():
+    try:
+        data = request.json
+        customer_name = data.get("customerName")
+        invoice_date = data.get("invoiceDate")
+        staff_name = data.get("staffName")
+        details = data.get("details")  # Dạng JSON chứa danh sách sách
+
+        # Tạo một hóa đơn mới
+        date_sale = datetime.now()
+        new_bill = SaleBook(
+            customer_name=customer_name,
+            created_date=date_sale,
+            staff_id=current_user.id # Thay ID nhân viên xử lý hóa đơn tại đây
+        )
+        db.session.add(new_bill)
+        db.session.flush()  # Đảm bảo `new_bill` có ID để dùng ở bước tiếp theo
+
+        # Thêm chi tiết hóa đơn
+        for detail in details:
+            book = Product.query.get(detail.get("bookId"))
+            if not book or book.quantity < int(detail.get("quantity")):
+                return jsonify({"message": f"Sách {book.name if book else 'không xác định'} không đủ số lượng"}), 400
+
+            book.quantity -= int(detail.get("quantity"))  # Cập nhật tồn kho
+            db.session.add(book)
+
+            bill_detail = SaleBookDetail(
+                sale_book_id=new_bill.id,
+                product_id=detail.get("bookId"),
+                quantity=int(detail.get("quantity")),
+                price=book.price
+            )
+            db.session.add(bill_detail)
+
+        # Lưu thay đổi
+        db.session.commit()
+
+        return jsonify({"message": "Hóa đơn được lưu thành công!"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
+
+
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -58,7 +114,7 @@ def login_my_user():
             login_user(user=user)
             session.modified = True
 
-            return redirect('/admin' if role in [Role.STAFF, Role.ADMIN] else '/')
+            return redirect('/admin' if role in [Role.ADMIN] else '/staff' if role in [Role.STAFF] else '/')
         else:
             err_msg = "*Tài khoản hoặc mật khẩu không đúng!"
 
@@ -176,12 +232,14 @@ def create_order():
 
     # Tạo thời gian hết hạn (48 giờ sau khi đặt hàng)
 
+    order_date = datetime.now()
     new_receipt = Receipt(
         customer_phone=customer_phone,
         customer_address=customer_address,
         payment_method=payment_method,
         delivery_method=delivery_method,
         customer_id=user_id,
+        create_date=order_date,
         receipt_details=receipt_details
     )
 
@@ -233,6 +291,9 @@ def comment_respone():
         "cart_stats": utils.count_cart(session.get('cart'))
     }
 
+@app.route('/staff' ,methods=['GET', 'POST'])
+def staff():
+    return render_template('staff.html' )
 
 if __name__ == "__main__":
     with app.app_context():

@@ -132,6 +132,14 @@ class AddStaffView(BaseView):
         return self.render('admin/add_staff.html', err_msg=err_msg)
 
 
+from flask import flash, redirect, url_for
+from sqlalchemy.exc import SQLAlchemyError
+from datetime import datetime
+import cloudinary.uploader
+from saleapp import db
+from saleapp.models import Product, Category, Author, ImportReceipt, ImportReceiptDetail
+from flask_login import current_user
+
 class ImportBooksView(BaseView):
     @expose('/', methods=['GET', 'POST'])
     def import_books(self):
@@ -144,67 +152,58 @@ class ImportBooksView(BaseView):
             categories = request.form.getlist('category')
             authors = request.form.getlist('author')
             quantities = request.form.getlist('quantity')
-            prices = request.form.getlist('price')  # Add this line to get prices
+            prices = request.form.getlist('price')
             image = request.files.get('image')
             errors = []
             success = []
 
             try:
-                import_receipt = ImportReceipt(date_import=date_import, staff_id=current_user.id)
+                date_imp = datetime.now()
+                import_receipt = ImportReceipt(date_import=date_imp, staff_id=current_user.id)
                 db.session.add(import_receipt)
 
                 for book_name, category_name, author_name, quantity_str, price_str in zip(books, categories, authors, quantities, prices):
                     try:
                         quantity = int(quantity_str)
-                        price = float(price_str)  # Convert price to float
+                        price = float(price_str) if price_str else None  # Convert price to float if not empty
 
-                        # Kiểm tra số lượng nhập tối thiểu
                         if quantity < rule.import_quantity_min:
-                            errors.append(
-                                f"Số lượng nhập cho sách '{book_name}' phải lớn hơn hoặc bằng {rule.import_quantity_min}!")
+                            errors.append(f"Số lượng nhập cho sách '{book_name}' phải lớn hơn hoặc bằng {rule.import_quantity_min}!")
                             continue
 
-                        # Lấy hoặc tạo Category
                         category = Category.query.filter_by(name=category_name).first()
                         if not category:
                             category = Category(name=category_name)
                             db.session.add(category)
-                            db.session.flush()  # Ensure the category ID is available
+                            db.session.flush()
 
-                        # Lấy hoặc tạo Author
                         author = Author.query.filter_by(name=author_name).first()
                         if not author:
                             author = Author(name=author_name)
                             db.session.add(author)
-                            db.session.flush()  # Ensure the author ID is available
+                            db.session.flush()
 
-                        # Lấy hoặc tạo Book
                         book = Product.query.filter_by(name=book_name).first()
                         if not book:
                             if image:
-                                # Upload image to cloudinary
                                 res = cloudinary.uploader.upload(image)
                                 image_url = res['secure_url']
                             else:
                                 image_url = None
                             book = Product(name=book_name, category_id=category.id, author_id=author.id, quantity=0, price=price, image=image_url)
                             db.session.add(book)
-                            db.session.flush()  # Ensure the book ID is available
+                            db.session.flush()
 
                         if book.quantity > 300:
-                            errors.append(
-                                f"Số lượng nhập sách '{book_name}' trong kho lớn hơn 300 cuốn! ")
+                            errors.append(f"Số lượng nhập sách '{book_name}' trong kho lớn hơn 300 cuốn!")
                             continue
                         else:
-                            book.quantity += quantity  # Cập nhật số lượng tồn kho
-                            book.price = price  # Update the price
+                            book.quantity += quantity
+                            if price is not None:
+                                book.price = price
 
-                        # Tạo chi tiết hóa đơn nhập
-                        receipt_detail = ImportReceiptDetail(
-                            quantity=quantity,
-                            product_id=book.id,
-                            import_receipt=import_receipt
-                        )
+
+                        receipt_detail = ImportReceiptDetail(quantity=quantity, product_id=book.id, import_receipt=import_receipt)
                         db.session.add(receipt_detail)
 
                         success.append(f"Nhập thành công sách '{book_name}' với số lượng {quantity} và giá {price}!")
@@ -214,7 +213,6 @@ class ImportBooksView(BaseView):
                     except SQLAlchemyError as e:
                         errors.append(f"Lỗi cơ sở dữ liệu khi nhập sách '{book_name}': {str(e)}")
 
-                # Commit toàn bộ thay đổi
                 db.session.commit()
 
                 if success:
@@ -226,10 +224,8 @@ class ImportBooksView(BaseView):
                 db.session.rollback()
                 flash(f"Lỗi khi tạo hóa đơn nhập: {str(e)}", "danger")
 
-            # Dùng class name hoặc route chính xác của view
             return redirect(url_for('importbooksview.import_books'))
 
-        # Lấy dữ liệu sách
         books = Product.query.all()
         books_data = [{
             "name": book.name,
@@ -238,6 +234,18 @@ class ImportBooksView(BaseView):
         } for book in books]
 
         return self.render('admin/import_book.html', current_datetime=current_datetime, rule=rule, books=books, books_data=books_data)
+class UserView(ModelView):
+    column_list = ['name','username','user_role']
+    column_searchable_list = ['name', 'user_role']
+    can_view_details = True
+    can_export = True
+    column_labels = {
+        'name': 'Tên',
+        'username': 'Tên tài khoản',
+        'user_role':'Quyền'
+    }
+
+
 class MyCategoryView(ModelView):
     column_list = ['name', 'book']
 
@@ -250,6 +258,7 @@ admin.add_view(StatsView(name='Thống kê'))
 admin.add_view(ModelView(Category, db.session))
 admin.add_view(ProductAdminView(Product, db.session))
 admin.add_view(ManageRuleView(name='Quy định'))
+admin.add_view(UserView(Staff, db.session))
 admin.add_view(AddStaffView(name='Thêm nhân viên'))
 admin.add_view(ImportBooksView(name='Nhập sách'))
 admin.add_view(LogoutView(name='Đăng xuất'))
