@@ -206,6 +206,7 @@ def pay():
     return render_template('oder_book.html', user=current_user)
 
 
+# Nhap thong tin đơn hàng
 @app.route('/api/order', methods=['POST'])
 def create_order():
     data = request.get_json()
@@ -246,7 +247,11 @@ def create_order():
     db.session.add(new_receipt)
     db.session.commit()
 
+    session.clear()
     return jsonify({"message": "Đặt sách thành công!"}), 200
+
+
+
 
 
 # Update số lượng sản phẩm trong giỏ hàng
@@ -260,6 +265,7 @@ def update_cart():
         cart[id]['quantity'] = quantity
         session['cart'] = cart
     return jsonify(utils.count_cart(cart))
+
 
 
 # Xóa sản phẩm trong giỏ hàng
