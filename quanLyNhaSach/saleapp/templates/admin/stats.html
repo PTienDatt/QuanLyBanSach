@@ -1,157 +1,111 @@
-{% extends 'admin/master.html' %}
+{% extends 'admin/base.html' %}
+
 
 {% block body %}
-<h1 class="text-danger text-center mt-1"> THỐNG KÊ BÁO CÁO</h1>
+<h1 class="text-danger text-center mt-1">Monthly Revenue by Category</h1>
 
-<!--Form thống kê theo ngày tháng-->
-<div>
-    <form>
-        <div class="form-group">
-            <input type="text" class="form-control" name="kw" placeholder="Nhập từ khóa...">
-        </div>
+<form method="GET" action="/admin/stats/revenue">
+    <div class="form-group">
+        <label for="month">Month:</label>
+        <input type="number" id="month" name="month" class="form-control" min="1" max="12" required>
+    </div>
+    <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" class="form-control" min="2000" required>
+    </div>
+    <button type="submit" class="btn btn-info">Get Revenue</button>
+</form>
 
-        <div class="form-group">
-            <input type="date" class="form-control" name="from_date" style="width: 100%;">
-        </div>
+<br>
 
-        <div class="form-group">
-            <input type="date" class="form-control" name="to_date" style="width: 100%;">
-        </div>
-        <input type="submit" value="Thống kê" class="btn btn-info">
-    </form>
-
-</div>
-
-
-<!--Form thống kê theo tháng-->
-<div>
-    <h4 class="text-danger text-center mt-1"> BÁO CÁO DOANH THU THEO THÁNG</h4>
-    <canvas id="productMonthChartId"> </canvas>
-    <form>
-        <div class="form-group">
-            <input type="number" min="2000"
-                   name="year"
-                   class="form-control" placeholder="Nhập năm">
-        </div>
-        <input type="submit" value="Thống kê" class="btn btn-info">
-    </form>
-
-    <br> <br>
-
-    <table class="table table-bordered">
+<table class="table table-bordered">
+    <thead>
         <tr>
-            <th style="text-align:center;">STT</th>
-            <th>Tên sách</th>
-            <th id="s6">Thể loại</th>
-            <th style="text-align:center">Số lượng</th>
-            <th style="text-align:center">Tỷ lệ</th>
+            <th>Category</th>
+            <th>Total Revenue</th>
         </tr>
-        {% for s in stats %}
+    </thead>
+    <tbody>
+        {% for stat in revenue_stats %}
         <tr>
-            <td style="text-align:center;">{{ s[0] }}</td>
-            <td>{{ s[1] }}</td>
-            <td>{{ s[5] }}</td>
-            <td style="text-align:center">{{ s[3] }}</td>
-            <td style="text-align:center">{{ s[7] }}%</td>
+            <td>{{ stat.category_name }}</td>
+            <td>{{ stat.total_revenue }}</td>
         </tr>
         {% endfor %}
-    </table>
-</div>
+    </tbody>
+</table>
 
+<<h2 class="text-center mt-4">Revenue Chart</h2>
+<canvas id="revenueChart"></canvas>
 
-<!--Form thống kê tần suất sách bán-->
-<br> <br> <br>
-<div>
-    <h4 class="text-danger text-center mt-1"> BÁO CÁO TẦN SUẤT SÁCH BÁN </h4> <br>
-    <canvas id="productChartId"></canvas>
-    <br> <br>
-    <table class="table table-bordered">
+<form method="GET" action="/admin/stats/frequency">
+    <div class="form-group">
+        <label for="month1">Month:</label>
+        <input type="number" id="month1" name="month1" class="form-control" min="1" max="12" required>
+    </div>
+    <div class="form-group">
+        <label for="year1">Year:</label>
+        <input type="number" id="year1" name="year1" class="form-control" min="2000" required>
+    </div>
+    <button type="submit" class="btn btn-info">Get Frequency</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
         <tr>
-            <th style="text-align:center;">STT</th>
-            <th>Tên sách</th>
-            <th id="s5">Thể loại</th>
-            <th style="text-align:center">Số lượng</th>
-            <th style="text-align:center">Tỷ lệ</th>
+            <th>Book Name</th>
+            <th>Total Sold</th>
+            <th>Tỉ lệ</th>
         </tr>
-        {% for s in stats %}
+    </thead>
+    <tbody>
+        {% for stat in stats %}
         <tr>
-            <td style="text-align:center;">{{ s[0] }}</td>
-            <td>{{ s[1] }}</td>
-            <td>{{ s[5] }}</td>
-            <td style="text-align:center">{{ s[3] }}</td>
-            <td style="text-align:center">{{ s[7] }}%</td>
+            <td>{{ stat.book_name }}</td>
+            <td>{{ stat.total_sold }}</td>
+            <td>
+
+            </td>
         </tr>
         {% endfor %}
-    </table>
-</div>
+    </tbody>
+</table>
 
+<h2 class="text-center mt-4">Sales Frequency Chart</h2>
+<canvas id="salesChart"></canvas>
 
+{% block scripts %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    let labels = []
-    let data = []
-    let colors = []
-    let borderColors = []
+    document.addEventListener('DOMContentLoaded', function () {
+        // Biểu đồ doanh thu theo loại sách
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const revenueLabels = [{% for stat in revenue_stats %}"{{ stat.category_name }}",{% endfor %}];
+        const revenueData = [{% for stat in revenue_stats %}{{ stat.total_revenue }},{% endfor %}];
 
-    let labels2 = []
-    let data2 = []
-    let colors2 = []
-    let borderColors2 = []
-
-    let r, g, b;
-
-    {% for s in stats %}
-    {% if s[2] %}
-    labels.push("{{ s[1] }}");
-    data.push("{{ s[2] }}");
-
-    r = Math.floor(Math.random() * 255);
-    g = Math.floor(Math.random() * 255);
-    b = Math.floor(Math.random() * 255);
-
-    colors.push(`rgba(${r},${g},${b},0.2)`);
-    borderColors.push(`rgba(${r},${g},${b},1)`);
-    {% endif %}
-    {% endfor %}
-
-
-
-    {% for s in month_stats %}
-    labels2.push({{ s[0] }});
-    data2.push("{{ s[1] }}");
-
-    r = Math.floor(Math.random() * 255);
-    g = Math.floor(Math.random() * 255);
-    b = Math.floor(Math.random() * 255);
-
-    colors2.push(`rgba(${r},${g},${b},0.2)`);
-    borderColors2.push(`rgba(${r},${g},${b},1)`);
-
-    {% endfor %}
-
-
-
-
-    window.onload = function () {
-        const ctx = document.getElementById('productChartId').getContext('2d');
-        const ctx2 = document.getElementById('productMonthChartId').getContext('2d');
-
-
-
-        loadChart(ctx, labels, data, 'bar', colors, borderColors);
-        loadChart(ctx2, labels2, data2, 'bar', colors2, borderColors2);
-    }
-
-    function loadChart(ctx, labels, data, type, colors, borderColor) {
-        new Chart(ctx, {
-            type: type,
+        new Chart(revenueCtx, {
+            type: 'bar',
             data: {
-                labels: labels,
+                labels: revenueLabels,
                 datasets: [{
-                    label: '# Doanh thu sản phẩm',
-                    data: data,
-                    backgroundColor: colors,
-                    borderColor: borderColor,
+                    label: 'Total Revenue',
+                    data: revenueData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
                     borderWidth: 1
                 }]
             },
@@ -163,6 +117,35 @@
                 }
             }
         });
-    }
+
+        // Biểu đồ tần suất bán sách
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        const salesLabels = [{% for stat in stats %}"{{ stat[0] }}",{% endfor %}];
+        const salesData = [{% for stat in stats %}{{ stat[1] }},{% endfor %}];
+
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: salesLabels,
+                datasets: [{
+                    label: 'Books Sold',
+                    data: salesData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
 </script>
+
+{% endblock %}
+
 {% endblock %}

@@ -1,11 +1,12 @@
 from collections import defaultdict
 from saleapp import db,app
-from saleapp.models import Receipt, ReceiptDetail, Category, Product, Customer
+from saleapp.models import *
 from flask_login import current_user
-from sqlalchemy import func
+from sqlalchemy import func, and_, or_
 from datetime import datetime
 from sqlalchemy.sql import extract
 import json,os
+from flask import render_template
 
 
 # Hàm đếm số lượng và tổng tiền trong giỏ hàng
@@ -39,29 +40,50 @@ def category_stats():
 
 # Hàm thống kê số lượng sản phẩm theo ngày tháng và từ khoa tìm kiếm
 
-def product_stats(kw=None, from_date=None, to_date=None):
-    total_quantity = db.session.query(func.sum(ReceiptDetail.quantity)).scalar()
+from sqlalchemy import func, and_, or_, select
 
+def product_stats(kw=None, from_date=None, to_date=None):
+    # Tính tổng quantity của bảng ReceiptDetail
+    total_quantity_A = db.session.query(func.sum(ReceiptDetail.quantity)).scalar()
+
+    # Tính tổng quantity của bảng SaleBookDetail
+    total_quantity_B = db.session.query(func.sum(SaleBookDetail.quantity)).scalar()
+
+    # Cộng tổng quantity của cả 2 bảng
+    total_quantity_product = (total_quantity_A or 0) + (total_quantity_B or 0)
+    # Truy vấn tổng hợp từ bảng ReceiptDetail
+    receipt_query = select(
+        ReceiptDetail.product_id,
+        func.sum(ReceiptDetail.quantity).label('total_quantity')
+    ).group_by(ReceiptDetail.product_id)
+
+    # Truy vấn tổng hợp từ bảng SaleBookDetail
+    sale_book_query = select(
+        SaleBookDetail.product_id,
+        func.sum(SaleBookDetail.quantity).label('total_quantity')
+    ).group_by(SaleBookDetail.product_id)
+
+    # Gộp hai bảng lại với nhau (union_all giữ lại tất cả các bản ghi)
+    combined_query = receipt_query.union_all(sale_book_query).alias("combined")
+
+    # Truy vấn thống kê sản phẩm từ bảng Product sau khi gộp dữ liệu
     p = db.session.query(
         Product.id,
         Product.name,
-        func.sum(ReceiptDetail.quantity * ReceiptDetail.price),
-        func.sum(ReceiptDetail.quantity),
-        func.avg(ReceiptDetail.price),
         Category.name,
-        (func.sum(ReceiptDetail.quantity * ReceiptDetail.price) / total_quantity * 100).label('category_ratio'),
-        (func.sum(ReceiptDetail.quantity) / total_quantity * 100).label('book_sales_ratio'),
-        (func.sum(ReceiptDetail.quantity) / total_quantity * 100).label('quantity_ratio')
+        func.sum(combined_query.c.total_quantity).label('total_quantity'),
+        func.sum(combined_query.c.total_quantity) / total_quantity_product * 100
     ) \
-    .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True) \
-    .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id)) \
-    .join(Category, Category.id.__eq__(Product.category_id), isouter=True) \
+    .join(combined_query, combined_query.c.product_id == Product.id) \
+    .outerjoin(Category, Category.id == Product.category_id) \
     .group_by(Product.id, Product.name, Category.name)
 
+    # Lọc theo từ khóa nếu có
     if kw:
         p = p.filter(Product.name.contains(kw))
 
     return p.all()
+
 
     # if from_date:
     #     try:
@@ -78,29 +100,56 @@ def product_stats(kw=None, from_date=None, to_date=None):
     #         print("Invalid to_date format. Use YYYY-MM-DD.")
 
 
+def revenue_by_product_category(month, year):
+    return db.session.query(
+        Category.name.label("category_name"),
+        func.sum(
+            func.coalesce(ReceiptDetail.quantity * ReceiptDetail.price, 0) +
+            func.coalesce(SaleBookDetail.quantity * SaleBookDetail.price, 0)
+        ).label("total_revenue")
+    )\
+    .join(Product, Product.category_id == Category.id)\
+    .outerjoin(ReceiptDetail, ReceiptDetail.product_id == Product.id)\
+    .outerjoin(Receipt, Receipt.id == ReceiptDetail.receipt_id)\
+    .outerjoin(SaleBookDetail, SaleBookDetail.product_id == Product.id)\
+    .outerjoin(SaleBook, SaleBook.id == SaleBookDetail.sale_book_id)\
+    .filter(
+        or_(
+            extract('month', Receipt.create_date) == month,
+            extract('month', SaleBook.created_date) == month
+        ),
+        or_(
+            extract('year', Receipt.create_date) == year,
+            extract('year', SaleBook.created_date) == year
+        )
+    )\
+    .group_by(Category.name)\
+    .all()
 
 
-
-
-# Hàm thống kê số lượng sản phẩm theo tháng
-def product_month_stats(year):
-    return db.session.query(extract('month', Receipt.create_date),
-                            func.sum(ReceiptDetail.quantity * ReceiptDetail.price))\
-        .join(ReceiptDetail, ReceiptDetail.receipt_id.__eq__(Receipt.id))\
-        .filter(extract('year', Receipt.create_date) == year)\
-        .group_by (extract('month', Receipt.create_date))\
-        .order_by(extract('month', Receipt.create_date)).all()
-
-
-
-
-
-
-
-
-
-
-
+def book_sale_frequency(month, year):
+    stats = db.session.query(
+        Product.name.label("book_name"),
+        db.func.sum(
+            db.func.coalesce(ReceiptDetail.quantity, 0) +
+            db.func.coalesce(SaleBookDetail.quantity, 0)
+        ).label('total_sold')
+    ).outerjoin(SaleBookDetail, Product.id == SaleBookDetail.product_id)\
+     .outerjoin(SaleBook, SaleBook.id == SaleBookDetail.sale_book_id)\
+     .outerjoin(ReceiptDetail, Product.id == ReceiptDetail.product_id)\
+     .outerjoin(Receipt, Receipt.id == ReceiptDetail.receipt_id)\
+     .filter(
+        or_(
+            extract('month', SaleBook.created_date) == month,
+            extract('month', Receipt.create_date) == month
+        ),
+        or_(
+            extract('year', SaleBook.created_date) == year,
+            extract('year', Receipt.create_date) == year
+        )
+     )\
+     .group_by(Product.name).all()
+    return stats
 
 
 

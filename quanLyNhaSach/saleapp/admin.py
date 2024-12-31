@@ -53,20 +53,37 @@ class MyAdminIndexView(AdminIndexView):
 # Thống kê
 class StatsView(BaseView):
     @expose('/')
-    def index(self, ):
-        kw = request.args.get('kw')
-        from_date = request.args.get('from_date')
-        to_date = request.args.get('to_date')
-        year = request.args.get('year', datetime.now().year)
-        return self.render('admin/stats.html',
-                           month_stats=utils.product_month_stats(year=year),
-                           stats=utils.product_stats(kw=kw),
-                           from_date=from_date,
-                           to_date=to_date
-                           )
+    def index(self):
+        # Mặc định sẽ hiển thị trang doanh thu
+        return self.render('admin/stats.html', revenue_stats=[], stats=[])
+
+    @expose('/revenue')
+    def revenue_view(self):
+        month = request.args.get('month', type=int)
+        year = request.args.get('year', type=int)
+        revenue_stats = []
+        if month and year:
+            try:
+                revenue_stats = utils.revenue_by_product_category(month, year)
+            except Exception as e:
+                print(f"Error fetching revenue stats: {e}")
+        return self.render('admin/stats.html', revenue_stats=revenue_stats, stats=[])
+
+    @expose('/frequency')
+    def frequency_view(self):
+        month1 = request.args.get('month1', type=int)
+        year1 = request.args.get('year1', type=int)
+        stats = []
+        if month1 and year1:
+            try:
+                stats = utils.book_sale_frequency(month1, year1)
+            except Exception as e:
+                print(f"Error fetching book sale stats: {e}")
+        return self.render('admin/stats.html', revenue_stats=[], stats=stats)
 
     def is_accessible(self):
         return current_user.is_authenticated and current_user.user_role == Role.ADMIN
+
 
 class ManageRuleView(BaseView):
     @expose('/', methods=['GET', 'POST'])
@@ -132,13 +149,6 @@ class AddStaffView(BaseView):
         return self.render('admin/add_staff.html', err_msg=err_msg)
 
 
-from flask import flash, redirect, url_for
-from sqlalchemy.exc import SQLAlchemyError
-from datetime import datetime
-import cloudinary.uploader
-from saleapp import db
-from saleapp.models import Product, Category, Author, ImportReceipt, ImportReceiptDetail
-from flask_login import current_user
 
 class ImportBooksView(BaseView):
     @expose('/', methods=['GET', 'POST'])
@@ -253,7 +263,7 @@ class MyCategoryView(ModelView):
 admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4', index_view=MyAdminIndexView())
 # admin.add_view(ModelView(Category, db.session, name="Danh mục"))
 # admin.add_view(ProductAdminView(Product, db.session, name="Sản phẩm"))
-admin.add_view(StatsView(name='Thống kê'))
+admin.add_view(StatsView(name='Thống kê', endpoint='stats'))
 # admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4')   b
 admin.add_view(ModelView(Category, db.session))
 admin.add_view(ProductAdminView(Product, db.session))

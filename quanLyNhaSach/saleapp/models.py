@@ -9,7 +9,6 @@ from datetime import datetime
 from saleapp import db, app
 
 
-
 class Role(enum.Enum):
     ADMIN = "Admin"
     STAFF = "Staff"
@@ -41,6 +40,7 @@ class Customer(User):  # Tạo bảng Customer
     __tablename__ = 'Customer'
     id = Column(Integer, Sequence('customer_id_seq', start=2000), primary_key=True, autoincrement=True)
     receipts = db.relationship('Receipt', backref='customer', lazy=True)
+
     def __str__(self):
         return self.name
 
@@ -144,6 +144,7 @@ class ImportReceiptDetail(db.Model):  # Tạo bảng ImportReceiptDetail
     price = Column(Float, default=0, nullable=False)
     description = Column(String(255))
 
+
 class SaleBook(db.Model):  # Tạo bảng SaleBook
     __tablename__ = 'SaleBook'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -169,16 +170,13 @@ class ManageRule(db.Model):
     cancel_time = Column(Integer, nullable=False, default=48)
     updated_date = Column(DateTime, default=datetime.now())
 
+
 def __tr__(self):
     return self.name
 
 
-
-
-
 if __name__ == "__main__":
     with app.app_context():
-
         db.drop_all()  # Drop all table
         db.create_all()  # Create all table
 
@@ -227,8 +225,13 @@ if __name__ == "__main__":
                   password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
                   avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
 
-        s = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff',
+        s = Staff(name="dat2", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff2',
                   password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
                   avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
-        db.session.add(s,c)
+        m = Staff(name="dat1", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='manager',
+                  password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.MANAGER,
+                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        db.session.add(s)
+        db.session.add(c)
+        db.session.add(m)
         db.session.commit()

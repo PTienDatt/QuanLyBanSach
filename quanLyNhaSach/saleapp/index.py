@@ -12,6 +12,9 @@ import random
 from saleapp.utils import count_cart
 
 
+
+
+
 # Trang chu
 @app.route('/')
 def index():
@@ -183,6 +186,18 @@ def cart():
                            stats=utils.count_cart(session.get('cart')))
 
 
+@app.route('/api/cart', methods=['GET'])
+def get_cart():
+    cart = session.get('cart', {})
+    cart_items = [{
+        'id': item['id'],
+        'name': item['name'],
+        'price': item['price'],
+        'quantity': item['quantity']
+    } for item in cart.values()]
+    return jsonify(cart_items)
+
+
 # Thanh Toán
 @app.route("/api/pay", methods=['post', 'get'])
 @login_required
@@ -210,29 +225,43 @@ def pay():
 def create_order():
     data = request.get_json()
 
+    # Lấy thông tin từ người dùng
     user_id = current_user.id
     customer_phone = data.get('customer_phone')
     customer_address = data.get('customer_address')
     payment_method = data.get('payment_method') == 'Online'  # Chuyển thành boolean
     delivery_method = data.get('delivery_method')
     book_orders = data.get('book_orders')
-    # Tính tổng tiền đơn hàng
+    if not all([customer_phone, customer_address, delivery_method, book_orders]):
+        return jsonify({"message": "Thông tin đặt hàng không đầy đủ!"}), 400
+
+    # Danh sách chi tiết đơn hàng
     receipt_details = []
 
     for book_order in book_orders:
         book_id = book_order.get('book_id')
         quantity = book_order.get('quantity')
 
+        if not book_id or not quantity:
+            return jsonify({"message": "Thông tin sách không hợp lệ!"}), 400
+
+        # Lấy thông tin sản phẩm
         book = Product.query.get(book_id)
         if not book:
             return jsonify({"message": f"Sách với ID {book_id} không tồn tại!"}), 400
 
-        receipt_detail = ReceiptDetail(quantity=quantity, price=book.price, product_id=book.id)
+        # Tạo đối tượng ReceiptDetail
+        receipt_detail = ReceiptDetail(
+            product_id=book.id,
+            quantity=quantity,
+            price=book.price
+        )
         receipt_details.append(receipt_detail)
 
-    # Tạo thời gian hết hạn (48 giờ sau khi đặt hàng)
-
+    # Tạo thời gian đặt hàng
     order_date = datetime.now()
+
+    # Tạo đối tượng Receipt
     new_receipt = Receipt(
         customer_phone=customer_phone,
         customer_address=customer_address,
@@ -243,10 +272,17 @@ def create_order():
         receipt_details=receipt_details
     )
 
-    db.session.add(new_receipt)
-    db.session.commit()
+    # Lưu vào cơ sở dữ liệu
+    try:
+        db.session.add(new_receipt)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
 
-    return jsonify({"message": "Đặt sách thành công!"}), 200
+    return jsonify({
+        "message": "Đặt sách thành công!",
+    }), 200
 
 
 # Update số lượng sản phẩm trong giỏ hàng
