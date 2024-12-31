@@ -82,9 +82,9 @@
 <div class="d-flex justify-content-end align-items-center" style="position: absolute; top: 0; right: 0; padding: 10px;">
     <form class="nav-item" action="/logout" method="post">
         <button
-            class="nav-link"
-            type="submit"
-            style="
+                class="nav-link"
+                type="submit"
+                style="
                 background-color: #8B0000;
                 color: white;
                 font-size: 15px;
@@ -96,21 +96,24 @@
                 cursor: pointer;
                 transition: background-color 0.3s;
             "
-            onmouseover="this.style.backgroundColor='#5A0000';"
-            onmouseout="this.style.backgroundColor='#8B0000';"
-        >
+                onmouseover="this.style.backgroundColor='#5A0000';"
+                onmouseout="this.style.backgroundColor='#8B0000';">
             <img
-                style="width: 25px; height: 25px; margin-right: 5px;"
-                src="https://cdn-icons-png.flaticon.com/128/11741/11741058.png"
-                alt=""
-            >
-            Đăng xuất
+                    style="width: 25px; height: 25px; margin-right: 5px;"
+                    src="https://cdn-icons-png.flaticon.com/128/11741/11741058.png"
+                    alt="" > Đăng xuất
         </button>
     </form>
 </div>
+<br><br>
 
 
-<div class="container invoice-container">
+<div style=" width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" >
     <div class="invoice-header">
         <h2>Hóa Đơn Bán Sách</h2>
         <span>Ngày Lập: <span id="invoice-date-display"></span></span>
@@ -124,29 +127,32 @@
         </div>
         <div class="col-md-6">
             <label for="staff-name" class="form-label">Nhân Viên Thanh Toán:</label>
-            <input type="text" id="staff-name" value="{{current_user.name}}" class="form-control" placeholder="Nhập tên nhân viên" readonly required>
+            <input type="text" id="staff-name" value="{{current_user.name}}" class="form-control"
+                   placeholder="Nhập tên nhân viên" readonly required>
         </div>
     </div>
 
     <!-- Invoice Table -->
-    <div class="mb-4 text-end">
-        <button type="button" id="add-book-row" class="add-book-btn">Thêm Sách</button>
-    </div>
+    <br>
     <table class="table table-bordered invoice-table">
         <thead class="table-light">
-        <tr>
-            <th>STT</th>
-            <th>Sách</th>
-            <th>Thể Loại</th>
-            <th>Số Lượng</th>
-            <th>Đơn Giá</th>
-            <th>Thành Tiền</th>
-            <th>Hành Động</th>
-        </tr>
+        <tr  style="text-align:center;">
+            <th  style="text-align:center;">STT</th>
+            <th  style="text-align:center;">Sách</th>
+            <th  style="text-align:center;">Thể Loại</th>
+            <th  style="text-align:center;">Số Lượng</th>
+            <th  style="text-align:center;">Đơn Giá</th>
+            <th  style="text-align:center;">Thành Tiền</th>
+            <th  style="text-align:center;">  Xóa</th>
+        </tr >
         </thead>
-        <tbody id="book-details">
+        <tbody  style="text-align:center;" id="book-details">
         </tbody>
     </table>
+
+    <div class="mb-4 text-start">
+        <button type="button" id="add-book-row" class="add-book-btn">Thêm Sách</button>
+    </div>
 
     <!-- Total Amount -->
     <div class="total-amount">
@@ -155,7 +161,7 @@
 
     <!-- Action Buttons -->
     <div class="action-buttons">
-        <button type="button" id="save-invoice" class="btn btn-success">Lưu Hóa Đơn</button>
+        <button style="margin-right:1%;" type="button" id="save-invoice" class="btn btn-success">Lưu Hóa Đơn</button>
         <button type="button" id="cancel-invoice" class="btn btn-danger">Hủy Hóa Đơn</button>
     </div>
 </div>
@@ -207,15 +213,15 @@
         const row = bookDetails.insertRow();
 
         row.innerHTML = `
-            <td>${rowCount}</td>
+            <td  style="text-align:center;">${rowCount}</td>
             <td>
-                <input list="book-list" class="form-control book-input" placeholder="Nhập tên sách" />
+                <input  style="text-align:center;" list="book-list" class="form-control book-input" placeholder="Nhập tên sách" />
             </td>
-            <td><input type="text" class="form-control category" readonly></td>
-            <td><input type="number" class="form-control quantity" min="1" value="1"></td>
-            <td><input type="text" class="form-control price" readonly></td>
-            <td><input type="text" class="form-control total" readonly></td>
-            <td><button type="button" class="remove-book-row">-</button></td>
+            <td><input  style="text-align:center;" type="text" class="form-control category" readonly></td>
+            <td><input  style="text-align:center;" type="number" class="form-control quantity" min="1" value="1"></td>
+            <td><input  style="text-align:center;" type="text" class="form-control price" readonly></td>
+            <td><input  style="text-align:center;" type="text" class="form-control total" readonly></td>
+            <td><button style="text-align:center;" type="button" class="remove-book-row">-</button></td>
         `;
 
         const bookInput = row.querySelector('.book-input');

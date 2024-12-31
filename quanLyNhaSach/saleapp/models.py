@@ -109,7 +109,7 @@ class Product(db.Model):  # Tạo bảng Product
 class Receipt(db.Model):  # Tạo bảng Receipt
     __tablename__ = 'Receipt'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    create_date = Column(db.DateTime, default=datetime.utcnow())
+    create_date = Column(db.DateTime, default=datetime.now())
     customer_id = Column(Integer, ForeignKey(Customer.id), nullable=False)
     customer_phone = Column(String(50), nullable=False)
     customer_address = Column(String(255), nullable=False)
