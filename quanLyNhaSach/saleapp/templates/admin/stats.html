@@ -2,70 +2,82 @@
 
 
 {% block body %}
-<h1 class="text-danger text-center mt-1">Monthly Revenue by Category</h1>
+<h1 class="text-danger text-center mt-1"> BÁO CÁO DOANH THU THEO THÁNG</h1>
 
 <form method="GET" action="/admin/stats/revenue">
     <div class="form-group">
-        <label for="month">Month:</label>
-        <input type="number" id="month" name="month" class="form-control" min="1" max="12" required>
+        <label for="month">Tháng:</label>
+        <input style="width:30%; " type="number" id="month" name="month" class="form-control" min="1" max="12" required>
     </div>
     <div class="form-group">
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year" class="form-control" min="2000" required>
+        <label for="year">Năm:</label>
+        <input style="width:30%; " type="number" id="year" name="year" class="form-control" min="2000" required>
     </div>
-    <button type="submit" class="btn btn-info">Get Revenue</button>
+    <button type="submit" class="btn btn-info">Thống kê</button>
 </form>
 
 <br>
-
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th> STT</th>
-            <th>Category</th>
-            <th>Total Revenue</th>
+            <th>STT</th>
+            <th>Thể loại</th>
+            <th>Doanh thu</th>
+<!--            <th> Số lượt thuê</th>-->
+            <th> Tỷ lệ</th>
         </tr>
     </thead>
     <tbody>
         {% for stat in revenue_stats %}
         <tr>
-            <td> {}</td>
+            <td>{{ loop.index }}</td>
             <td>{{ stat.category_name }}</td>
             <td>{{ stat.total_revenue }}</td>
+<!--            <td>{{ stat.total_sold }}</td>-->
+            <td>{{ stat.ratio }}%</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-<<h2 class="text-center mt-4">Revenue Chart</h2>
+<h3 class="text-center mt-4">BIỂU ĐỒ DOANH THU THEO THÁNG</h3>
 <canvas id="revenueChart"></canvas>
 
+<br><br><br><br>
+<h1 class="text-danger text-center mt-1">BÁO CÁO TẦN SUẤT SÁCH BÁN</h1>
+
 <form method="GET" action="/admin/stats/frequency">
-    <div class="form-group">
-        <label for="month1">Month:</label>
-        <input type="number" id="month1" name="month1" class="form-control" min="1" max="12" required>
+    <div class="form-group" >
+        <label  for="month1">Tháng:</label>
+        <input style="width:30%; " type="number" id="month1" name="month1" class="form-control" min="1" max="12" required>
     </div>
     <div class="form-group">
-        <label for="year1">Year:</label>
-        <input type="number" id="year1" name="year1" class="form-control" min="2000" required>
+        <label for="year1">Năm:</label>
+        <input style="width:30%; " type="number" id="year1" name="year1" class="form-control" min="2000" required>
     </div>
-    <button type="submit" class="btn btn-info">Get Frequency</button>
+    <button type="submit" class="btn btn-info"> Thống kê</button>
+    <br>
+    <br>
 </form>
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Book Name</th>
-            <th>Total Sold</th>
-            <th>Tỉ lệ</th>
+             <th>STT</th>
+            <th>Tên Sách</th>
+<!--            <th> The Loai</th>-->
+            <th>Số lượng</th>
+<!--            <th>Tỉ lệ</th>-->
         </tr>
     </thead>
     <tbody>
         {% for stat in stats %}
         <tr>
+            <td>{{ loop.index }}</td>
             <td>{{ stat.book_name }}</td>
+<!--            <td>{{ stat.category_name }}</td>-->
             <td>{{ stat.total_sold }}</td>
-            <td>
+
 
             </td>
         </tr>
@@ -73,7 +85,7 @@
     </tbody>
 </table>
 
-<h2 class="text-center mt-4">Sales Frequency Chart</h2>
+<h2 class="text-center mt-4">BIỂU ĐỒ TẦN SUẤT SÁCH BÁN </h2>
 <canvas id="salesChart"></canvas>
 
 {% block scripts %}
