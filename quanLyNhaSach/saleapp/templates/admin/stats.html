@@ -21,6 +21,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th> STT</th>
             <th>Category</th>
             <th>Total Revenue</th>
         </tr>
@@ -28,6 +29,7 @@
     <tbody>
         {% for stat in revenue_stats %}
         <tr>
+            <td> {}</td>
             <td>{{ stat.category_name }}</td>
             <td>{{ stat.total_revenue }}</td>
         </tr>
