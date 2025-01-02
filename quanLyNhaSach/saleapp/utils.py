@@ -109,17 +109,21 @@ def revenue_by_product_category(month, year):
     .all()
 
 
+from sqlalchemy import or_, extract
+
 def book_sale_frequency(month, year):
     stats = db.session.query(
         Product.name.label("book_name"),
+        Category.name.label("category_name"),  # Thêm tên thể loại
         db.func.sum(
             db.func.coalesce(ReceiptDetail.quantity, 0) +
             db.func.coalesce(SaleBookDetail.quantity, 0)
         ).label('total_sold')
-    ).outerjoin(SaleBookDetail, Product.id == SaleBookDetail.product_id)\
-     .outerjoin(SaleBook, SaleBook.id == SaleBookDetail.sale_book_id)\
-     .outerjoin(ReceiptDetail, Product.id == ReceiptDetail.product_id)\
-     .outerjoin(Receipt, Receipt.id == ReceiptDetail.receipt_id)\
+    ).outerjoin(Category, Product.category_id == Category.id) \
+     .outerjoin(SaleBookDetail, Product.id == SaleBookDetail.product_id) \
+     .outerjoin(SaleBook, SaleBook.id == SaleBookDetail.sale_book_id) \
+     .outerjoin(ReceiptDetail, Product.id == ReceiptDetail.product_id) \
+     .outerjoin(Receipt, Receipt.id == ReceiptDetail.receipt_id) \
      .filter(
         or_(
             extract('month', SaleBook.created_date) == month,
@@ -129,8 +133,8 @@ def book_sale_frequency(month, year):
             extract('year', SaleBook.created_date) == year,
             extract('year', Receipt.create_date) == year
         )
-     )\
-     .group_by(Product.name).all()
+     ) \
+     .group_by(Product.name, Category.name).all()  # Nhóm theo tên sách và tên thể loại
     return stats
 
 def total_revenue_all(month, year):
@@ -155,9 +159,27 @@ def total_revenue_all(month, year):
     # Tổng doanh thu
     return total_receipt + total_sale_book
 
+def total_quantity(month, year):
+    # Tổng số lượng từ bảng ReceiptDetail với điều kiện tháng và năm
+    total_receipt = db.session.query(
+        func.coalesce(func.sum(ReceiptDetail.quantity), 0)
+    ).join(Receipt, ReceiptDetail.receipt_id == Receipt.id) \
+     .filter(
+         extract('month', Receipt.create_date) == month,
+         extract('year', Receipt.create_date) == year
+     ).scalar()
 
+    # Tổng số lượng từ bảng SaleBookDetail với điều kiện tháng và năm
+    total_sale_book = db.session.query(
+        func.coalesce(func.sum(SaleBookDetail.quantity), 0)
+    ).join(SaleBook, SaleBookDetail.sale_book_id == SaleBook.id) \
+     .filter(
+         extract('month', SaleBook.created_date) == month,
+         extract('year', SaleBook.created_date) == year
+     ).scalar()
 
-
+    # Trả về tổng của hai bảng
+    return total_receipt + total_sale_book
 
 
 

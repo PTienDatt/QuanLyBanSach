@@ -20,6 +20,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th>STT</th>
             <th>Category</th>
             <th>Doanh thu</th>
             <th>Tỉ lệ</th>
@@ -28,6 +29,7 @@
     <tbody>
         {% for stat in revenue_stats %}
         <tr>
+            <td>{{ loop.index }}</td>
             <td>{{ stat.category_name }}</td>
             <td>{{ stat.total_revenue|int|format_vnd }}đ</td>
             <td>{{  ((stat.total_revenue / total_revenue_all) * 100) | round(2) }}%</td>
@@ -59,11 +61,11 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-             <th>STT</th>
+            <th>STT</th>
             <th>Tên Sách</th>
-<!--            <th> The Loai</th>-->
+            <th> The Loai</th>
             <th>Số lượng</th>
-<!--            <th>Tỉ lệ</th>-->
+            <th>Tỉ lệ</th>
         </tr>
     </thead>
     <tbody>
@@ -71,11 +73,9 @@
         <tr>
             <td>{{ loop.index }}</td>
             <td>{{ stat.book_name }}</td>
-<!--            <td>{{ stat.category_name }}</td>-->
+            <td>{{ stat.category_name }}</td>
             <td>{{ stat.total_sold }}</td>
-
-
-            </td>
+            <td>{{ ((stat.total_sold / total_quantity) * 100) | round(2)}}%</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -130,8 +130,8 @@
 
         // Biểu đồ tần suất bán sách
         const salesCtx = document.getElementById('salesChart').getContext('2d');
-        const salesLabels = [{% for stat in stats %}"{{ stat[0] }}",{% endfor %}];
-        const salesData = [{% for stat in stats %}{{ stat[1] }},{% endfor %}];
+        const salesLabels = [{% for stat in stats %}"{{ stat.book_name }}",{% endfor %}];
+        const salesData = [{% for stat in stats %}{{ stat.total_sold }},{% endfor %}];
 
         new Chart(salesCtx, {
             type: 'bar',

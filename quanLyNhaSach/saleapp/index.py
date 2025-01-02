@@ -27,7 +27,8 @@ def index():
 @app.route('/stats')
 def stats():
     total_revenue_value = utils.total_revenue_all()
-    return render_template('stats.html', total_revenue_all=total_revenue_value)
+    total_quantity = utils.total_quantity()
+    return render_template('stats.html', total_revenue_all=total_revenue_value, total_quantity = total_quantity)
 
 
 # Xem chi tiet san pham
