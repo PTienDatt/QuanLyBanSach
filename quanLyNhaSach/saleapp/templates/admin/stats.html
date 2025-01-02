@@ -22,6 +22,7 @@
         <tr>
             <th>STT</th>
             <th>Category</th>
+            <th>Số lượt bán</th>
             <th>Doanh thu</th>
             <th>Tỉ lệ</th>
         </tr>
@@ -31,12 +32,14 @@
         <tr>
             <td>{{ loop.index }}</td>
             <td>{{ stat.category_name }}</td>
+            <td>{{ stat.total_quantity }}</td>
             <td>{{ stat.total_revenue|int|format_vnd }}đ</td>
             <td>{{  ((stat.total_revenue / total_revenue_all) * 100) | round(2) }}%</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+    <h4>Tổng doanh thu: {{total_revenue_all|int|format_vnd}}đ</h4>
 
 <h3 class="text-center mt-4">BIỂU ĐỒ DOANH THU THEO THÁNG</h3>
 <canvas id="revenueChart"></canvas>

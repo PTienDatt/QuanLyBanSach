@@ -88,7 +88,11 @@ def revenue_by_product_category(month, year):
         func.sum(
             func.coalesce(ReceiptDetail.quantity * ReceiptDetail.price, 0) +
             func.coalesce(SaleBookDetail.quantity * SaleBookDetail.price, 0)
-        ).label("total_revenue")
+        ).label("total_revenue"),
+        func.sum(
+            func.coalesce(ReceiptDetail.quantity, 0) +
+            func.coalesce(SaleBookDetail.quantity, 0)
+        ).label("total_quantity")  # Thêm tổng số lượt bán
     )\
     .join(Product, Product.category_id == Category.id)\
     .outerjoin(ReceiptDetail, ReceiptDetail.product_id == Product.id)\
@@ -109,7 +113,6 @@ def revenue_by_product_category(month, year):
     .all()
 
 
-from sqlalchemy import or_, extract
 
 def book_sale_frequency(month, year):
     stats = db.session.query(
