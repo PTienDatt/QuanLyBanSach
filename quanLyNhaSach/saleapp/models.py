@@ -221,20 +221,20 @@ if __name__ == "__main__":
         #             db.session.add(prod)
         #         db.session.commit()
 
-        c = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='admin1',
-                  password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
-                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
-        db.session.add(c)
-        db.session.commit()
+        # c = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='admin',
+        #           password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
+        #           avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        # db.session.add(c)
+        # db.session.commit()
 
-        # s = Staff(name="dat2", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff2',
-        #           password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
+        # s = Staff(name="dat2", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff',
+        #           password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
         #           avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
         # db.session.add(s)
         # db.session.commit()
 
-        # m = Staff(name="dat1", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='manager',
-        #           password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.MANAGER,
-        #           avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
-        # db.session.add(m)
-        # db.session.commit()
+        m = Staff(name="dat1", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='manager',
+                  password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.MANAGER,
+                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        db.session.add(m)
+        db.session.commit()

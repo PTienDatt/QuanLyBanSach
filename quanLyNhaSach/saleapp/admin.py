@@ -56,7 +56,7 @@ class StatsView(BaseView):
     @expose('/')
     def index(self):
         # Mặc định sẽ hiển thị trang doanh thu
-        return self.render('admin/stats.html', revenue_stats=[], stats=[])
+        return self.render('admin/stats.html',total_revenue_all=[], revenue_stats=[], stats=[])
 
     @expose('/revenue')
     def revenue_view(self):
@@ -81,7 +81,7 @@ class StatsView(BaseView):
                 stats = utils.book_sale_frequency(month1, year1)
             except Exception as e:
                 print(f"Error fetching book sale stats: {e}")
-        return self.render('admin/stats.html', total_quantity = utils.total_quantity(month1, year1), revenue_stats=[], stats=stats)
+        return self.render('admin/stats.html',total_revenue_all=[], total_quantity = utils.total_quantity(month1, year1), revenue_stats=[], stats=stats)
 
     def is_accessible(self):
         return current_user.is_authenticated and current_user.user_role == Role.ADMIN

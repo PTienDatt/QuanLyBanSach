@@ -3,9 +3,20 @@
 
 {%block content%}
 
-<h1 style=" text-align: center; font-family: Arial, sans-serif; color: #333; font-size: 2.5rem;">Đặt Sách Online</h1>
+<!--<h1 style=" text-align: center; font-family: Arial, sans-serif; color: #333; font-size: 2.5rem;">Đặt Sách Online</h1>-->
+
 <form id="order-form" style="width: 60%; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 15px;
                         background-color: #f9f9f9; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
+
+    <a class="navbar-brand" href="/" style="font-size:30px; color:#ee4d2d ;display:inline-block;;"> <img
+            style="width:55px; height:55px; margin-left:px;"
+            src="https://cdn-icons-png.flaticon.com/128/5832/5832416.png"> BookStore </a>
+    <div style="width:1.5px; height:35px; background-color: #ee4d2d ; margin-bottom:-5px; display:inline-block;"></div>
+    <div style="display:inline-block; font-size:22px;color:#ee4d2d ; margin-left:15px; "> Đặt sách Online</div>
+    <br>
+    <br>
+
+
     <div class="form-group" style="margin-bottom: 20px;">
         <label for="customer-name" style="display: block; font-weight: bold; margin-bottom: 8px; font-size: 1.2rem;">Tên
             Khách Hàng</label>
@@ -59,11 +70,7 @@
 </form>
 
 
-<<<<<<< HEAD
 
-=======
-<!--<<<<<<< HEAD-->
->>>>>>> 002137ddfbd0ddd012fcfd46b32fde75b0af4df4
    <script>
     document.getElementById('order-form').addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -117,7 +124,7 @@
         }
     });
 </script>
-<!--=======-->
+
 <script>
     document.getElementById('order-form').addEventListener('submit', async function (event) {
 event.preventDefault();
@@ -165,6 +172,6 @@ try {
 });
 </script>
 
-<!--&gt;>>>>>> c8d2d5bfb968df99b5767404655837e6e6ef20c3-->
+
 {%endblock%}
 
