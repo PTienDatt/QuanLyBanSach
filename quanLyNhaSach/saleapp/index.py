@@ -291,8 +291,9 @@ def create_order():
         db.session.rollback()
         return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
 
-    session.clear()
+    session.pop('cart', None)
     return jsonify({"message": "Đặt sách thành công!"}), 200
+    return redirect('/')
 
 
 
