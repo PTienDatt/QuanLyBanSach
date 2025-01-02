@@ -58,12 +58,10 @@
         {% endfor %}
     </table>
 
-    <div class="alert alert-info">
-        <h5> Tổng sản phẩm : <span class="cart-counter"> {{ stats.total_quantity}}</span></h5>
-        <h5> Tổng tiền: <span id="total-amount">{{ "{:,.1f}".format(stats.total_amount) }} VND  </span></h5>
-    </div>
-
-
+   <div style="display: flex; justify-content: flex-end; align-items: center; margin-right:3%;">
+    <h5 style="color: black; margin-right: 20px;">Tổng sản phẩm: <span style="color:red;" class="cart-counter">{{ stats.total_quantity }}</span></h5>
+    <h5 style="color: black;">Tổng tiền: <span style="color:red;" id="total-amount">{{ "{:,.1f}".format(stats.total_amount) }} VND</span></h5>
+</div>
     <!--    Phần nút thanh toán-->
     {% if current_user.is_authenticated %}
     <div style="display: flex; justify-content: flex-end; background-color: white; padding: 10px;">

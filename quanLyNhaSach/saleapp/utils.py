@@ -43,30 +43,22 @@ def category_stats():
 from sqlalchemy import func, and_, or_, select
 
 def product_stats(kw=None, from_date=None, to_date=None):
-    # Tính tổng quantity của bảng ReceiptDetail
     total_quantity_A = db.session.query(func.sum(ReceiptDetail.quantity)).scalar()
-
-    # Tính tổng quantity của bảng SaleBookDetail
     total_quantity_B = db.session.query(func.sum(SaleBookDetail.quantity)).scalar()
-
-    # Cộng tổng quantity của cả 2 bảng
     total_quantity_product = (total_quantity_A or 0) + (total_quantity_B or 0)
-    # Truy vấn tổng hợp từ bảng ReceiptDetail
+
     receipt_query = select(
         ReceiptDetail.product_id,
         func.sum(ReceiptDetail.quantity).label('total_quantity')
     ).group_by(ReceiptDetail.product_id)
 
-    # Truy vấn tổng hợp từ bảng SaleBookDetail
     sale_book_query = select(
         SaleBookDetail.product_id,
         func.sum(SaleBookDetail.quantity).label('total_quantity')
     ).group_by(SaleBookDetail.product_id)
 
-    # Gộp hai bảng lại với nhau (union_all giữ lại tất cả các bản ghi)
     combined_query = receipt_query.union_all(sale_book_query).alias("combined")
 
-    # Truy vấn thống kê sản phẩm từ bảng Product sau khi gộp dữ liệu
     p = db.session.query(
         Product.id,
         Product.name,
@@ -78,26 +70,16 @@ def product_stats(kw=None, from_date=None, to_date=None):
     .outerjoin(Category, Category.id == Product.category_id) \
     .group_by(Product.id, Product.name, Category.name)
 
-    # Lọc theo từ khóa nếu có
     if kw:
         p = p.filter(Product.name.contains(kw))
 
-    return p.all()
+    results = p.all()
+    results_with_stt = [(index + 1, *result) for index, result in enumerate(results)]
+
+    return results_with_stt
 
 
-    # if from_date:
-    #     try:
-    #         from_date = datetime.strptime(from_date, '%Y-%m-%d')
-    #         p = p.filter(Receipt.create_date >= from_date)
-    #     except ValueError:
-    #         print("Invalid from_date format. Use YYYY-MM-DD.")
-    #
-    # if to_date:
-    #     try:
-    #         to_date = datetime.strptime(to_date, '%Y-%m-%d')
-    #         p = p.filter(Receipt.create_date <= to_date)
-    #     except ValueError:
-    #         print("Invalid to_date format. Use YYYY-MM-DD.")
+
 
 
 def revenue_by_product_category(month, year):

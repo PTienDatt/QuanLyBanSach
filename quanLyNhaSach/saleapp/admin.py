@@ -16,6 +16,7 @@ import dao
 import cloudinary.uploader
 
 
+
 # Hiển thị sản phẩm
 class ProductAdminView(ModelView):
     column_searchable_list = ['name', 'price']
