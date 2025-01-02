@@ -18,11 +18,19 @@ from saleapp.utils import count_cart
 # Trang chu
 @app.route('/')
 def index():
+    # Lấy thông tin người dùng từ session nếu đã đăng nhập
+    user = None
+    if 'user_id' in session:
+        user = dao.get_user_by_id(
+            session['user_id'])  # Hàm này phải được định nghĩa trong dao để lấy thông tin người dùng
+
+    # Lấy tham số tìm kiếm và danh mục sản phẩm
     q = request.args.get("q")
     cate_id = request.args.get("category_id")
     products = dao.load_products(q=q, cate_id=cate_id)
-    return render_template('index.html', products=products)
 
+    # Truyền thông tin người dùng và sản phẩm vào template
+    return render_template('index.html', products=products, user=user)
 
 @app.route('/stats')
 def stats():
@@ -291,9 +299,8 @@ def create_order():
         db.session.rollback()
         return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
 
-    session.pop('cart', None)
+    session.clear()
     return jsonify({"message": "Đặt sách thành công!"}), 200
-    return redirect('/')
 
 
 
