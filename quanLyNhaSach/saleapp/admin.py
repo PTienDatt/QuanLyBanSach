@@ -65,9 +65,10 @@ class StatsView(BaseView):
         if month and year:
             try:
                 revenue_stats = utils.revenue_by_product_category(month, year)
+
             except Exception as e:
                 print(f"Error fetching revenue stats: {e}")
-        return self.render('admin/stats.html', revenue_stats=revenue_stats, stats=[])
+        return self.render('admin/stats.html',total_revenue_all = utils.total_revenue_all(month, year), revenue_stats=revenue_stats, stats=[])
 
     @expose('/frequency')
     def frequency_view(self):

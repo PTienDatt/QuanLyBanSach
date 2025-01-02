@@ -24,6 +24,12 @@ def index():
     return render_template('index.html', products=products)
 
 
+@app.route('/stats')
+def stats():
+    total_revenue_value = utils.total_revenue_all()
+    return render_template('stats.html', total_revenue_all=total_revenue_value)
+
+
 # Xem chi tiet san pham
 @app.route('/products/<int:id>')
 def details(id):
@@ -110,6 +116,9 @@ def login_my_user():
         elif role == 'admin':
             role = Role.ADMIN
             user = dao.auth_staff(username, password, role=role)
+        elif role == 'manager':
+            role = Role.MANAGER
+            user = dao.auth_staff(username, password, role=role)
         else:
             role = Role.USER
             user = dao.auth_user(username, password, role=role)
@@ -117,7 +126,7 @@ def login_my_user():
             login_user(user=user)
             session.modified = True
 
-            return redirect('/admin' if role in [Role.ADMIN] else '/staff' if role in [Role.STAFF] else '/')
+            return redirect('/admin' if role in [Role.ADMIN, Role.MANAGER] else '/staff' if role in [Role.STAFF] else '/')
         else:
             err_msg = "*Tài khoản hoặc mật khẩu không đúng!"
 

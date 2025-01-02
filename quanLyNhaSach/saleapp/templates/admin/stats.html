@@ -23,13 +23,15 @@
         <tr>
             <th>Category</th>
             <th>Total Revenue</th>
+            <th>Tỉ lệ</th>
         </tr>
     </thead>
     <tbody>
         {% for stat in revenue_stats %}
         <tr>
             <td>{{ stat.category_name }}</td>
-            <td>{{ stat.total_revenue }}</td>
+            <td>{{ stat.total_revenue|int|format_vnd }}đ</td>
+            <td>{{  ((stat.total_revenue / total_revenue_all) * 100) | round(2) }}%</td>
         </tr>
         {% endfor %}
     </tbody>

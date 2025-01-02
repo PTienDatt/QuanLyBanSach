@@ -151,7 +151,27 @@ def book_sale_frequency(month, year):
      .group_by(Product.name).all()
     return stats
 
+def total_revenue_all(month, year):
+    # Tổng doanh thu từ ReceiptDetail
+    total_receipt = db.session.query(
+        func.coalesce(func.sum(ReceiptDetail.quantity * ReceiptDetail.price), 0)
+    ).join(Receipt, ReceiptDetail.receipt_id == Receipt.id) \
+     .filter(
+         extract('month', Receipt.create_date) == month,
+         extract('year', Receipt.create_date) == year
+     ).scalar()
 
+    # Tổng doanh thu từ SaleBookDetail
+    total_sale_book = db.session.query(
+        func.coalesce(func.sum(SaleBookDetail.quantity * SaleBookDetail.price), 0)
+    ).join(SaleBook, SaleBookDetail.sale_book_id == SaleBook.id) \
+     .filter(
+         extract('month', SaleBook.created_date) == month,
+         extract('year', SaleBook.created_date) == year
+     ).scalar()
+
+    # Tổng doanh thu
+    return total_receipt + total_sale_book
 
 
 
