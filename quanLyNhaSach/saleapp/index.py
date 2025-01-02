@@ -287,11 +287,12 @@ def create_order():
     try:
         db.session.add(new_receipt)
         db.session.commit()
+        # Xóa giỏ hàng
+        session['cart'] = {}
     except Exception as e:
         db.session.rollback()
         return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
 
-    session.clear()
     return jsonify({"message": "Đặt sách thành công!"}), 200
 
 

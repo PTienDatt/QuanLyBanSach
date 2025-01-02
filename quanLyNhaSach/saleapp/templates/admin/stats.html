@@ -5,83 +5,93 @@
 <h1 class="text-danger text-center mt-1"> BÁO CÁO DOANH THU THEO THÁNG</h1>
 
 <form method="GET" action="/admin/stats/revenue">
-    <div class="form-group">
-        <label for="month">Tháng:</label>
-        <input style="width:30%; " type="number" id="month" name="month" class="form-control" min="1" max="12" required>
-    </div>
-    <div class="form-group">
-        <label for="year">Năm:</label>
-        <input style="width:30%; " type="number" id="year" name="year" class="form-control" min="2000" required>
+    <div class="form-group d-flex">
+        <div style="margin-right: 10px;">
+            <label for="month">Tháng:</label>
+            <input style="width:100%;" type="number" id="month" name="month" class="form-control" min="1" max="12"
+                   required>
+        </div>
+        <div>
+            <label for="year">Năm:</label>
+            <input style="width:100%;" type="number" id="year" name="year" class="form-control" min="2000" required>
+        </div>
     </div>
     <button type="submit" class="btn btn-info">Thống kê</button>
 </form>
 
 <br>
+<h4 class="text-center mt-4">BẢNG DOANH THU THEO THÁNG</h4>
+<br>
 <table class="table table-bordered">
     <thead>
-        <tr>
-            <th>STT</th>
-            <th>Category</th>
-            <th>Doanh thu</th>
-            <th>Tỉ lệ</th>
-        </tr>
+    <tr>
+        <th>STT</th>
+        <th>Thể loại</th>
+        <th>Doanh thu</th>
+        <th>Tỉ lệ</th>
+    </tr>
     </thead>
     <tbody>
-        {% for stat in revenue_stats %}
-        <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ stat.category_name }}</td>
-            <td>{{ stat.total_revenue|int|format_vnd }}đ</td>
-            <td>{{  ((stat.total_revenue / total_revenue_all) * 100) | round(2) }}%</td>
-        </tr>
-        {% endfor %}
+    {% for stat in revenue_stats %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ stat.category_name }}</td>
+        <td>{{ stat.total_revenue|int|format_vnd }}đ</td>
+        <td>{{ ((stat.total_revenue / total_revenue_all) * 100) | round(2) }}%</td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
-<h3 class="text-center mt-4">BIỂU ĐỒ DOANH THU THEO THÁNG</h3>
+<h4 class="text-center mt-4">BIỂU ĐỒ DOANH THU THEO THÁNG</h4>
 <canvas id="revenueChart"></canvas>
 
 <br><br><br><br>
 <h1 class="text-danger text-center mt-1">BÁO CÁO TẦN SUẤT SÁCH BÁN</h1>
 
 <form method="GET" action="/admin/stats/frequency">
-    <div class="form-group" >
-        <label  for="month1">Tháng:</label>
-        <input style="width:30%; " type="number" id="month1" name="month1" class="form-control" min="1" max="12" required>
+    <div class="form-group d-flex">
+        <div style="margin-right: 10px;">
+            <label for="month1">Tháng:</label>
+            <input style="width:100%;" type="number" id="month1" name="month1" class="form-control" min="1" max="12" required>
+        </div>
+        <div>
+            <label for="year1">Năm:</label>
+            <input style="width:100%;" type="number" id="year1" name="year1" class="form-control" min="2000" required>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="year1">Năm:</label>
-        <input style="width:30%; " type="number" id="year1" name="year1" class="form-control" min="2000" required>
-    </div>
-    <button type="submit" class="btn btn-info"> Thống kê</button>
-    <br>
-    <br>
+    <button type="submit" class="btn btn-info">Thống kê</button>
 </form>
+
+<br>
+<br>
+<h4 class="text-center mt-4">BẢNG TẦN SUẤT SÁCH BÁN</h4>
+<BR>
 
 <table class="table table-bordered">
     <thead>
-        <tr>
-            <th>STT</th>
-            <th>Tên Sách</th>
-            <th> The Loai</th>
-            <th>Số lượng</th>
-            <th>Tỉ lệ</th>
-        </tr>
+    <tr>
+        <th>STT</th>
+        <th>Tên Sách</th>
+        <th> Thể loại</th>
+        <th>Số lượng</th>
+        <th>Tỉ lệ</th>
+    </tr>
     </thead>
     <tbody>
-        {% for stat in stats %}
-        <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ stat.book_name }}</td>
-            <td>{{ stat.category_name }}</td>
-            <td>{{ stat.total_sold }}</td>
-            <td>{{ ((stat.total_sold / total_quantity) * 100) | round(2)}}%</td>
-        </tr>
-        {% endfor %}
+    {% for stat in stats %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ stat.book_name }}</td>
+        <td>{{ stat.category_name }}</td>
+        <td>{{ stat.total_sold }}</td>
+        <td>{{ ((stat.total_sold / total_quantity) * 100) | round(2)}}%</td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
-<h2 class="text-center mt-4">BIỂU ĐỒ TẦN SUẤT SÁCH BÁN </h2>
+<h4 class="text-center mt-4">BIỂU ĐỒ TẦN SUẤT SÁCH BÁN </h4>
 <canvas id="salesChart"></canvas>
 
 {% block scripts %}

@@ -57,7 +57,7 @@
         </tr>
         {% endfor %}
     </table>
-
+ <br> <br> <br> <br> <br> <br> <br> <br>
    <div style="display: flex; justify-content: flex-end; align-items: center; margin-right:3%;">
     <h5 style="color: black; margin-right: 20px;">Tổng sản phẩm: <span style="color:red;" class="cart-counter">{{ stats.total_quantity }}</span></h5>
     <h5 style="color: black;">Tổng tiền: <span style="color:red;" id="total-amount">{{ "{:,.1f}".format(stats.total_amount) }} VND</span></h5>
@@ -73,6 +73,7 @@
           border-radius: 5px;
           text-align: center;" class="btn btn-success" onclick="window.location.href='/api/pay'">Thanh toán</button>
     </div>
+
 
     {% else %}
 
