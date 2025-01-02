@@ -120,7 +120,7 @@ python-json-logger==2.0.7
 python-Levenshtein==0.26.1
 python-socketio==5.12.0
 pytz==2024.2
-pywin32==308
+pywin32==310
 pywinpty==2.0.14
 PyYAML==6.0.1
 pyzmq==26.2.0
