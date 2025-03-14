@@ -4,7 +4,7 @@
 
 <div style="padding:1em; border-radius:1rem;">
 
-<!--    Hình home cuộn trang lên-->
+    <!--    Hình home cuộn trang lên-->
     <img
             src="https://cdn-icons-png.flaticon.com/128/15527/15527317.png"
             alt="Scroll to Top"
@@ -133,19 +133,19 @@
 
                     </div>
 
-                    <a style="margin-top:10px; background-color:#d1e6fc;  color:#0c3ff9;" href="/products/{{p.id}}"
+                    <a style="margin-top:10px; background-color:#d1e6fc;  color:#0c3ff9; font-size:15px;" href="/products/{{p.id}}"
                        class="btn btn-primary"> <img
-                            style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-7px;"
-                            src="https://cdn-icons-png.flaticon.com/256/7690/7690962.png"
+                            style="width:20px;height20px; margin-left:-10px; margin-top:-10px;margin-bottom:-7px;"
+                            src="https://cdn-icons-png.flaticon.com/128/8860/8860639.png"
                             alt=""> View</a>
 
                     <i class="fa-regular fa-magnifying-glass"> </i>
 
-                    <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:14px;"
+                    <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:15px;"
                        href="#" onclick="addToCart (event, {{p.id}}, '{{p.name}}' , {{p.price}} )"
                        class="btn btn-danger">
                         <img
-                                style="width:40px;height:40px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
+                                style="width:20px;height:20px; margin-left:-10px; margin-top:-10px;margin-bottom:-3px;"
                                 src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
                                 alt=""> Thêm Vào Giỏ
                     </a>
@@ -156,5 +156,21 @@
         </div>
     </div>
     {%endfor%}
+
+    <!--    Phan trang-->
+    <ul class="pagination justify-content-center" style="font-size:20px; border-radius:2.5rem;">
+
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=1) }}" style="color: #596161; width:80px; text-align:center;">1</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=2) }}" style="color: #596161; width:80px; text-align:center;">2</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=3) }}" style="color: #596161; width:80px; text-align:center;">3</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=4) }}" style="color: #596161; width:80px; text-align:center;">4</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=5) }}" style="color: #596161; width:80px; text-align:center;">5</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=6) }}" style="color: #596161; width:80px; text-align:center;">6</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('index', page=7) }}" style="color: #596161; width:80px; text-align:center;">7</a></li>
+
+
+    </ul>
+
+
 </div>
 {%endblock%}

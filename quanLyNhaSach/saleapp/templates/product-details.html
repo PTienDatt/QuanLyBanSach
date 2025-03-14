@@ -98,7 +98,6 @@
             <p style="margin-top:10px;"> Trụ sở chính: Thành phố Hồ Chí Minh </p>
             <b> Giao hàng tiêu chuẩn: </b><span> Đơn hàng sẽ xuất đi sau 2 giờ kể từ khi được đặt</span>
 
-            <!--            {%for p in products%}-->
             <a style="margin-top:10px; background-color:rgba(208, 1, 27, .08); color:#d0011b; font-size:14px;"
 
                href="#"
@@ -110,7 +109,6 @@
                         src="https://cdn-icons-png.flaticon.com/256/11257/11257209.png"
                         alt=""> Thêm Vào Giỏ
             </a>
-            <!--            {%endfor%}-->
 
 
             <hr>
@@ -128,9 +126,85 @@
         </div>
 
     </div>
+    <hr>
+    <br>
+
+    <div class="form-group" style="background-color:white; margin-top:10px; padding:10px;">
+        <h5 style="font-weight:bold; color:red;"> Đánh giá sản phẩm</h5>
+        {%if current_user.is_authenticated %}
+        <textarea class="form-control" placeholder=" Nhập bình luận...." rows="5" id="comment"></textarea>
+
+        <input type="submit" class="btn btn-primary" value="Bình luận" style="margin-top:10px;">
+    </div>
+    {%else%}
+    <div style="display: flex; justify-content: flex-start; background-color: white; padding: 10px;">
+        <a href="{{url_for('login_my_user',next='cart')}}"
+           style="display: inline-block;
+                  padding: 10px 20px;
+                  color: #ff0000;
+                  text-decoration: none;
+                  border: 2px solid red;
+                  background-color: #ffcccc; /* Màu đỏ nhạt */
+                  font-size: 16px;
+                  border-radius: 5px;
+                  text-align: center;"
+        > Login to comment</a>
+    </div>
+    {%endif%}
+
+    <div class="row comment d-flex align-items-center" style="margin-top:10px;">
+        <div class="col-md-1 col-xs-4">
+            <img src="{{url_for('static', filename='images/default.png')}}"
+                 class="img-fluid rounded-circle" alt="demo">
+        </div>
+        <div class="col-md-11 col-xs-8">
+            <p> Sản phẩm tuyệt vời</p>
+            <p><em> 2021-12-07 12:12</em></p>
+        </div>
+    </div>
 
 
 </div>
 
-
 {%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

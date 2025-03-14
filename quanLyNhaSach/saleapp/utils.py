@@ -1,12 +1,15 @@
 from collections import defaultdict
-from saleapp import db,app
+from saleapp import db, app
 from saleapp.models import *
 from flask_login import current_user
 from sqlalchemy import func, and_, or_
 from datetime import datetime
 from sqlalchemy.sql import extract
-import json,os
-from flask import render_template
+import json, os
+from flask import render_template, request, redirect, url_for, flash, session
+
+
+
 
 
 # Hàm đếm số lượng và tổng tiền trong giỏ hàng

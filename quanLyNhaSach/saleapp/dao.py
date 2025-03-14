@@ -1,4 +1,6 @@
 import json
+
+from Demos.mmapfile_demo import page_size
 from flask import jsonify, request
 from itertools import product
 from saleapp import db
@@ -18,30 +20,10 @@ def load_categories2():
         return json.load(f)
 
 
-def load_products(q=None, cate_id=None):
-    # with open('data/products.json', encoding='utf-8') as f:
-    #     products = json.load(f)
-    #    # không phân biệt ch hoa chữ thuường
-    #     if q:
-    #         products = [p for p in products if q.lower() in p["name"].lower()]
-    #
-    #     if q:
-    #         # Tìm các sản phẩm có tên gần giống với từ khóa tìm kiếm
-    #         product_names = [product['name'] for product in products]
-    #         matches = process.extract(q, product_names, limit=5)  # Lấy 5 kết quả gần nhất
-    #
-    #         # Tìm các sản phẩm có tên gần giống với kết quả trả về từ fuzzywuzzy
-    #         result = []
-    #         for match in matches:
-    #             # Tìm sản phẩm tương ứng với tên gần đúng
-    #             matched_product = next((product for product in products if product['name'] == match[0]), None)
-    #             if matched_product:
-    #                 result.append(matched_product)
-    #     else:
-    #         result = []
-    #     if cate_id:
-    #         products = [p for p in products if p["category_id"].__eq__(int(cate_id))]
-    #     return products
+def count_products():
+    return db.session.query(func.count(Product.id)).scalar()
+
+def load_products(q=None, cate_id=None, page=1):
     query = db.session.query(Product)
 
     if q:
@@ -50,7 +32,11 @@ def load_products(q=None, cate_id=None):
     if cate_id:
         query = query.filter(Product.category_id == cate_id)
 
-    products = query.all()
+    page_size = app.config['PAGE_SIZE']
+    start = (page - 1) * page_size
+    end = start + page_size
+
+    products = query.slice(start, end).all()
 
     if q:
         product_names = [product.name for product in products]
@@ -61,8 +47,34 @@ def load_products(q=None, cate_id=None):
             if matched_product:
                 result.append(matched_product)
         return result
-
     return products
+
+# def load_products(q=None, cate_id=None, page=1):
+#     query = db.session.query(Product)
+#
+#     if q:
+#         query = query.filter(Product.name.ilike(f"%{q}%"))
+#
+#     if cate_id:
+#         query = query.filter(Product.category_id == cate_id)
+#
+#     page_size = app.config['PAGE_SIZE']
+#     total_products = count_products()
+#     total_pages = (total_products + page_size - 1) // page_size  # Calculate total pages
+#
+#     start = (page - 1) * page_size
+#     products = query.offset(start).limit(page_size).all()
+#
+#     if q:
+#         product_names = [product.name for product in products]
+#         matches = process.extractWithoutOrder(q, product_names)  # Use extractWithoutOrder
+#         result = []
+#         for match in matches:
+#             matched_product = next((product for product in products if product.name == match[0]), None)
+#             if matched_product:
+#                 result.append(matched_product)
+#         return result, total_pages
+#     return products, total_pages
 
 
 def add_user(name, username, password, avatar, email, address, phone):

@@ -1,8 +1,11 @@
+import math
+from functools import wraps
 from itertools import product
 from statistics import quantiles
 import utils
+from flask_admin import BaseView, expose
 from saleapp import app, login, db
-from flask import render_template, request, redirect, abort, session, jsonify
+from flask import render_template, request, redirect, abort, session, jsonify, url_for
 import dao
 from flask_login import login_user, logout_user, current_user, login_required
 from saleapp import admin
@@ -10,9 +13,6 @@ import cloudinary.uploader
 from saleapp.models import *
 import random
 from saleapp.utils import count_cart
-
-
-
 
 
 # Trang chu
@@ -27,16 +27,20 @@ def index():
     # Lấy tham số tìm kiếm và danh mục sản phẩm
     q = request.args.get("q")
     cate_id = request.args.get("category_id")
-    products = dao.load_products(q=q, cate_id=cate_id)
+    page = request.args.get("page", 1)
+    products = dao.load_products(q=q, cate_id=cate_id, page=int(page))
+
 
     # Truyền thông tin người dùng và sản phẩm vào template
-    return render_template('index.html', products=products, user=user)
+    return render_template('index.html', products=products, user=user
+                          )
+
 
 @app.route('/stats')
 def stats():
     total_revenue_value = utils.total_revenue_all()
     total_quantity = utils.total_quantity()
-    return render_template('stats.html', total_revenue_all=total_revenue_value, total_quantity = total_quantity)
+    return render_template('stats.html', total_revenue_all=total_revenue_value, total_quantity=total_quantity)
 
 
 # Xem chi tiet san pham
@@ -49,6 +53,7 @@ def details(id):
     random_pages = random.randint(150, 500)
     return render_template('product-details.html', products=products, random_pages=random_pages)
 
+
 @app.route('/api/books', methods=['GET'])
 def get_books():
     books = Product.query.all()
@@ -59,6 +64,7 @@ def get_books():
         "price": book.price
     } for book in books]
     return jsonify(book_list)
+
 
 @app.route('/import_bill', methods=['POST'])
 def import_bill():
@@ -74,7 +80,7 @@ def import_bill():
         new_bill = SaleBook(
             customer_name=customer_name,
             created_date=date_sale,
-            staff_id=current_user.id # Thay ID nhân viên xử lý hóa đơn tại đây
+            staff_id=current_user.id  # Thay ID nhân viên xử lý hóa đơn tại đây
         )
         db.session.add(new_bill)
         db.session.flush()  # Đảm bảo `new_bill` có ID để dùng ở bước tiếp theo
@@ -103,7 +109,6 @@ def import_bill():
     except Exception as e:
         db.session.rollback()
         return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
-
 
 
 # Login
@@ -135,7 +140,8 @@ def login_my_user():
             login_user(user=user)
             session.modified = True
 
-            return redirect('/admin' if role in [Role.ADMIN, Role.MANAGER] else '/staff' if role in [Role.STAFF] else '/')
+            return redirect(
+                '/admin' if role in [Role.ADMIN, Role.MANAGER] else '/staff' if role in [Role.STAFF] else '/')
         else:
             err_msg = "*Tài khoản hoặc mật khẩu không đúng!"
 
@@ -299,11 +305,10 @@ def create_order():
         db.session.rollback()
         return jsonify({"message": f"Đã xảy ra lỗi: {str(e)}"}), 500
 
-    session.clear()
+    session['cart'] = {}
+
     return jsonify({"message": "Đặt sách thành công!"}), 200
-
-
-
+    return redirect(url_for('/'), user=current_user)
 
 
 
@@ -318,7 +323,6 @@ def update_cart():
         cart[id]['quantity'] = quantity
         session['cart'] = cart
     return jsonify(utils.count_cart(cart))
-
 
 
 # Xóa sản phẩm trong giỏ hàng
@@ -350,9 +354,13 @@ def comment_respone():
         "cart_stats": utils.count_cart(session.get('cart'))
     }
 
-@app.route('/staff' ,methods=['GET', 'POST'])
+
+
+@app.route('/staff', methods=['GET', 'POST'])
 def staff():
-    return render_template('staff.html' )
+    return render_template('staff.html')
+
+
 
 if __name__ == "__main__":
     with app.app_context():

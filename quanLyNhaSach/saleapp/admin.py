@@ -49,6 +49,9 @@ class MyAdminIndexView(AdminIndexView):
     @expose('/')
     def index(self):
         return self.render('admin/index.html', stats=utils.category_stats())
+    def is_accessible(self):
+        return current_user.is_authenticated and current_user.user_role == Role.ADMIN
+
 
 
 # Thống kê
@@ -149,6 +152,7 @@ class AddStaffView(BaseView):
                 err_msg = 'Mật khẩu không khớp!'
 
         return self.render('admin/add_staff.html', err_msg=err_msg)
+
 
 
 
@@ -263,14 +267,12 @@ class MyCategoryView(ModelView):
 
 
 admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4', index_view=MyAdminIndexView())
-# admin.add_view(ModelView(Category, db.session, name="Danh mục"))
-# admin.add_view(ProductAdminView(Product, db.session, name="Sản phẩm"))
+admin.add_view(ModelView(Category, db.session, name="Danh mục"))
+admin.add_view(ProductAdminView(Product, db.session, name="Sản phẩm"))
 admin.add_view(StatsView(name='Thống kê', endpoint='stats'))
-# admin = Admin(app=app, name='Quản lý bán hàng', template_mode='bootstrap4')   b
-admin.add_view(ModelView(Category, db.session))
-admin.add_view(ProductAdminView(Product, db.session))
 admin.add_view(ManageRuleView(name='Quy định'))
 admin.add_view(UserView(Staff, db.session))
 admin.add_view(AddStaffView(name='Thêm nhân viên'))
 admin.add_view(ImportBooksView(name='Nhập sách'))
+
 admin.add_view(LogoutView(name='Đăng xuất'))

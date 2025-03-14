@@ -177,64 +177,65 @@ def __tr__(self):
 
 if __name__ == "__main__":
     with app.app_context():
-        # db.drop_all()  # Drop all table
-        # db.create_all()  # Create all table
-        #
-        # m = ManageRule()
-        # db.session.add(m)
-        # db.session.commit()
-        #
-        # # Thiết lập lại AUTO_INCREMENT cho Customer và Staff
-        # db.session.execute(text("ALTER TABLE Customer AUTO_INCREMENT = 2000;"))
-        # db.session.execute(text("ALTER TABLE Staff AUTO_INCREMENT = 1;"))
-        # db.session.commit()
-        #
-        # import json
-        #
-        # # Them du lieu vao bang Category tu file category.json
-        # with open(r'data\categories.json', 'r', encoding='utf-8') as file:
-        #     categories = json.load(file)
-        #     for cate in categories:
-        #         db.session.add(Category(**cate))
-        #     db.session.commit()
-        #
-        # # Them du lieu vao bang Author tu file authors.json
-        # with open(r'data\authors.json', 'r', encoding='utf-8') as file:
-        #     authors = json.load(file)
-        #     for author in authors:
-        #         db.session.add(Author(**author))
-        #     db.session.commit()
-        #
-        # # Them du lieu vao bang Product tu file products.json
-        # with app.app_context():
-        #     with open(r'data\products.json', 'r',
-        #               encoding='utf-8') as file:
-        #         products = json.load(file)
-        #         for p in products:
-        #             prod = Product(
-        #                 name=p['name'].strip(),
-        #                 price=float(p['giaCu'].replace('.', '').replace('đ', '').strip()),
-        #                 image=p['image'].strip(),
-        #                 category_id=p['category_id'],
-        #                 author_id=p['author_id']
-        #             )
-        #             db.session.add(prod)
-        #         db.session.commit()
 
-        c = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='admin1',
-                  password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
+        db.drop_all()  # Drop all table
+
+        db.create_all()  # Create all table
+        m = ManageRule()
+        db.session.add(m)
+        db.session.commit()
+
+        # Thiết lập lại AUTO_INCREMENT cho Customer và Staff
+        db.session.execute(text("ALTER TABLE Customer AUTO_INCREMENT = 2000;"))
+        db.session.execute(text("ALTER TABLE Staff AUTO_INCREMENT = 1;"))
+        db.session.commit()
+
+        import json
+
+        # Them du lieu vao bang Category tu file category.json
+        with open(r'data\categories.json', 'r', encoding='utf-8') as file:
+            categories = json.load(file)
+            for cate in categories:
+                db.session.add(Category(**cate))
+            db.session.commit()
+
+        # Them du lieu vao bang Author tu file authors.json
+        with open(r'data\authors.json', 'r', encoding='utf-8') as file:
+            authors = json.load(file)
+            for author in authors:
+                db.session.add(Author(**author))
+            db.session.commit()
+
+        # Them du lieu vao bang Product tu file products.json
+        with app.app_context():
+            with open(r'data\products.json', 'r',
+                      encoding='utf-8') as file:
+                products = json.load(file)
+                for p in products:
+                    prod = Product(
+                        name=p['name'].strip(),
+                        price=float(p['giaCu'].replace('.', '').replace('đ', '').strip()),
+                        image=p['image'].strip(),
+                        category_id=p['category_id'],
+                        author_id=p['author_id']
+                    )
+                    db.session.add(prod)
+                db.session.commit()
+
+        c = Staff(name="dat", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='admin',
+                  password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.ADMIN,
                   avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
         db.session.add(c)
         db.session.commit()
 
-        # s = Staff(name="dat2", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff2',
-        #           password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
-        #           avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
-        # db.session.add(s)
-        # db.session.commit()
+        s = Staff(name="dat2", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='staff',
+                  password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.STAFF,
+                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        db.session.add(s)
+        db.session.commit()
 
-        # m = Staff(name="dat1", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='manager',
-        #           password=str(hashlib.md5('123'.strip().encode('utf-8')).hexdigest()), user_role=Role.MANAGER,
-        #           avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
-        # db.session.add(m)
-        # db.session.commit()
+        m = Staff(name="dat1", email='dat@gamil.com', phone='0942452345', address='Nhà bè', username='manager',
+                  password=str(hashlib.md5('1'.strip().encode('utf-8')).hexdigest()), user_role=Role.MANAGER,
+                  avatar='https://cdn.pixabay.com/photo/2022/04/08/09/17/frog-7119104_960_720.png')
+        db.session.add(m)
+        db.session.commit()
